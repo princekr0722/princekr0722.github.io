@@ -4,5 +4,7 @@
     "cypress:open": "cypress open",
     "start": ""
   },
-  "dependencies": {}
+  "dependencies": {
+    "react-github-calendar": "^3.4.0"
+  }
 }
