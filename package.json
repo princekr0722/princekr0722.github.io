@@ -5,6 +5,7 @@
     "start": ""
   },
   "dependencies": {
+    "github-calendar": "^2.3.2",
     "react-github-calendar": "^3.4.0"
   }
 }
