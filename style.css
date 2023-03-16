@@ -220,7 +220,7 @@
       color: #ff6600;
     }
     
-    @media () {
+    /* @media () {
       .main-nav .dropdown-slide .dropdown-menu {
         -webkit-transform: none;
                 transform: none;
@@ -230,7 +230,7 @@
         opacity: 1;
         visibility: visible;
       }
-    }
+    } */
     
       .thumb{
                 margin-bottom: 30px;
@@ -449,7 +449,7 @@ border-top:2px solid #e4e4e4;
   object-fit: contain;
 }
 .calendar{
-
+  width: 80%;
 }
 .calendar .js-calendar-graph-svg{
   /* position: absolute; */
