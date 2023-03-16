@@ -454,6 +454,7 @@ $("a").on('click', function(event) {
 </body>
 </html>
 <script>
+  try{
   GitHubCalendar(".calendar", "princekr0722");
 
   // or enable responsive functionality:
@@ -465,4 +466,8 @@ $("a").on('click', function(event) {
        return fetch(`https://your-proxy.com/github?user=${princekr0722}`)
      }
   }).then(r => r.text())
+  
+}catch(e){
+  console.log(e)
+}
 </script>
