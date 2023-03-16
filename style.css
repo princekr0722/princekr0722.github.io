@@ -457,6 +457,17 @@ border-top:2px solid #e4e4e4;
 .js-calendar-graph{
   
 }
+.git_container{
+  margin: auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+#github-top-langs{
+  height: 100%;
+}
 .git_container>a, .git_container>picture{
   width: 1fr;
 }
