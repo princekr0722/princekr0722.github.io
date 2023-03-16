@@ -448,3 +448,20 @@ border-top:2px solid #e4e4e4;
   width: 100px;
   object-fit: contain;
 }
+.calendar{
+
+}
+.calendar .js-calendar-graph-svg{
+  /* position: absolute; */
+}
+.js-calendar-graph{
+  
+}
+.git_container>a, .git_container>picture{
+  width: 1fr;
+}
+
+.git_container>a img, .git_container>picture img{
+  max-width: 350px;
+  object-fit: contain;
+}

@@ -35,6 +35,17 @@
 
 <link rel="stylesheet" href="style.css">
 
+
+<!-- git calender -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"
+/>
+<script
+  src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js">
+</script>
+
+
 <script>
   
 $(document).ready(function(){
@@ -388,7 +399,7 @@ $("a").on('click', function(event) {
 
 <!-- GitHub Stats Section -->
 
-<div style="position: relative;" class="container-fluid  text-center " >
+<div style="position: relative; width: 100%;" class="container-fluid  text-center " >
 
   <h1 style="color: #67676e;">GitHub Stats</h1>
   <hr style="width:10%; color:#000;margin-bottom: 5%;" class="solid">
@@ -413,8 +424,12 @@ $("a").on('click', function(event) {
       <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=princekr0722" id="github-top-langs"/>
     </a>
   </div>
+</div>
 
-  </div>
+<div class="calendar">
+  <!-- Loading stuff -->
+  Loading the Github calender...
+</div>
 
  <!---CONTACT SECTION -->
 
@@ -438,3 +453,16 @@ $("a").on('click', function(event) {
 
 </body>
 </html>
+<script>
+  GitHubCalendar(".calendar", "princekr0722");
+
+  // or enable responsive functionality:
+  GitHubCalendar(".calendar", "princekr0722", { responsive: true });
+
+  // Use a proxy
+  GitHubCalendar(".calendar", "princekr0722", {
+     proxy (princekr0722) {
+       return fetch(`https://your-proxy.com/github?user=${princekr0722}`)
+     }
+  }).then(r => r.text())
+</script>
