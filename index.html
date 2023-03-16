@@ -465,8 +465,9 @@ $("a").on('click', function(event) {
      proxy (princekr0722) {
        return fetch(`https://your-proxy.com/github?user=${princekr0722}`)
      }
-  }).then(r => r.text())
-  
+  })
+  // .then(r => r.text())
+
 }catch(e){
   console.log(e)
 }
