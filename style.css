@@ -3,6 +3,16 @@
       margin: 0px;
       padding: 0px;  
     }
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    body {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
     .btn{
          display: inline-block; 
          padding:16px; 
@@ -10,7 +20,8 @@
          color: white;
          text-decoration: none;
          font-family: sans-serif;    
-         font-size: 16px;}
+         font-size: 16px;
+    }
 
      .btncolor{ background-color: #7372dd;}
 
@@ -475,4 +486,8 @@ border-top:2px solid #e4e4e4;
 .git_container>a img, .git_container>picture img{
   max-width: 350px;
   object-fit: contain;
+}
+
+.resume-button-1{
+
 }
