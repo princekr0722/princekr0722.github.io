@@ -88,16 +88,15 @@
         } // End if
       });
     })
-
   </script>
 </head>
 
 <!---Nav Bar-->
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="150">
-  <nav class="navbar main-nav  navbar-default navbar-fixed-top">
+<body id="myPage">
+  <nav class="nav-menu navbar main-nav  navbar-default navbar-fixed-top" id="nav-menu">
 
-    <div class="navbar-header nav-menu" id="nav-menu">
+    <div class="navbar-header" >
       <!--Creating toggle bar-->
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"
         style="background-color:rgb(255, 255, 255);">
@@ -118,8 +117,11 @@
         <!-- <li><a href="#work"> WORK </a></li> -->
         <li><a href="#projects" class="nav-link projects"> PROJECTS </a></li>
         <li><a href="#contact" class="nav-link contact"> CONTACT </a></li>
-        <li><a href="Prince_Kumar_Resume (2).pdf" download="" class="nav-link resume" id="resume-button-1"
-            style="color: white;"> DOWNLOAD RESUME </a></li>
+        <li>
+          <a href="" download="Prince_Kumar_Resume" class="nav-link resume" id="resume-button-1"
+            style="color: white; background-color: #7372dd; "><span style="color: white;">DOWNLOAD RESUME</span>
+          </a>
+        </li>
       </ul>
     </div>
 
@@ -130,19 +132,17 @@
   <div id="home" class="container-fluid jumbotron text-center lobsterfont"
     style="margin-top:100px;background-color: white;">
     <div>
-      <img onContextMenu="return false;" src="Profile_Pic.png" class="img-fluid home-img" alt="mypic">
+      <img src="Profile_Pic.png" class="img-fluid home-img" alt="mypic">
     </div>
     <div>
-      <h1 id="user-detail-intro">Hey there!</h1>
+      <h1>Hey there!</h1>
       <h1 style="display: inline;">I am</h1>
       <h1 style="color: #7372dd;display: inline;" id="user-detail-name"> Prince Kumar</h1>
-      <p style="font-family: 'sans-serif';" >A Passionate JAVA Backend Developer</br>who's curious
+      <p style="font-family: 'sans-serif';">A Passionate Java Backend Developer</br>who's curious
         in tech field, and now looking to start a career</br>as an Web Developer.</p>
       <!---ADD RESUME DOC IN THE PUBLIC FOLDER WITH OTHER FILES AND ADD ITS NAME BELOW IN HREF AND NAME OF FILE THAT SHOULD APPEAR AFTER DOWNLOAD IN 'DOWNLOAD'-->
       <!--- EXAMPLE: <a href="Resume.pdf" download="Myresume" class="btn">Download My Resume</a>-->
-      <button
-        onclick="location.href='https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view?usp=sharing'"
-        class="btn btncolor" id="resume-button-2">View Resume</button>
+      <button class="btn btncolor" id="resume-button-2">View Resume</button>
     </div>
 
   </div>
@@ -161,7 +161,7 @@
           <!-- <img onContextMenu="return false;"  src="Profile_Pic.png" class="zoom img-fluid home-img"  alt="mypic"> -->
 
           <h3 align=left style="color: #67676e;">Who am I?</h3>
-          <p align=justify>I'm a dedicated Java Backend Developer with proven performance, with 1000+ hours of coding
+          <p align=justify id="user-detail-intro">I'm a dedicated Java Backend Developer with proven performance, with 1000+ hours of coding
             experience and have solved 400 above DSA problems. Specialized in Java, SQL, Spring Boot, HTML, CSS and
             JavaScript from Masai School.
             I'm a quick learner who's constantly exploring for new technologies. Now looking to start a career as a
@@ -249,7 +249,7 @@
     <hr style="width:10%; color:#000;margin-bottom: 5%;" class="solid">
 
     <div class="row projects_row" id="projects">
-      <div class="col-sm-12 col-md-3 col-lg-3 " style="background-color: #f5f5f5;" class="project-card">
+      <div class="project-card col-sm-12 col-md-3 col-lg-3" style="background-color: #f5f5f5;" >
         <img src="Licious_SS1.png" alt="" class="project_image"
           onclick="location.href='https://candid-sorbet-838343.netlify.app/';">
         <!-- <span class="material-icons feature " >web</span> -->
@@ -282,7 +282,7 @@
 
       </div>
 
-      <div class="col-sm-12 col-md-3 col-lg-3 " class="project-card" style="background-color: #f5f5f5; ">
+      <div class="project-card col-sm-12 col-md-3 col-lg-3 " style="background-color: #f5f5f5; ">
         <img src="PharmEasy_SS1.png" alt="" class="project_image"
           onclick="location.href='https://steady-jalebi-560beb.netlify.app/index.html';" style="cursor: pointer;">
         <!-- <span class="material-icons feature" >speed</span> -->
@@ -315,7 +315,7 @@
         </div>
       </div>
 
-      <div class="col-sm-12 col-md-3 col-lg-3 " style="background-color: #f5f5f5;" class="project-card" id="empty1">
+      <div class="project-card col-sm-12 col-md-3 col-lg-3 " style="background-color: #f5f5f5;" id="empty1">
         <img src="No_Project_Img.gif" alt="" class="project_image" onclick="location.href='#empty1';">
         <!-- <span class="material-icons feature" >pending</span> -->
         <h3 style="color: #67676e; font-family: Dosis;" class="project-title">
@@ -349,7 +349,7 @@
         </div>
       </div>
 
-      <div class="col-sm-12 col-md-3 col-lg-3 " style="background-color: #f5f5f5;" class="project-card">
+      <div class="project-card col-sm-12 col-md-3 col-lg-3 " style="background-color: #f5f5f5;">
         <img src="No_Project_Img.gif" alt="" alt="" class="project_image" onclick="location.href='';">
         <!-- <span class="material-icons feature" >pending</span> -->
         <h3 style="color: #67676e; font-family: Dosis;" class="project-title">
@@ -428,19 +428,19 @@
 
     <div class="git_container">
       <div style="display: flex; flex-direction: column; gap: 10px;">
-        <picture id="github-stats-card" src="">
+        <picture>
           <source srcset="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true&theme=dark"
             media="(prefers-color-scheme: dark)" />
           <source srcset="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true"
             media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
-          <img src="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true" />
+          <img id="github-stats-card" src="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true" />
         </picture>
-  
-        <a id="github-streak-stats" href="https://git.io/streak-stats"><img
-            src="https://github-readme-streak-stats.herokuapp.com?user=princekr0722" alt="GitHub Streak" /></a>  
+
+        <a href="https://git.io/streak-stats"><img
+          id="github-streak-stats" src="https://github-readme-streak-stats.herokuapp.com?user=princekr0722" alt="GitHub Streak" /></a>
       </div>
-      
-      <a id="github-top-langs" href="https://github.com/princekr0722/github-readme-stats" src="">
+
+      <a href="https://github.com/princekr0722/github-readme-stats">
         <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=princekr0722"
           id="github-top-langs" />
       </a>
@@ -505,4 +505,16 @@
   } catch (e) {
     console.log(e)
   }
+
+  document.querySelector("#resume-button-2").addEventListener("click", () => {
+    window.location.href = "https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view?usp=sharing";
+  })
+
+  document.querySelector("#resume-button-1").addEventListener("click", () => {
+    // setTimeout(() => {
+      // console.log("1111")
+      window.open("Prince_Kumar_Resume.pdf", "_blank");
+    // }, 2000);
+  })
+
 </script>
