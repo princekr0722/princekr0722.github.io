@@ -3,7 +3,7 @@
       margin: 0px;
       padding: 0px;  
     }
-    /* Hide scrollbar for Chrome, Safari and Opera */
+    /* Hide scrollbar for Chrome, Safari and Opera
     body::-webkit-scrollbar {
       display: none;
     }
@@ -12,6 +12,21 @@
     body {
       -ms-overflow-style: none;  /* IE and Edge */
       scrollbar-width: none;  /* Firefox */
+    } 
+
+    body::-webkit-scrollbar {
+      width: 12px;
+    }
+    
+    body::-webkit-scrollbar-track {
+        background: rgb(234, 234, 234);
+        border-radius: 20px;
+    }
+    
+    body::-webkit-scrollbar-thumb {
+        background-color: #7372dd;
+        border-radius: 20px;
+        border: 3px solid rgb(255, 255, 255);
     }
     .btn{
          display: inline-block; 
@@ -401,7 +416,12 @@ border-top:2px solid #e4e4e4;
   width: 70px;
   border-radius: 50%;
 }
-
+.edu_details{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .edu_details>p{
   margin: 0px;
 }
@@ -448,6 +468,8 @@ border-top:2px solid #e4e4e4;
   flex-wrap: wrap;
   justify-content: center;
   gap: 70px;
+  width: 80%;
+  margin: auto;
 }
 .skills-card{
   display: flex;
@@ -490,4 +512,11 @@ border-top:2px solid #e4e4e4;
 
 .resume-button-1{
 
+}
+
+.edu_course_details{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
 }
