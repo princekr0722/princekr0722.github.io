@@ -93,7 +93,7 @@
 
 <!---Nav Bar-->
 
-<body id="myPage">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="150">
   <nav class="nav-menu navbar main-nav  navbar-default navbar-fixed-top" id="nav-menu">
 
     <div class="navbar-header" >
@@ -181,16 +181,21 @@
               <img class="edu_logo" src="masai_logo.png" alt="">
               <div class="edu_details">
                 <p class="edu_course">Full Stack Web Development</p>
-                <p class="edu_insti">Masai School, Banglore</p>
-                <p class="edu_course_dur">Aug, 2022 - March, 2023</p>
+                <div class="edu_course_details">
+                  <p class="edu_insti">Masai School, Banglore</p>
+                  <p class="edu_course_dur">Aug, 2022 - March, 2023</p>
+                </div>
+                
               </div>
             </div>
             <div class="edu_card">
               <span class="material-icons feature edu_logo" style="color: white;">school</span>
               <div class="edu_details">
                 <p class="edu_course">12th Graduate</p>
-                <p class="edu_insti">+2 Gomia High School</p>
-                <p class="edu_course_dur">June, 2020 - June, 2022</p>
+                <div class="edu_course_details">
+                  <p class="edu_insti">+2 Gomia High School</p>
+                  <p class="edu_course_dur">June, 2020 - June, 2022</p>
+                </div>
               </div>
             </div>
           </div>
@@ -206,8 +211,8 @@
 
   <div id="skills" style="position: relative;" class="container-fluid  text-center ">
 
-    <h1 style="color: #67676e;">SKILLS</h1>
-    <hr style="width:10%; color:#000;margin-bottom: 5%;" class="solid">
+    <h1 style="color: #67676e;">SKILLS & TOOLS</h1>
+    <hr style="width:15%; color:#000;margin-bottom: 5%;" class="solid">
 
     <div id="skills_container">
 
@@ -220,16 +225,20 @@
         <span class="skills-card-name">Spring Boot</span>
       </div>
       <div class="skills-card">
+        <img src="hibernate-svgrepo-com.png" alt="" class="skills-card-img">
+        <span class="skills-card-name">Hibernate</span>
+      </div>
+      <div class="skills-card">
+        <img src="maven-svgrepo-com.png" alt="" class="skills-card-img">
+        <span class="skills-card-name">Maven</span>
+      </div>
+      <div class="skills-card">
         <img src="mysql.png" alt="" class="skills-card-img">
         <span class="skills-card-name">MySQL</span>
       </div>
       <div class="skills-card">
         <img src="js.png" alt="" class="skills-card-img">
         <span class="skills-card-name">JavaScript</span>
-      </div>
-      <div class="skills-card">
-        <img src="react.png" alt="" class="skills-card-img">
-        <span class="skills-card-name">React</span>
       </div>
       <div class="skills-card">
         <img src="html-5.png" alt="" class="skills-card-img">
@@ -239,6 +248,7 @@
         <img src="css-3.png" alt="" class="skills-card-img">
         <span class="skills-card-name">CSS</span>
       </div>
+
     </div>
 
   </div>
