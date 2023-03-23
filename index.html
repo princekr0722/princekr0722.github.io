@@ -144,15 +144,19 @@
       </p>
       <!---ADD RESUME DOC IN THE PUBLIC FOLDER WITH OTHER FILES AND ADD ITS NAME BELOW IN HREF AND NAME OF FILE THAT SHOULD APPEAR AFTER DOWNLOAD IN 'DOWNLOAD'-->
       <!--- EXAMPLE: <a href="Resume.pdf" download="Myresume" class="btn">Download My Resume</a>-->
-      <a class="btn btncolor" href="" download="Prince_Kumar_Resume.pdf" id="resume-button-2">View Resume</a>
-
+      <!-- <a class="btn btncolor" href="" download="Prince_Kumar_Resume.pdf" id="resume-button-2">View Resume</a> -->
+      
+      <button id="resume-button-2" class="btn btncolor" onclick="resume()"  id="resume-button-2" >
+        <a id="resume-link-2" href="Prince_Kumar_Resume.pdf" target="_blank" download="Prince_Kumar_Resume.pdf">
+          View Resume </a>
+      </button>
     </div>
 
   </div>
 
   <!---ABOUT SECTION -->
-  <div class="container-fluid text-center" style="background-color: #f5f5f5;">
-    <h1 id="about" class="heading about section" title="ABOUT" style="text-align: center; padding-top: 15px;">About</h1>
+  <div id="about" class="container-fluid text-center" style="background-color: #f5f5f5;">
+    <h1 class="heading about section" title="ABOUT" style="text-align: center; padding-top: 15px;">About</h1>
     <hr class="solid">
     <div class="about_me_containt">
       <div class="row who_am_i_row">
@@ -519,9 +523,13 @@
     console.log(e)
   }
 
-  document.querySelector("#resume-button-2").addEventListener("click", () => {
-    window.open("Prince_Kumar_Resume.pdf", "_blank");
-  })
+  function resume(){
+    window.open("Prince_Kumar_Resume.pdf","_blank")
+  }
+
+  // document.querySelector("#resume-button-2").addEventListener("click", () => {
+  //   window.open("Prince_Kumar_Resume.pdf", "_blank");
+  // })
 
   // document.querySelector("#resume-button-1").addEventListener("click", () => {
   //     window.open("Prince_Kumar_Resume.pdf", "_blank");
