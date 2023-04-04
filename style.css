@@ -493,6 +493,7 @@ border-top:2px solid #e4e4e4;
 .git_container{
   margin: auto;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   align-items: center;
   justify-content: center;
@@ -510,8 +511,24 @@ border-top:2px solid #e4e4e4;
   object-fit: contain;
 }
 
-.resume-button-1{
+#resume-button-1, #resume-link-1{
+  height: 50px;
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 400;
+  border: none;
+  background-color: #7372dd;
+  color: white;
+  padding: 0px;
+}
 
+#resume-button-1 a{
+  display: flex;
+  min-width: 100%;
+  min-height: 100%;
+  align-items: center;
+  padding: 0px 20px;
+  text-decoration: none;
 }
 
 .edu_course_details{
