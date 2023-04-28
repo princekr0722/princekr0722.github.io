@@ -541,3 +541,29 @@ border-top:2px solid #e4e4e4;
 #resume-link-2{
   color: white;
 }
+
+#contact_icons_container {
+  user-select: auto;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#contact_icons_container>a{
+  -webkit-user-select: auto !important;
+  -moz-user-select: text !important;
+  height: 30px;
+  font-size: 14px;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  transition: font-size 0.5s;
+}
+
+#contact_icons_container>a:hover{
+  font-size: large;
+  color: white;
+  text-decoration: none;
+}
