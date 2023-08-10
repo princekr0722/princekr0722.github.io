@@ -14,16 +14,16 @@
       scrollbar-width: none;  /* Firefox */
     } 
 
-    body::-webkit-scrollbar {
+    *::-webkit-scrollbar {
       width: 12px;
     }
     
-    body::-webkit-scrollbar-track {
+    *::-webkit-scrollbar-track {
         background: rgb(234, 234, 234);
         border-radius: 20px;
     }
     
-    body::-webkit-scrollbar-thumb {
+    *::-webkit-scrollbar-thumb {
         background-color: #7372dd;
         border-radius: 20px;
         border: 3px solid rgb(255, 255, 255);
@@ -335,15 +335,26 @@ border-top:2px solid #e4e4e4;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  height: max-content !important;
 }
 
-.projects_row>div{
+.projects_row>.project-card{
+  max-height: 100% !important;
+  min-height: 100% !important;
   height: 100%;
-  border-left: 1px solid #eeeeee;
-  border-right: 1px solid #eeeeee;
-  /* margin: 5px; */
+  border: 1px solid rgb(219, 219, 219);
+  margin: 5px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 10px;
+  background-color: white !important;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-
+.project-description {
+  height: 20% !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .project_image{
   height: 100%;
   width: 100%;
@@ -365,12 +376,28 @@ border-top:2px solid #e4e4e4;
   gap: 20px;
 }
 
+.project-tech-stack>div:first-child ul {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+.project-tech-stack li {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .project-tech-stack>div{
   width: 100%;
 }
 
 .project-tech-stack h4{
-  background-color: #d1d1d4;
+  text-align: center;
+  font-size: 14px;
+  background-color: #ffffff;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 10px;
   width: 100%;
   padding: 6px;
 }
