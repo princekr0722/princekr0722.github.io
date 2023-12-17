@@ -475,14 +475,14 @@ border-top:2px solid #e4e4e4;
   justify-content: center;
 } */
 
-.who_am_i_row, .education_row{
+.who_am_i_row, .education_row, .fiverr_gigs_row{
   width: 100%;
   margin: auto;
   display: flex;
   justify-content: center;
 }
 
-.who_am_i, .education{
+.who_am_i, .education, .fiverr_gigs{
   margin: 25px;
   min-width: 50%;
 }
