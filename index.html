@@ -8,16 +8,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="HandheldFriendly" content="true">
-  <!--bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <!--google fonts-->
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- jQuery and Bootstrap 5 JS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-
-  <!--js-->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <!--google fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,6 +31,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--font awesomes icons link-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <!-- Devicon for tech stack icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
   <link rel="stylesheet" href="style.css">
 
@@ -46,8 +48,67 @@
 
     $(document).ready(function () {
 
-      //!--SKILL BAR ANIMATION
+      // Smooth scrolling function
+      function smoothScroll(target, duration = 1000) {
+        const targetPosition = target ? $(target).offset().top - 80 : 0; // 80px offset for header
+        
+        // Direct scroll without animation
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'instant'
+        });
+      }
 
+      // Handle scrolling for nav links
+      $('.nav-link, .navbar-brand').on('click', function(e) {
+        if (this.hash !== '') {
+          e.preventDefault();
+          const hash = this.hash;
+          
+          // First, close mobile menu if open
+          if ($('.navbar-collapse').hasClass('show')) {
+            $('.navbar-collapse').collapse('hide');
+          }
+          
+          // Then scroll to target
+          smoothScroll(hash);
+          
+          // Update URL hash after animation
+          setTimeout(() => {
+            window.location.hash = hash;
+          }, 1000);
+        }
+      });
+
+      // Up button functionality
+      const upButton = $('.topButton');
+      let isScrolling;
+      
+      $(window).scroll(function() {
+        // Show/hide up button
+        if ($(this).scrollTop() > 300) {
+          upButton.addClass('show');
+        } else {
+          upButton.removeClass('show');
+        }
+        
+        // Clear timeout if scrolling is still happening
+        window.clearTimeout(isScrolling);
+        
+        // Set timeout to run after scrolling ends
+        isScrolling = setTimeout(function() {
+          // Run after scrolling ends
+        }, 0);
+      });
+
+      // Handle up button click
+      upButton.on('click', function(e) {
+        e.preventDefault();
+        smoothScroll(null, 0);
+        return false;
+      });
+
+      //!--SKILL BAR ANIMATION
       var offsetTop = $('#skills').offset().top;
       $(window).scroll(function () {
         var height = $(window).height();
@@ -94,502 +155,907 @@
 <!---Nav Bar-->
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="150">
-  <nav class="nav-menu navbar main-nav  navbar-default navbar-fixed-top" id="nav-menu">
-
-    <div class="navbar-header">
-      <!--Creating toggle bar-->
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"
-        style="background-color:rgb(255, 255, 255);">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm" id="nav-menu">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Prince</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <span>
-        <a class="navbar-brand" href="index.html">Prince</a>
-      </span>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right ">
-
-        <li><a href="#home" class="nav-link home"> HOME </a></li>
-        <li><a href="#about" class="nav-link about"> ABOUT </a></li>
-        <li><a href="#skills" class="nav-link skills"> SKILLS </a></li>
-        <!-- <li><a href="#work"> WORK </a></li> -->
-        <li><a href="#projects" class="nav-link projects"> PROJECTS </a></li>
-        <li><a href="#contact" class="nav-link contact"> CONTACT </a></li>
-        <li>
-          <button id="resume-button-1" class="nav-link resume">
-            <a href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view" id="resume-link-1" download="Prince_Kumar_Resume.pdf">
-              <span style="color: white;">Resume</span>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#skills">SKILLS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#freelance">FREELANCE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#education">EDUCATION</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">PROJECTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">CONTACT</a>
+          </li>
+          <li class="nav-item ms-2">
+            <a href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view" 
+               class="btn btn-primary" 
+               target="_blank"
+               download="Prince_Kumar_Resume.pdf">
+              Resume
             </a>
-          </button>
-        </li>
-      </ul>
+          </li>
+          <li class="nav-item ms-3">
+            <button id="theme-toggle" class="btn btn-outline-primary">
+              <i class="fa fa-moon-o"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
+
+    <script>
+      // Theme toggle functionality
+      const themeToggle = document.getElementById('theme-toggle');
+      const icon = themeToggle.querySelector('i');
+      
+      // Check for saved theme preference or default to light
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+      
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+      });
+      
+      function updateThemeIcon(theme) {
+        icon.className = theme === 'dark' ? 'fa fa-sun-o' : 'fa fa-moon-o';
+      }
+    </script>
 
 
   </nav>
 
 
-  <div id="home" class="container-fluid jumbotron text-center lobsterfont"
-    style="margin-top:100px;background-color: white;">
-    <div>
-      <img src="Profile_Pic.png" class="img-fluid home-img" alt="mypic">
-    </div>
-    <div>
-
-      <h1>Hey there!</h1>
-      <h1 style="display: inline;">I am</h1>
-      <h1 style="color: #7372dd;display: inline;"> Prince Kumar</h1>
-      <p style="font-family: 'sans-serif';">A Passionate Full Stack Web Backend Developer</br>who's curious
-        in tech field, and currently working </br>as a Software Developer in <a
-          href="https://drinkprime.in/">Drinkprime</a>.
-      </p>
-      <button id="resume-button-2" class="btn btncolor" id="resume-button-2">
-        <a id="resume-link-2" href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view" target="_blank" download="Prince_Kumar_Resume.pdf">
-          View Resume </a>
-      </button>
-    </div>
-
-  </div>
-
-  <!---ABOUT SECTION -->
-  <div id="about" class="about section container-fluid text-center" style="background-color: #f5f5f5;">
-    <h1 class="heading" title="ABOUT" style="text-align: center; padding-top: 15px;">About</h1>
-    <hr class="solid">
-    <div class="about_me_containt">
-      <div class="row who_am_i_row">
-        <div class="col-sm-12 col-md-4 col-lg 4 thumb row who_am_i">
-
-          <!---PIC AND INTRO-->
-
-          <!-- <img onContextMenu="return false;"  src="Profile_Pic.png" class="zoom img-fluid home-img"  alt="mypic"> -->
-
-          <h3 style="color: #67676e; text-align: left;" id="user-detail-name">Hello I'm Prince Kumar</h3>
-          <p id="user-detail-intro" style="text-align: left;">I'm a dedicated Java Backend Developer with proven
-            performance, with 1000+ hours of coding
-            experience and have solved 400 above DSA problems. Specialized in Java, SQL, Spring Boot, HTML, CSS and
-            JavaScript from Masai School. I'm a quick learner who's constantly exploring for new technologies. Now
-            looking to start a career as a
-            Backend Developer in a reputated firm.
+  <div id="home" class="hero-section">
+    <div class="container">
+      <div class="row align-items-center min-vh-100">
+        <div class="col-lg-6 hero-content" data-aos="fade-right">
+          <div class="hero-greeting">
+            <span class="greeting-text">Hello World! <span class="wave">👋</span></span>
+          </div>
+          <h1 class="hero-title">
+            I'm <span class="highlight">Prince Kumar</span>
+            <div class="title-badge">
+              <i class="fa fa-check-circle"></i> Available for hire
+            </div>
+          </h1>
+          <div class="hero-roles">
+            <div class="role-slider">
+              <span>Backend Developer</span>
+              <span>System Designer</span>
+              <span>Java Expert</span>
+              <span>Problem Solver</span>
+            </div>
+          </div>
+          <p class="hero-description">
+            Passionate about crafting robust backend solutions and scalable systems. 
+            Currently building innovative solutions at 
+            <a href="https://drinkprime.in/" class="company-link">
+              DrinkPrime <i class="fa fa-external-link"></i>
+            </a>
           </p>
+          <div class="hero-cta">
+            <a href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view" 
+               class="btn btn-primary btn-lg download-btn"
+               target="_blank"
+               download="Prince_Kumar_Resume.pdf">
+               <i class="fa fa-eye"></i> View Resume
+            </a>
+            <a href="#contact" class="btn btn-outline-primary btn-lg">
+              <i class="fa fa-envelope"></i> Get in Touch
+            </a>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-label">Tech Stack <i class="fa fa-arrow-right"></i></span>
+            <div class="tech-icons">
+              <i class="devicon-java-plain colored" title="Java"></i>
+              <i class="devicon-spring-plain colored" title="Spring"></i>
+              <i class="devicon-mysql-plain colored" title="MySQL"></i>
+              <i class="devicon-mongodb-plain colored" title="MongoDB"></i>
+              <i class="devicon-docker-plain colored" title="Docker"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-image-wrapper" data-aos="fade-left">
+          <div class="hero-image-container">
+            <img src="Profile_Pic.png" class="hero-image" alt="Prince Kumar">
+            <div class="experience-indicator">
+              <div class="exp-number">2+</div>
+              <div class="exp-text">Years of<br>Experience</div>
+            </div>
+          </div>
+          <div class="floating-achievements">
+            <div class="achievement-card">
+              <i class="fa fa-code"></i>
+              <span>1000+ Hours<br>Coding</span>
+            </div>
+            <div class="achievement-card">
+              <i class="fa fa-check"></i>
+              <span>1500+ DSA<br>Problems</span>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="row education_row">
-        <div class="col-sm-12 col-md-4 col-lg 4 thumb education">
+  <!-- ABOUT SECTION -->
+  <div id="about" class="about-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h1>About Me</h1>
+        <hr class="solid">
+      </div>
 
-          <h3 align=left style="color: #67676e;">Education</h3>
-          <div id="edu_cards">
-            <div class="edu_card">
-              <img class="edu_logo" src="masai_logo.png" alt="">
-              <div class="edu_details">
-                <p class="edu_course">Full Stack Web Development</p>
-                <div class="edu_course_details">
-                  <p class="edu_insti">Masai School, Banglore</p>
-                  <p class="edu_course_dur">Aug, 2022 - March, 2023</p>
-                </div>
-
+      <div class="about-content">
+        <div class="row align-items-center">
+          <div class="col-lg-5 mb-4 mb-lg-0">
+            <div class="about-image" data-aos="fade-right">
+              <img src="Prince-Kumar-Profile-Photo.jpg" class="img-fluid rounded-3 shadow" alt="Prince Kumar">
+              <div class="experience-badge">
+                <span class="number">2+</span>
+                <span class="text">Years<br>Experience</span>
               </div>
             </div>
-            <div class="edu_card">
-              <span class="material-icons feature edu_logo" style="color: white;">school</span>
-              <div class="edu_details">
-                <p class="edu_course">12th Graduate</p>
-                <div class="edu_course_details">
-                  <p class="edu_insti">+2 Gomia High School</p>
-                  <p class="edu_course_dur">June, 2020 - June, 2022</p>
+          </div>
+          
+          <div class="col-lg-7" data-aos="fade-left">
+            <div class="about-text">
+              <h2 class="mb-3">Software Developer & System Designer</h2>
+              <p class="lead mb-4">
+                A passionate Software Developer with expertise in building scalable microservices 
+                and distributed systems. Currently crafting robust solutions at 
+                <a href="https://drinkprime.in/" class="text-decoration-none">DrinkPrime</a>.
+              </p>
+              
+              <div class="key-points mb-4">
+                <div class="point">
+                  <i class="fa fa-check-circle"></i>
+                  <span>2+ years of experience</span>
                 </div>
+                <div class="point">
+                  <i class="fa fa-check-circle"></i>
+                  <span>1500+ DSA problems solved</span>
+                </div>
+                <div class="point">
+                  <i class="fa fa-check-circle"></i>
+                  <span>Expertise in Full-Stack</span>
+                </div>
+                <div class="point">
+                  <i class="fa fa-check-circle"></i>
+                  <span>Strong problem-solving skills</span>
+                </div>
+              </div>
+
+              <p class="mb-4">
+                I specialize in developing high-performance backend systems using Java, Spring Boot, 
+                and modern cloud technologies. My experience includes building scalable microservices, 
+                implementing message brokers, and designing efficient database solutions.
+              </p>
+
+              <div class="about-stats row g-4 mb-4">
+                <div class="col-6 col-md-3">
+                  <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Projects<br>Completed</div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="stat-card">
+                    <div class="stat-number">1500+</div>
+                    <div class="stat-label">DSA<br>Solutions</div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="stat-card">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Coding<br>Hours</div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Tech<br>Stack</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="social-links">
+                <a href="https://github.com/princekr0722" class="social-link" target="_blank">
+                  <i class="fa fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/prince-kumar-7b9194247/" class="social-link" target="_blank">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+                <a href="mailto:knownasprincekr@gmail.com" class="social-link">
+                  <i class="fa fa-envelope"></i>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="row fiverr_gigs_row">
-        <div class="col-sm-12 col-md-4 col-lg 4 thumb fiverr_gigs">
+  <!---SKILLS -->
+  <div id="skills" class="skills-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h1>Technical Skills</h1>
+        <hr class="solid">
+      </div>
 
-          <h3 align=left style="color: #67676e;">Freelance</h3>
-          <p>Hey there 👋, I provide the freelancing services on Fiverr,<br/> Check It Out Now! 🎉</p>
-          <!-- Put this code anywhere in the body of your page where you want the badge to show up. -->
+      <div class="skills-container">
+        <!-- Languages -->
+        <div class="skill-category">
+          <h2>Programming Languages</h2>
+          <div class="skills-grid">
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-java-plain colored"></i>
+              <span>Java</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-javascript-plain colored"></i>
+              <span>JavaScript</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-typescript-plain colored"></i>
+              <span>TypeScript</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-go-original-wordmark colored"></i>
+              <span>Go</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-python-plain colored"></i>
+              <span>Python</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-lua-plain colored"></i>
+              <span>Lua</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-html5-plain colored"></i>
+              <span>HTML</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-css3-plain colored"></i>
+              <span>CSS</span>
+            </div>
+          </div>
+        </div>
 
-          <div itemscope itemtype='http://schema.org/Person' class='fiverr-seller-widget'
-            style='display: inline-block;'>
-            <a itemprop='url' href=https://www.fiverr.com/knownasprincekr rel="nofollow" target="_blank"
-              style='display: inline-block;'>
-              <div class='fiverr-seller-content' id='fiverr-seller-widget-content-9e9839dc-1d2e-41b4-9bfd-186e1cd13db4'
-                itemprop='contentURL' style='display: none;'></div>
-              <div id='fiverr-widget-seller-data' style='display: none;'>
-                <div itemprop='name'>knownasprincekr</div>
-                <div itemscope itemtype='http://schema.org/Organization'><span itemprop='name'>Fiverr</span></div>
-                <div itemprop='jobtitle'>Seller</div>
-                <div itemprop='description'>The Full Stack Web Developer, proficient in Java technologies, mainly works
-                  with Java, Javascript, Spring-Boot, Databases, Microservices, React and Web technologies. </div>
+        <!-- Frameworks & Libraries -->
+        <div class="skill-category">
+          <h2>Frameworks & Libraries</h2>
+          <div class="skills-grid">
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-spring-plain colored"></i>
+              <span>Spring Framework</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-spring-plain colored"></i>
+              <span>Spring Boot</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <img src="hibernate-svgrepo-com.png" alt="Hibernate">
+              <span>Hibernate</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-react-original colored"></i>
+              <span>React.js</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-nodejs-plain colored"></i>
+              <span>Node.js</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-nextjs-original"></i>
+              <span>Next.js</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="skill-category">
+          <h2>Databases & Storage</h2>
+          <div class="skills-grid">
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-mysql-plain colored"></i>
+              <span>MySQL</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-mongodb-plain colored"></i>
+              <span>MongoDB</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-postgresql-plain colored"></i>
+              <span>PostgreSQL</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-microsoftsqlserver-plain colored"></i>
+              <span>MS SQL Server</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cloud & DevOps -->
+        <div class="skill-category">
+          <h2>Cloud & DevOps</h2>
+          <div class="skills-grid">
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-amazonwebservices-original colored"></i>
+              <span>AWS</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-googlecloud-plain colored"></i>
+              <span>Google Cloud</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-firebase-plain colored"></i>
+              <span>Firebase</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-kubernetes-plain colored"></i>
+              <span>Kubernetes</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-docker-plain colored"></i>
+              <span>Docker</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Message Brokers & Architecture -->
+        <div class="skill-category">
+          <h2>Message Brokers & Architecture</h2>
+          <div class="skills-grid">
+            <div class="skill-card" data-aos="fade-up">
+              <img src="rabbitmq-logo-svgrepo-com.svg" alt="RabbitMQ">
+              <span>RabbitMQ</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <i class="devicon-apachekafka-original colored"></i>
+              <span>Kafka</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <img src="microservices.svg" alt="Microservices">
+              <span>Microservices</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <img src="dsa.svg" alt="DSA">
+              <span>DSA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <!-- FREELANCE SECTION -->
+  <div id="freelance" class="freelance-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h1>Freelance Work</h1>
+        <hr class="solid">
+      </div>
+
+      <div class="freelance-grid">
+        <!-- Upwork Card -->
+        <div class="freelance-card" data-aos="fade-up">
+          <div class="freelance-header">
+            <img src="upwork-logo.svg" 
+                 alt="Upwork" class="freelance-logo" style="padding: 1rem;">
+            <h3 class="freelance-title">Upwork Profile</h3>
+            <div class="freelance-platform">Top Rated Seller</div>
+          </div>
+          <div class="freelance-content">
+            <div class="freelance-stats">
+              <div class="stat-item">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Success Rate</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">$50/hr</div>
+                <div class="stat-label">Top Rate</div>
+              </div>
+            </div>
+            <p class="freelance-description">
+              Specialized in full-stack development, API integration, and cloud solutions. 
+              Maintaining a perfect client satisfaction score with focus on enterprise solutions.
+            </p>
+            <div class="freelance-tags">
+              <span class="freelance-tag">Full Stack</span>
+              <span class="freelance-tag">Java</span>
+              <span class="freelance-tag">Spring Boot</span>
+              <span class="freelance-tag">React</span>
+            </div>
+            <div class="freelance-links">
+              <a href="#" class="freelance-link primary">View Profile</a>
+              <a href="#" class="freelance-link secondary">Hire Me</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fiverr Card -->
+        <div class="freelance-card" data-aos="fade-up">
+          <div class="freelance-header">
+            <img src="https://1000logos.net/wp-content/uploads/2021/11/Fiverr-Logo.png" 
+                 alt="Fiverr" class="freelance-logo">
+            <h3 class="freelance-title">Fiverr Profile</h3>
+            <div class="freelance-platform">Level 2 Seller</div>
+          </div>
+          <div class="freelance-content">
+            <div class="freelance-stats">
+              <div class="stat-item">
+                <div class="stat-value">4.9★</div>
+                <div class="stat-label">Rating</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">50+</div>
+                <div class="stat-label">Projects</div>
+              </div>
+            </div>
+            <p class="freelance-description">
+              Delivering high-quality web applications and microservices. 
+              Specializing in scalable solutions and system architecture design.
+            </p>
+            <div class="freelance-tags">
+              <span class="freelance-tag">Microservices</span>
+              <span class="freelance-tag">AWS</span>
+              <span class="freelance-tag">Node.js</span>
+              <span class="freelance-tag">API</span>
+            </div>
+            <div class="freelance-links">
+              <a href="#" class="freelance-link primary">View Gigs</a>
+              <a href="#" class="freelance-link secondary">Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Freelancer.com Card -->
+        <div class="freelance-card" data-aos="fade-up">
+          <div class="freelance-header">
+            <img src="https://www.f-cdn.com/assets/main/en/assets/freelancer-logo-old.svg" 
+                 alt="Freelancer.com" class="freelance-logo">
+            <h3 class="freelance-title">Freelancer Profile</h3>
+            <div class="freelance-platform">Preferred Freelancer</div>
+          </div>
+          <div class="freelance-content">
+            <div class="freelance-stats">
+              <div class="stat-item">
+                <div class="stat-value">95%</div>
+                <div class="stat-label">Completion</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">30+</div>
+                <div class="stat-label">Reviews</div>
+              </div>
+            </div>
+            <p class="freelance-description">
+              Expert in building robust backend systems and cloud infrastructure.
+              Focus on performance optimization and secure implementations.
+            </p>
+            <div class="freelance-tags">
+              <span class="freelance-tag">Backend</span>
+              <span class="freelance-tag">Cloud</span>
+              <span class="freelance-tag">Security</span>
+              <span class="freelance-tag">DevOps</span>
+            </div>
+            <div class="freelance-links">
+              <a href="#" class="freelance-link primary">View Profile</a>
+              <a href="#" class="freelance-link secondary">Hire Me</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION SECTION -->
+  <div id="education" class="education-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h1>Education</h1>
+        <hr class="solid">
+      </div>
+
+      <div class="education-timeline">
+        <!-- Masai School -->
+        <div class="education-item" data-aos="fade-right">
+          <div class="education-content">
+            <div class="education-date">2022 - 2023</div>
+            <h3 class="education-title">Full Stack Web Development</h3>
+            <div class="education-school">Masai School</div>
+            <p class="education-details">
+              Intensive program focused on full-stack web development, agile methodologies, 
+              and industry-relevant technologies. Completed multiple real-world projects and 
+              participated in team collaborations.
+            </p>
+            <div class="education-tags">
+              <span class="education-tag">Full Stack Development</span>
+              <span class="education-tag">MERN Stack</span>
+              <span class="education-tag">Java Backend</span>
+              <span class="education-tag">DSA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bachelor's Degree -->
+        <!-- <div class="education-item" data-aos="fade-left">
+          <div class="education-content">
+            <div class="education-date">2018 - 2022</div>
+            <h3 class="education-title">Bachelor of Technology in Computer Science</h3>
+            <div class="education-school">Indian Institute of Information Technology</div>
+            <p class="education-details">
+              Comprehensive study of computer science fundamentals, including data structures, 
+              algorithms, software engineering, and computer networks. Developed strong 
+              problem-solving skills through practical projects.
+            </p>
+            <div class="education-tags">
+              <span class="education-tag">Computer Science</span>
+              <span class="education-tag">Software Engineering</span>
+              <span class="education-tag">Algorithms</span>
+              <span class="education-tag">Database Systems</span>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Higher Secondary -->
+        <div class="education-item" data-aos="fade-right">
+          <div class="education-content">
+            <div class="education-date">2020 - 2022</div>
+            <h3 class="education-title">Higher Secondary Education</h3>
+            <!-- <div class="education-school">Delhi Public School</div> -->
+            <p class="education-details">
+              Completed higher secondary education with a focus on science and mathematics. 
+              Participated in various technical competitions and programming challenges.
+            </p>
+            <div class="education-tags">
+              <span class="education-tag">Science</span>
+              <span class="education-tag">Mathematics</span>
+              <!-- <span class="education-tag">Computer Science</span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!---PROJECT SECTION -->
+  <div id="projects" class="projects-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h1>Featured Projects</h1>
+        <hr class="solid">
+      </div>
+
+      <div class="projects-grid">
+        <!-- Insightgram Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="Insightgram_Portfolio_Banner.png" alt="Insightgram Project" loading="lazy">
+            <div class="project-overlay">
+              <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-view" target="_blank">
+                View Project <i class="fa fa-external-link"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Insightgram</h3>
+            <p class="project-description">
+              A social networking platform designed to connect people seamlessly around the globe.
+            </p>
+            <div class="project-tech">
+              <h4>Technologies Used</h4>
+              <div class="tech-tags">
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>Microservices</span>
+                <span>Spring Security</span>
+                <span>MySQL</span>
+                <span>WebSocket</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://classy-sherbet-63a565.netlify.app" class="btn-link" target="_blank">
+                <i class="fa fa-globe"></i> Live Demo
+              </a>
+              <a href="https://github.com/princekr0722/Insightgram_Main_Backend_Service" class="btn-link" target="_blank">
+                <i class="fa fa-github"></i> Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estate Explorer Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="Estate Explorer - Logo.jpg" alt="Estate Explorer Project" loading="lazy">
+            <div class="project-overlay">
+              <a href="https://github.com/dikshant123321/Real-Estate-Broker-Application-" class="btn-view" target="_blank">
+                View Project <i class="fa fa-external-link"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Estate Explorer</h3>
+            <p class="project-description">
+              A comprehensive real estate platform for property listing and management.
+            </p>
+            <div class="project-tech">
+              <h4>Technologies Used</h4>
+              <div class="tech-tags">
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>MySQL</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://drive.google.com/file/d/1pgnoh-SSTSRZIqLJsBwh1rLfGPDzKvyX/view?usp=share_link" class="btn-link" target="_blank">
+                <i class="fa fa-file-text"></i> Presentation
+              </a>
+              <a href="https://github.com/dikshant123321/Real-Estate-Broker-Application-" class="btn-link" target="_blank">
+                <i class="fa fa-github"></i> Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bus Buddy Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="Bus Buddy Logo.jpg" alt="Bus Buddy Project" loading="lazy">
+            <div class="project-overlay">
+              <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-view" target="_blank">
+                View Project <i class="fa fa-external-link"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Bus Buddy</h3>
+            <p class="project-description">
+              An online bus ticket booking platform offering the best deals and seamless booking experience.
+            </p>
+            <div class="project-tech">
+              <h4>Technologies Used</h4>
+              <div class="tech-tags">
+                <span>Java</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://drive.google.com/file/d/1v5XrzAQipbzSQiNrmaTda8DIXs7HrNk_/view?usp=share_link" class="btn-link" target="_blank">
+                <i class="fa fa-file-text"></i> Presentation
+              </a>
+              <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-link" target="_blank">
+                <i class="fa fa-github"></i> Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Licious Clone Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="Licious_SS1.png" alt="Licious Clone Project" loading="lazy">
+            <div class="project-overlay">
+              <a href="https://candid-sorbet-838343.netlify.app/" class="btn-view" target="_blank">
+                View Project <i class="fa fa-external-link"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Licious Clone</h3>
+            <p class="project-description">
+              An online meat shop platform for delivering fresh poultry, meat & seafood.
+            </p>
+            <div class="project-tech">
+              <h4>Technologies Used</h4>
+              <div class="tech-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://candid-sorbet-838343.netlify.app/" class="btn-link" target="_blank">
+                <i class="fa fa-globe"></i> Live Demo
+              </a>
+              <a href="https://github.com/AditiSharma00/truthful-wing-8761" class="btn-link" target="_blank">
+                <i class="fa fa-github"></i> Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PharmEasy Clone Project -->
+        <div class="project-card">
+          <div class="project-image">
+            <img src="PharmEasy_SS1.png" alt="PharmEasy Clone Project" loading="lazy">
+            <div class="project-overlay">
+              <a href="https://steady-jalebi-560beb.netlify.app/index.html" class="btn-view" target="_blank">
+                View Project <i class="fa fa-external-link"></i>
+              </a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">PharmEasy Clone</h3>
+            <p class="project-description">
+              India's leading online healthcare and medicine delivery platform clone.
+            </p>
+            <div class="project-tech">
+              <h4>Technologies Used</h4>
+              <div class="tech-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+            </div>
+            <div class="project-links">
+              <a href="https://steady-jalebi-560beb.netlify.app/index.html" class="btn-link" target="_blank">
+                <i class="fa fa-globe"></i> Live Demo
+              </a>
+              <a href="https://github.com/princekr0722/versed-substance-8213" class="btn-link" target="_blank">
+                <i class="fa fa-github"></i> Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <!-- GitHub Stats Section -->
+  <div class="github-stats-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h1>GitHub Statistics</h1>
+        <hr class="solid">
+      </div>
+
+      <div class="stats-container">
+        <div class="stats-grid">
+          <!-- Main Stats Card -->
+          <div class="stats-card main-stats">
+            <h3>Overview</h3>
+            <picture>
+              <source 
+                srcset="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true&theme=dark&hide_border=true&bg_color=1a1a1a&title_color=8584ff&icon_color=6c6bff&text_color=ffffff"
+                media="(prefers-color-scheme: dark)" />
+              <source 
+                srcset="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true&hide_border=true"
+                media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
+              <img id="github-stats-card"
+                src="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true&hide_border=true" 
+                alt="GitHub Stats" />
+            </picture>
+          </div>
+
+          <!-- Streak Stats Card -->
+          <div class="stats-card streak-stats">
+            <h3>Contribution Streak</h3>
+            <picture>
+              <source 
+                srcset="https://github-readme-streak-stats.herokuapp.com?user=princekr0722&theme=dark&hide_border=true&background=1a1a1a&stroke=8584ff&ring=6c6bff&fire=6c6bff&currStreakLabel=8584ff"
+                media="(prefers-color-scheme: dark)" />
+              <source 
+                srcset="https://github-readme-streak-stats.herokuapp.com?user=princekr0722&hide_border=true"
+                media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
+              <img id="github-streak-stats"
+                src="https://github-readme-streak-stats.herokuapp.com?user=princekr0722&hide_border=true" 
+                alt="GitHub Streak Stats" />
+            </picture>
+          </div>
+
+          <!-- Languages Card -->
+          <div class="stats-card languages">
+            <h3>Top Languages</h3>
+            <picture>
+              <source 
+                srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=princekr0722&layout=compact&theme=dark&hide_border=true&bg_color=1a1a1a&title_color=8584ff&text_color=ffffff"
+                media="(prefers-color-scheme: dark)" />
+              <source 
+                srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=princekr0722&layout=compact&hide_border=true"
+                media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
+              <img id="github-top-langs"
+                src="https://github-readme-stats.vercel.app/api/top-langs/?username=princekr0722&layout=compact&hide_border=true" 
+                alt="Most Used Languages" />
+            </picture>
+          </div>
+        </div>
+
+        <!-- Contribution Calendar -->
+        <div class="contribution-calendar">
+          <h3>Contribution Activity</h3>
+          <div class="calendar react-activity-calendar">
+            Loading GitHub contribution calendar...
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!---CONTACT SECTION -->
+
+  <div id="contact" class="container-fluid contact-section">
+    <div class="contact-content">
+      <h1 class="heading text-center mb-4">Get In Touch</h1>
+      <hr class="solid mb-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+          <p class="contact-intro mb-5">I'm always interested in hearing about new opportunities and collaborations.</p>
+          <div class="contact-grid">
+            <a href="tel:9523434209" class="contact-card" id="contact-phone" title="Phone Number">
+              <div class="contact-icon">
+                <i class="fa fa-phone"></i>
+              </div>
+              <div class="contact-info">
+                <h3>Phone</h3>
+                <span>9523434209</span>
+              </div>
+            </a>
+            
+            <a href="mailto:knownasprincekr@gmail.com" class="contact-card" id="contact-email">
+              <div class="contact-icon">
+                <i class="fa fa-envelope"></i>
+              </div>
+              <div class="contact-info">
+                <h3>Email</h3>
+                <span>knownasprincekr@gmail.com</span>
+              </div>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/prince-kumar-7b9194247/" class="contact-card" id="contact-linkedin" target="_blank" rel="noopener noreferrer">
+              <div class="contact-icon">
+                <i class="fa fa-linkedin-square"></i>
+              </div>
+              <div class="contact-info">
+                <h3>LinkedIn</h3>
+                <span>Prince Kumar</span>
+              </div>
+            </a>
+            
+            <a href="https://github.com/princekr0722" class="contact-card" id="contact-github" target="_blank" rel="noopener noreferrer">
+              <div class="contact-icon">
+                <i class="fa fa-github"></i>
+              </div>
+              <div class="contact-info">
+                <h3>GitHub</h3>
+                <span>princekr0722</span>
               </div>
             </a>
           </div>
         </div>
       </div>
-    </div>
-
-  </div>
-
-  </div>
-
-  <!---SKILLS -->
-
-  <div id="skills" style="position: relative;" class="container-fluid  text-center ">
-
-    <!-- <h1 style="color: #67676e;">SKILLS & TOOLS</h1> -->
-    <h1 style="color: #67676e;">SKILLS</h1>
-    <hr style="width:15%; color:#000;margin-bottom: 5%;" class="solid">
-
-    <div id="skills_container">
-
-      <div class="skills-card">
-        <img src="java.png" alt="" class="skills-card-img">
-        <span class="skills-card-name">Java</span>
-      </div>
-      <div class="skills-card">
-        <img src="spring-icon.png" alt="" class="skills-card-img">
-        <span class="skills-card-name">Spring Framework</span>
-      </div>
-      <div class="skills-card">
-        <img src="hibernate-svgrepo-com.png" alt="" class="skills-card-img">
-        <span class="skills-card-name">Hibernate</span>
-      </div>
-      <div class="skills-card">
-        <img src="maven-svgrepo-com.png" alt="" class="skills-card-img">
-        <span class="skills-card-name">Maven</span>
-      </div>
-      <div class="skills-card">
-        <img src="mysql.png" alt="" class="skills-card-img">
-        <span class="skills-card-name">MySQL</span>
-      </div>
-      <div class="skills-card">
-        <img src="Websocket_logo.webp" alt="" class="skills-card-img">
-        <span class="skills-card-name">Websocket</span>
-      </div>
-      <div class="skills-card">
-        <img src="js.png" alt="" class="skills-card-img">
-        <span class="skills-card-name">JavaScript</span>
-      </div>
-      <div class="skills-card">
-        <img src="html-5.png" alt="" class="skills-card-img">
-        <span class="skills-card-name">HTML</span>
-      </div>
-      <div class="skills-card">
-        <img src="css-3.png" alt="" class="skills-card-img">
-        <span class="skills-card-name">CSS</span>
-      </div>
-
-    </div>
-
-  </div>
-
-  </div>
-
-  <!---PROJECT SECTION -->
-
-  <div class="container-fluid  text-center " style="background-color: white;padding-bottom: 3%;">
-    <h1 style="color: #67676e;">PROJECTS</h1>
-    <hr style="width:10%; color:#000;margin-bottom: 5%;" class="solid">
-
-    <div class="projects_row" id="projects">
-
-      <div class="project-card col-sm-12 col-md-3 col-lg-3 " style="background-color: #f5f5f5;" id="empty1">
-        <img src="Insightgram_Portfolio_Banner.png" alt="" class="project_image"
-          onclick="location.href='https://github.com/princekr0722/inexpensive-cause-3321';">
-        <!-- <span class="material-icons feature" >pending</span> -->
-        <h3 style="color: #67676e; font-family: Dosis;" class="project-title">
-          Insightgram
-        </h3>
-        <p class="project-description">Insightgram is a social networking site, aims to connect people seamlessly around
-          the globe.</p>
-        <div class="project-tech-stack">
-          <div>
-            <h4>Tech Stack</h4>
-            <div>
-              <ul>
-                <!-- N/A -->
-                <li onclick="location.href='https://www.java.com/en/';">Java</li>
-                <li onclick="location.href='https://spring.io/';">Spring Boot</li>
-                <li onclick="location.href='https://spring.io/microservices';">Microservices</li>
-                <li onclick="location.href='https://spring.io/projects/spring-security';">Spring Security</li>
-                <li onclick="location.href='https://docs.spring.io/spring-framework/reference/web/webflux.html';">Spring
-                  Web-flux</li>
-                <li
-                  onclick="location.href='https://docs.spring.io/spring-framework/reference/6.0-SNAPSHOT/web/websocket.html';">
-                  Spring Web Sockets</li>
-                <li onclick="location.href='https://www.mysql.com/';">MySQL</li>
-                <li onclick="location.href='https://www.javascript.com/';">JavaScript</li>
-                <li onclick="location.href='https://html.com/';">HTML</li>
-                <li onclick="location.href='https://www.css3.com/';">CSS</li>
-                <li
-                  onclick="location.href='https://www.tutorialspoint.com/spring_boot/spring_boot_eureka_server.htm#:~:text=Eureka%20Server%20is%20an%20application,also%20known%20as%20Discovery%20Server.';">
-                  Eureka Server</li>
-                <li onclick="location.href='https://console.cloudinary.com/';">Cloudinary</li>
-                <li onclick="location.href='https://railway.app/';">Railway Cloud</li>
-
-              </ul>
-            </div>
-          </div>
-          <div>
-            <h4>Linkes</h4>
-            <div>
-              <ul>
-                <!-- N/A -->
-                <li><a class="project-deployed-link" href="https://classy-sherbet-63a565.netlify.app">Deployed</a>
-                </li>
-                <!-- <li><a class="project-github-link"
-                    href="https://drive.google.com/file/d/1v5XrzAQipbzSQiNrmaTda8DIXs7HrNk_/view?usp=share_link">Presentation</a>
-                </li> -->
-                <li><a class="project-github-link"
-                    href="https://github.com/princekr0722/Insightgram_Main_Backend_Service">Github</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card col-sm-12 col-md-3 col-lg-3 " style="background-color: #f5f5f5;">
-        <img src="Estate Explorer - Logo.jpg" alt="" alt="" class="project_image"
-          onclick="location.href='https://github.com/dikshant123321/Real-Estate-Broker-Application-';">
-        <!-- <span class="material-icons feature" >pending</span> -->
-        <h3 style="color: #67676e; font-family: Dosis;" class="project-title">
-          Estate Explorer
-        </h3>
-
-        <p class="project-description">The project here is not available at this moment, it will be updated soon.</p>
-        <div class="project-tech-stack">
-          <div>
-            <h4>Tech Stack</h4>
-            <div>
-              <ul>
-                <!-- N/A -->
-                <li onclick="location.href='https://www.java.com/en/';">Java</li>
-                <li onclick="location.href='https://spring.io/';">Spring Boot</li>
-                <li onclick="location.href='https://www.mysql.com/';">MySQL</li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <h4>Linkes</h4>
-            <div>
-              <ul>
-                <!-- N/A -->
-                <li><a class="project-github-link"
-                    href="https://drive.google.com/file/d/1pgnoh-SSTSRZIqLJsBwh1rLfGPDzKvyX/view?usp=share_link">Presentation</a>
-                </li>
-                <li><a class="project-deployed-link"
-                    href="https://github.com/dikshant123321/Real-Estate-Broker-Application-">Github</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card col-sm-12 col-md-3 col-lg-3 " style="background-color: #f5f5f5;" id="empty1">
-        <img src="Bus Buddy Logo.jpg" alt="" class="project_image"
-          onclick="location.href='https://github.com/princekr0722/inexpensive-cause-3321';">
-        <!-- <span class="material-icons feature" >pending</span> -->
-        <h3 style="color: #67676e; font-family: Dosis;" class="project-title">
-          Bus Buddy
-        </h3>
-        <p class="project-description">Bus Buddy is a online bus ticket booking platform, with best offers.</p>
-        <div class="project-tech-stack">
-          <div>
-            <h4>Tech Stack</h4>
-            <div>
-              <ul>
-                <!-- N/A -->
-                <li onclick="location.href='https://www.java.com/en/';">Java</li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <h4>Linkes</h4>
-            <div>
-              <ul>
-                <!-- N/A -->
-                <li><a class="project-github-link"
-                    href="https://drive.google.com/file/d/1v5XrzAQipbzSQiNrmaTda8DIXs7HrNk_/view?usp=share_link">Presentation</a>
-                </li>
-                <li><a class="project-deployed-link"
-                    href="https://github.com/princekr0722/inexpensive-cause-3321">Github</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card col-sm-12 col-md-3 col-lg-3" style="background-color: #f5f5f5;">
-        <img src="Licious_SS1.png" alt="" class="project_image"
-          onclick="location.href='https://candid-sorbet-838343.netlify.app/';">
-        <!-- <span class="material-icons feature " >web</span> -->
-        <h3 style="color: #67676e; font-family: Dosis;" class="project-title zoom"
-          onclick="location.href='https://candid-sorbet-838343.netlify.app/';">Licious Clone</h3>
-        <p class="project-description">Licious is an online meat shop to delivering fresh poultry, meat & seafood.</p>
-        <div class="project-tech-stack">
-          <div>
-            <h4>Tech Stack</h4>
-            <div>
-              <ul>
-                <li onclick="location.href='https://html.com/';">HTML</li>
-                <li onclick="location.href='https://www.css3.com/';">CSS</li>
-                <li onclick="location.href='https://www.javascript.com/';">JavaScript</li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <h4>Linkes</h4>
-            <div>
-              <ul>
-                <li><a class="project-github-link" href="https://candid-sorbet-838343.netlify.app/">Deployed</a></li>
-                <li><a class="project-deployed-link"
-                    href="https://github.com/AditiSharma00/truthful-wing-8761">Github</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card col-sm-12 col-md-3 col-lg-3 " style="background-color: #f5f5f5; ">
-        <img src="PharmEasy_SS1.png" alt="" class="project_image"
-          onclick="location.href='https://steady-jalebi-560beb.netlify.app/index.html';" style="cursor: pointer;">
-        <!-- <span class="material-icons feature" >speed</span> -->
-        <h3 style="color: #67676e; font-family: Dosis;" class="project-title"
-          onclick="location.href='https://steady-jalebi-560beb.netlify.app/index.html';"
-          style="background-color: #f5f5f5; cursor: pointer;">PharmEasy Clone</h3>
-        <p class="project-description">PharmEasy is India's leading online healthcare and medicine delivery platform</p>
-        <div class="project-tech-stack">
-          <div>
-            <h4>Tech Stack</h4>
-            <div>
-              <ul>
-                <li onclick="location.href='https://html.com/';">HTML</li>
-                <li onclick="location.href='https://www.css3.com/';">CSS</li>
-                <li onclick="location.href='https://www.javascript.com/';">JavaScript</li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <h4>Linkes</h4>
-            <div>
-              <ul>
-                <li><a class="project-github-link"
-                    href="https://steady-jalebi-560beb.netlify.app/index.html">Deployed</a></li>
-                <li><a class="project-deployed-link"
-                    href="https://github.com/princekr0722/versed-substance-8213">Github</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="row projects_row" id="projects">
-
-    </div>
-
-    <!-- <div class="row" style="margin-bottom: 5%;">
-            <h3 class="heading" style="margin: 5%;">JUW SPORTS PORTAL</h3>
-            <div class="container" style="margin: 6%;"> -->
-
-    <!---ABOUT PROJECT -->
-
-    <!-- <p align="justify">JUWSP is an online sports portal for Jinnah University for Women's students. It consists of admin dashboard and user profiles. This portal enables the admin to posts latest news and events updates. Users can make differnt requests and customize their profiles.</p>
-        </div>
-       
-
-          <div class="col-sm-12 col-md-4 col-lg-4 colmargin">
-              <img onContextMenu="return false;"  src="admin.png"  class="zoom img-fluid "  alt="mypic">
-            
-           </div>
-  
-
-           <div class="col-sm-12 col-md-4 col-lg-4 colmargin">
-            <img onContextMenu="return false;" src="home.png" class="zoom img-fluid "  alt="mypic">
-             
-           </div>
-          
-
-           <div class="col-sm-12  col-md-4 col-lg-4 colmargin">
-             <img onContextMenu="return false;"  src="news.png" class="zoom img-fluid "  alt="mypic">
-           
-            </div>
-           
-         
-       </div> -->
-
-
-  </div>
-
-  <!-- GitHub Stats Section -->
-
-  <div style="position: relative; width: 100%;" class="container-fluid  text-center mid-it">
-
-    <h1 style="color: #67676e;">GitHub Stats</h1>
-    <hr style="width:10%; color:#000;margin-bottom: 5%;" class="solid">
-
-    <div class="git_container">
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        <picture>
-          <source srcset="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true&theme=dark"
-            media="(prefers-color-scheme: dark)" />
-          <source srcset="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true"
-            media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
-          <img id="github-stats-card"
-            src="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true" />
-        </picture>
-
-        <a href="https://git.io/streak-stats"><img id="github-streak-stats"
-            src="https://github-readme-streak-stats.herokuapp.com?user=princekr0722" alt="GitHub Streak" /></a>
-      </div>
-
-      <a href="https://github.com/princekr0722/github-readme-stats">
-        <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=princekr0722"
-          id="github-top-langs" />
-      </a>
-    </div>
-  </div>
-
-  <div class="calendar react-activity-calendar">
-    <!-- Loading stuff -->
-    Loading the Github calender...
-  </div>
-
-  <!---CONTACT SECTION -->
-
-  <div id="contact" class="container-fluid text-center" style="padding-bottom: 3%;background-color: #f5f5f5;">
-    <h1 class="heading">CONTACT</h1>
-    <hr class="solid">
-    <a href="#section2" class="topButton"><span class="material-icons">arrow_upward</span></a>
-    <p style="color: #67676e;;">Feel free to contact me:</p>
-    <div id="contact_icons_container">
-      <!---Add your phone number at the end like (https://api.whatsapp.com/send?phone=12345678901)-->
-      <a href="tel:9523434209" style="background-color: #195ab4;" id="contact-phone" class="contactIcons"
-        title="Phone Number">
-        <p hidden>phone</p><i class="fa fa-phone"></i>
-        <span>9523434209</span>
-      </a>
-      <!---Add email link like mailto:someone@example.com -->
-      <a href="mailto:knownasprincekr@gmail.com" id="contact-email" style="background-color: #E60023;"
-        class="contactIcons">
-        <p hidden>email</p><i class="fa fa-at" title="Email ID"></i>
-        <span>knownasprincekr@gmail.com</span>
-      </a>
-      <a href="https://www.linkedin.com/in/prince-kumar-7b9194247/" id="contact-linkedin"
-        style="background-color: #0077b5;" class="contactIcons" title="Linkedin">
-        <p hidden>linkedin</p><i class="fa fa-linkedin-square"></i>
-        <span>Prince Kumar</span>
-      </a>
-      <a href="https://github.com/princekr0722" id="contact-github" style="background-color:#343536;"
-        class="contactIcons" title="Github">
-        <p hidden>github</p><i class="fa fa-github"></i>
-        <span>princekr0722</span>
-      </a>
     </div>
   </div>
 
@@ -597,6 +1063,11 @@
   <!-- <div class="container-fluid  text-center footer" >
    <a href="https://github.com/wajihafatimaofficial">  <p>Designed by Wajiha Fatima</p></a>
 </div> -->
+
+  <!-- Scroll to top button -->
+  <button class="topButton" id="topBtn" title="Go to top">
+    <i class="fa fa-arrow-up"></i>
+  </button>
 
 </body>
 
