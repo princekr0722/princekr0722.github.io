@@ -10,11 +10,11 @@
   <meta name="HandheldFriendly" content="true">
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+
   <!-- jQuery and Bootstrap 5 JS -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 
@@ -31,7 +31,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--font awesomes icons link-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+
   <!-- Devicon for tech stack icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
@@ -45,13 +45,48 @@
 
 
   <script>
-
     $(document).ready(function () {
+
+      $('.coding-hours').each(function () {
+        // Define start date
+        const startDate = new Date('2022-08-29');
+        const today = new Date();
+
+        // Calculate difference in days
+        const diffInMs = today - startDate;
+        const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+        // 4 hours per day
+        const totalHours = diffInDays * 5;
+
+        // Update element text
+        $(this).text(totalHours + '+');
+      });
+
+      $('.years-of-exp').each(function () {
+        // Define start date
+        const startDate = new Date('2023-09-20');
+        const today = new Date();
+
+        // Calculate difference in milliseconds
+        const diffInMs = today - startDate;
+
+        // Convert to years (365.25 to account for leap years)
+        const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365.25);
+
+        // Round to one decimal (e.g., 1.2 years)
+        const years = diffInYears.toFixed(1);
+
+        // Update element text
+        $(this).text(`${years}+`);
+      });
+
+
 
       // Smooth scrolling function
       function smoothScroll(target, duration = 1000) {
         const targetPosition = target ? $(target).offset().top - 80 : 0; // 80px offset for header
-        
+
         // Direct scroll without animation
         window.scrollTo({
           top: targetPosition,
@@ -60,19 +95,19 @@
       }
 
       // Handle scrolling for nav links
-      $('.nav-link, .navbar-brand').on('click', function(e) {
+      $('.nav-link, .navbar-brand').on('click', function (e) {
         if (this.hash !== '') {
           e.preventDefault();
           const hash = this.hash;
-          
+
           // First, close mobile menu if open
           if ($('.navbar-collapse').hasClass('show')) {
             $('.navbar-collapse').collapse('hide');
           }
-          
+
           // Then scroll to target
           smoothScroll(hash);
-          
+
           // Update URL hash after animation
           setTimeout(() => {
             window.location.hash = hash;
@@ -83,26 +118,26 @@
       // Up button functionality
       const upButton = $('.topButton');
       let isScrolling;
-      
-      $(window).scroll(function() {
+
+      $(window).scroll(function () {
         // Show/hide up button
         if ($(this).scrollTop() > 300) {
           upButton.addClass('show');
         } else {
           upButton.removeClass('show');
         }
-        
+
         // Clear timeout if scrolling is still happening
         window.clearTimeout(isScrolling);
-        
+
         // Set timeout to run after scrolling ends
-        isScrolling = setTimeout(function() {
+        isScrolling = setTimeout(function () {
           // Run after scrolling ends
         }, 0);
       });
 
       // Handle up button click
-      upButton.on('click', function(e) {
+      upButton.on('click', function (e) {
         e.preventDefault();
         smoothScroll(null, 0);
         return false;
@@ -173,9 +208,10 @@
           <li class="nav-item">
             <a class="nav-link" href="#skills">SKILLS</a>
           </li>
-          <li class="nav-item">
+          <!-- TODO: Enable Freelance Section -->
+          <!-- <li class="nav-item">
             <a class="nav-link" href="#freelance">FREELANCE</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="#education">EDUCATION</a>
           </li>
@@ -186,16 +222,14 @@
             <a class="nav-link" href="#contact">CONTACT</a>
           </li>
           <li class="nav-item ms-2">
-            <a href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view" 
-               class="btn btn-primary" 
-               target="_blank"
-               download="Prince_Kumar_Resume.pdf">
+            <a href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view" class="btn btn-primary"
+              target="_blank" download="Prince_Kumar_Resume.pdf">
               Resume
             </a>
           </li>
           <li class="nav-item ms-3">
             <button id="theme-toggle" class="btn btn-outline-primary">
-              <i class="fa fa-moon-o"></i>
+              <i class="fa fa-sun-o"></i>
             </button>
           </li>
         </ul>
@@ -206,21 +240,21 @@
       // Theme toggle functionality
       const themeToggle = document.getElementById('theme-toggle');
       const icon = themeToggle.querySelector('i');
-      
+
       // Check for saved theme preference or default to light
-      const savedTheme = localStorage.getItem('theme') || 'light';
+      const savedTheme = localStorage.getItem('theme') || 'dark';
       document.documentElement.setAttribute('data-theme', savedTheme);
       updateThemeIcon(savedTheme);
-      
+
       themeToggle.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
+
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
       });
-      
+
       function updateThemeIcon(theme) {
         icon.className = theme === 'dark' ? 'fa fa-sun-o' : 'fa fa-moon-o';
       }
@@ -245,32 +279,34 @@
           </h1>
           <div class="hero-roles">
             <div class="role-slider">
-              <span>Backend Developer</span>
+              <span>Software Developer</span>
+              <span style="color: rgb(244, 38, 106);">A Good Colleague of Yours?</span>
+              <span>Full Stack Developer</span>
+              <span style="color: rgb(61, 189, 1);">Freelancer</span>
               <span>System Designer</span>
               <span>Java Expert</span>
               <span>Problem Solver</span>
+              <span style="color: rgb(255, 170, 0);">Not At All Disappointing!!</span>
             </div>
           </div>
           <p class="hero-description">
-            Passionate about crafting robust backend solutions and scalable systems. 
-            Currently building innovative solutions at 
+            Passionate about crafting robust backend solutions and scalable systems.
+            Currently building innovative solutions at
             <a href="https://drinkprime.in/" class="company-link">
               DrinkPrime <i class="fa fa-external-link"></i>
             </a>
           </p>
           <div class="hero-cta">
-            <a href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view" 
-               class="btn btn-primary btn-lg download-btn"
-               target="_blank"
-               download="Prince_Kumar_Resume.pdf">
-               <i class="fa fa-eye"></i> View Resume
+            <a href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view"
+              class="btn btn-primary btn-lg download-btn" target="_blank" download="Prince_Kumar_Resume.pdf">
+              <i class="fa fa-eye"></i> View Resume
             </a>
             <a href="#contact" class="btn btn-outline-primary btn-lg">
               <i class="fa fa-envelope"></i> Get in Touch
             </a>
           </div>
           <div class="tech-stack">
-            <span class="tech-label">Tech Stack <i class="fa fa-arrow-right"></i></span>
+            <a href="#skills" class="tech-label">Tech Stack <i class="fa fa-arrow-right"></i></a>
             <div class="tech-icons">
               <i class="devicon-java-plain colored" title="Java"></i>
               <i class="devicon-spring-plain colored" title="Spring"></i>
@@ -284,14 +320,14 @@
           <div class="hero-image-container">
             <img src="Profile_Pic.png" class="hero-image" alt="Prince Kumar">
             <div class="experience-indicator">
-              <div class="exp-number">2+</div>
+              <div class="exp-number"><span class="years-of-exp">...</span></div>
               <div class="exp-text">Years of<br>Experience</div>
             </div>
           </div>
           <div class="floating-achievements">
             <div class="achievement-card">
               <i class="fa fa-code"></i>
-              <span>1000+ Hours<br>Coding</span>
+              <span><span class="coding-hours">...</span> Hours<br>Coding</span>
             </div>
             <div class="achievement-card">
               <i class="fa fa-check"></i>
@@ -317,25 +353,25 @@
             <div class="about-image" data-aos="fade-right">
               <img src="Prince-Kumar-Profile-Photo.jpg" class="img-fluid rounded-3 shadow" alt="Prince Kumar">
               <div class="experience-badge">
-                <span class="number">2+</span>
+                <span class="number years-of-exp">2+</span>
                 <span class="text">Years<br>Experience</span>
               </div>
             </div>
           </div>
-          
+
           <div class="col-lg-7" data-aos="fade-left">
             <div class="about-text">
               <h2 class="mb-3">Software Developer & System Designer</h2>
               <p class="lead mb-4">
-                A passionate Software Developer with expertise in building scalable microservices 
-                and distributed systems. Currently crafting robust solutions at 
+                A passionate Software Developer with expertise in building scalable microservices
+                and distributed systems. Currently crafting robust solutions at
                 <a href="https://drinkprime.in/" class="text-decoration-none">DrinkPrime</a>.
               </p>
-              
+
               <div class="key-points mb-4">
                 <div class="point">
                   <i class="fa fa-check-circle"></i>
-                  <span>2+ years of experience</span>
+                  <span><span class="years-of-exp">...</span> years of experience</span>
                 </div>
                 <div class="point">
                   <i class="fa fa-check-circle"></i>
@@ -352,8 +388,8 @@
               </div>
 
               <p class="mb-4">
-                I specialize in developing high-performance backend systems using Java, Spring Boot, 
-                and modern cloud technologies. My experience includes building scalable microservices, 
+                I specialize in developing high-performance backend systems using Java, Spring Boot,
+                and modern cloud technologies. My experience includes building scalable microservices,
                 implementing message brokers, and designing efficient database solutions.
               </p>
 
@@ -372,7 +408,7 @@
                 </div>
                 <div class="col-6 col-md-3">
                   <div class="stat-card">
-                    <div class="stat-number">1000+</div>
+                    <div class="stat-number coding-hours">...</div>
                     <div class="stat-label">Coding<br>Hours</div>
                   </div>
                 </div>
@@ -560,7 +596,7 @@
   </div>
 
   <!-- FREELANCE SECTION -->
-  <div id="freelance" class="freelance-section">
+  <div style="display: none;" id="freelance" class="freelance-section">
     <div class="container">
       <div class="section-header text-center">
         <h1>Freelance Work</h1>
@@ -571,8 +607,7 @@
         <!-- Upwork Card -->
         <div class="freelance-card" data-aos="fade-up">
           <div class="freelance-header">
-            <img src="upwork-logo.svg" 
-                 alt="Upwork" class="freelance-logo" style="padding: 1rem;">
+            <img src="upwork-logo.svg" alt="Upwork" class="freelance-logo" style="padding: 1rem;">
             <h3 class="freelance-title">Upwork Profile</h3>
             <div class="freelance-platform">Top Rated Seller</div>
           </div>
@@ -588,7 +623,7 @@
               </div>
             </div>
             <p class="freelance-description">
-              Specialized in full-stack development, API integration, and cloud solutions. 
+              Specialized in full-stack development, API integration, and cloud solutions.
               Maintaining a perfect client satisfaction score with focus on enterprise solutions.
             </p>
             <div class="freelance-tags">
@@ -607,8 +642,8 @@
         <!-- Fiverr Card -->
         <div class="freelance-card" data-aos="fade-up">
           <div class="freelance-header">
-            <img src="https://1000logos.net/wp-content/uploads/2021/11/Fiverr-Logo.png" 
-                 alt="Fiverr" class="freelance-logo">
+            <img src="https://1000logos.net/wp-content/uploads/2021/11/Fiverr-Logo.png" alt="Fiverr"
+              class="freelance-logo">
             <h3 class="freelance-title">Fiverr Profile</h3>
             <div class="freelance-platform">Level 2 Seller</div>
           </div>
@@ -624,7 +659,7 @@
               </div>
             </div>
             <p class="freelance-description">
-              Delivering high-quality web applications and microservices. 
+              Delivering high-quality web applications and microservices.
               Specializing in scalable solutions and system architecture design.
             </p>
             <div class="freelance-tags">
@@ -643,8 +678,8 @@
         <!-- Freelancer.com Card -->
         <div class="freelance-card" data-aos="fade-up">
           <div class="freelance-header">
-            <img src="https://www.f-cdn.com/assets/main/en/assets/freelancer-logo-old.svg" 
-                 alt="Freelancer.com" class="freelance-logo">
+            <img src="https://www.f-cdn.com/assets/main/en/assets/freelancer-logo-old.svg" alt="Freelancer.com"
+              class="freelance-logo">
             <h3 class="freelance-title">Freelancer Profile</h3>
             <div class="freelance-platform">Preferred Freelancer</div>
           </div>
@@ -695,8 +730,8 @@
             <h3 class="education-title">Full Stack Web Development</h3>
             <div class="education-school">Masai School</div>
             <p class="education-details">
-              Intensive program focused on full-stack web development, agile methodologies, 
-              and industry-relevant technologies. Completed multiple real-world projects and 
+              Intensive program focused on full-stack web development, agile methodologies,
+              and industry-relevant technologies. Completed multiple real-world projects and
               participated in team collaborations.
             </p>
             <div class="education-tags">
@@ -735,7 +770,7 @@
             <h3 class="education-title">Higher Secondary Education</h3>
             <!-- <div class="education-school">Delhi Public School</div> -->
             <p class="education-details">
-              Completed higher secondary education with a focus on science and mathematics. 
+              Completed higher secondary education with a focus on science and mathematics.
               Participated in various technical competitions and programming challenges.
             </p>
             <div class="education-tags">
@@ -788,7 +823,8 @@
               <a href="https://classy-sherbet-63a565.netlify.app" class="btn-link" target="_blank">
                 <i class="fa fa-globe"></i> Live Demo
               </a>
-              <a href="https://github.com/princekr0722/Insightgram_Main_Backend_Service" class="btn-link" target="_blank">
+              <a href="https://github.com/princekr0722/Insightgram_Main_Backend_Service" class="btn-link"
+                target="_blank">
                 <i class="fa fa-github"></i> Source Code
               </a>
             </div>
@@ -800,7 +836,8 @@
           <div class="project-image">
             <img src="Estate Explorer - Logo.jpg" alt="Estate Explorer Project" loading="lazy">
             <div class="project-overlay">
-              <a href="https://github.com/dikshant123321/Real-Estate-Broker-Application-" class="btn-view" target="_blank">
+              <a href="https://github.com/dikshant123321/Real-Estate-Broker-Application-" class="btn-view"
+                target="_blank">
                 View Project <i class="fa fa-external-link"></i>
               </a>
             </div>
@@ -819,10 +856,12 @@
               </div>
             </div>
             <div class="project-links">
-              <a href="https://drive.google.com/file/d/1pgnoh-SSTSRZIqLJsBwh1rLfGPDzKvyX/view?usp=share_link" class="btn-link" target="_blank">
+              <a href="https://drive.google.com/file/d/1pgnoh-SSTSRZIqLJsBwh1rLfGPDzKvyX/view?usp=share_link"
+                class="btn-link" target="_blank">
                 <i class="fa fa-file-text"></i> Presentation
               </a>
-              <a href="https://github.com/dikshant123321/Real-Estate-Broker-Application-" class="btn-link" target="_blank">
+              <a href="https://github.com/dikshant123321/Real-Estate-Broker-Application-" class="btn-link"
+                target="_blank">
                 <i class="fa fa-github"></i> Source Code
               </a>
             </div>
@@ -851,7 +890,8 @@
               </div>
             </div>
             <div class="project-links">
-              <a href="https://drive.google.com/file/d/1v5XrzAQipbzSQiNrmaTda8DIXs7HrNk_/view?usp=share_link" class="btn-link" target="_blank">
+              <a href="https://drive.google.com/file/d/1v5XrzAQipbzSQiNrmaTda8DIXs7HrNk_/view?usp=share_link"
+                class="btn-link" target="_blank">
                 <i class="fa fa-file-text"></i> Presentation
               </a>
               <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-link" target="_blank">
@@ -948,14 +988,14 @@
           <div class="stats-card main-stats">
             <h3>Overview</h3>
             <picture>
-              <source 
+              <source
                 srcset="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true&theme=dark&hide_border=true&bg_color=1a1a1a&title_color=8584ff&icon_color=6c6bff&text_color=ffffff"
                 media="(prefers-color-scheme: dark)" />
-              <source 
+              <source
                 srcset="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true&hide_border=true"
                 media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
               <img id="github-stats-card"
-                src="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true&hide_border=true" 
+                src="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true&hide_border=true"
                 alt="GitHub Stats" />
             </picture>
           </div>
@@ -964,14 +1004,13 @@
           <div class="stats-card streak-stats">
             <h3>Contribution Streak</h3>
             <picture>
-              <source 
+              <source
                 srcset="https://github-readme-streak-stats.herokuapp.com?user=princekr0722&theme=dark&hide_border=true&background=1a1a1a&stroke=8584ff&ring=6c6bff&fire=6c6bff&currStreakLabel=8584ff"
                 media="(prefers-color-scheme: dark)" />
-              <source 
-                srcset="https://github-readme-streak-stats.herokuapp.com?user=princekr0722&hide_border=true"
+              <source srcset="https://github-readme-streak-stats.herokuapp.com?user=princekr0722&hide_border=true"
                 media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
               <img id="github-streak-stats"
-                src="https://github-readme-streak-stats.herokuapp.com?user=princekr0722&hide_border=true" 
+                src="https://github-readme-streak-stats.herokuapp.com?user=princekr0722&hide_border=true"
                 alt="GitHub Streak Stats" />
             </picture>
           </div>
@@ -980,14 +1019,14 @@
           <div class="stats-card languages">
             <h3>Top Languages</h3>
             <picture>
-              <source 
+              <source
                 srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=princekr0722&layout=compact&theme=dark&hide_border=true&bg_color=1a1a1a&title_color=8584ff&text_color=ffffff"
                 media="(prefers-color-scheme: dark)" />
-              <source 
+              <source
                 srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=princekr0722&layout=compact&hide_border=true"
                 media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
               <img id="github-top-langs"
-                src="https://github-readme-stats.vercel.app/api/top-langs/?username=princekr0722&layout=compact&hide_border=true" 
+                src="https://github-readme-stats.vercel.app/api/top-langs/?username=princekr0722&layout=compact&hide_border=true"
                 alt="Most Used Languages" />
             </picture>
           </div>
@@ -1023,7 +1062,7 @@
                 <span>9523434209</span>
               </div>
             </a>
-            
+
             <a href="mailto:knownasprincekr@gmail.com" class="contact-card" id="contact-email">
               <div class="contact-icon">
                 <i class="fa fa-envelope"></i>
@@ -1033,8 +1072,9 @@
                 <span>knownasprincekr@gmail.com</span>
               </div>
             </a>
-            
-            <a href="https://www.linkedin.com/in/prince-kumar-7b9194247/" class="contact-card" id="contact-linkedin" target="_blank" rel="noopener noreferrer">
+
+            <a href="https://www.linkedin.com/in/prince-kumar-7b9194247/" class="contact-card" id="contact-linkedin"
+              target="_blank" rel="noopener noreferrer">
               <div class="contact-icon">
                 <i class="fa fa-linkedin-square"></i>
               </div>
@@ -1043,8 +1083,9 @@
                 <span>Prince Kumar</span>
               </div>
             </a>
-            
-            <a href="https://github.com/princekr0722" class="contact-card" id="contact-github" target="_blank" rel="noopener noreferrer">
+
+            <a href="https://github.com/princekr0722" class="contact-card" id="contact-github" target="_blank"
+              rel="noopener noreferrer">
               <div class="contact-icon">
                 <i class="fa fa-github"></i>
               </div>
