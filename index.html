@@ -4,7 +4,7 @@
 <head>
   <title>Prince Kumar - Portfolio</title>
   <!--ADD PIC LINK IN HREF BELOW FOR DISPLAYING LOGO WITH TITLE -->
-  <link rel="shortcut icon" href="logo.png">
+  <link rel="shortcut icon" href="/media/logos/logo.png">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="HandheldFriendly" content="true">
@@ -33,7 +33,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Devicon for tech stack icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
 
   <link rel="stylesheet" href="style.css">
 
@@ -318,7 +320,7 @@
         </div>
         <div class="col-lg-6 hero-image-wrapper" data-aos="fade-left">
           <div class="hero-image-container">
-            <img src="Profile_Pic.png" class="hero-image" alt="Prince Kumar">
+            <img src="/media/images/me/Profile_Pic.png" class="hero-image" alt="Prince Kumar">
             <div class="experience-indicator">
               <div class="exp-number"><span class="years-of-exp">...</span></div>
               <div class="exp-text">Years of<br>Experience</div>
@@ -351,7 +353,7 @@
         <div class="row align-items-center">
           <div class="col-lg-5 mb-4 mb-lg-0">
             <div class="about-image" data-aos="fade-right">
-              <img src="Prince-Kumar-Profile-Photo.jpg" class="img-fluid rounded-3 shadow" alt="Prince Kumar">
+              <img src="/media/images/me/Prince-Kumar-Profile-Photo.jpg" class="img-fluid rounded-3 shadow" alt="Prince Kumar">
               <div class="experience-badge">
                 <span class="number years-of-exp">2+</span>
                 <span class="text">Years<br>Experience</span>
@@ -499,7 +501,7 @@
               <span>Spring Boot</span>
             </div>
             <div class="skill-card" data-aos="fade-up">
-              <img src="hibernate-svgrepo-com.png" alt="Hibernate">
+              <i class="devicon-hibernate-plain colored"></i>
               <span>Hibernate</span>
             </div>
             <div class="skill-card" data-aos="fade-up">
@@ -511,7 +513,7 @@
               <span>Node.js</span>
             </div>
             <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-nextjs-original"></i>
+              <i class="devicon-nextjs-plain"></i>
               <span>Next.js</span>
             </div>
           </div>
@@ -545,7 +547,7 @@
           <h2>Cloud & DevOps</h2>
           <div class="skills-grid">
             <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-amazonwebservices-original colored"></i>
+              <i class="devicon-amazonwebservices-plain colored"></i>
               <span>AWS</span>
             </div>
             <div class="skill-card" data-aos="fade-up">
@@ -572,7 +574,7 @@
           <h2>Message Brokers & Architecture</h2>
           <div class="skills-grid">
             <div class="skill-card" data-aos="fade-up">
-              <img src="rabbitmq-logo-svgrepo-com.svg" alt="RabbitMQ">
+               <i class="devicon-rabbitmq-plain colored"></i>
               <span>RabbitMQ</span>
             </div>
             <div class="skill-card" data-aos="fade-up">
@@ -580,11 +582,11 @@
               <span>Kafka</span>
             </div>
             <div class="skill-card" data-aos="fade-up">
-              <img src="microservices.svg" alt="Microservices">
+              <img src="/media/logos/skills/microservices.svg" alt="Microservices">
               <span>Microservices</span>
             </div>
             <div class="skill-card" data-aos="fade-up">
-              <img src="dsa.svg" alt="DSA">
+              <img src="/media/logos/skills/dsa.svg" alt="DSA">
               <span>DSA</span>
             </div>
           </div>
@@ -596,7 +598,9 @@
   </div>
 
   <!-- FREELANCE SECTION -->
-  <div style="display: none;" id="freelance" class="freelance-section">
+  <!-- style="display: none;"  -->
+  <div 
+    id="freelance" class="freelance-section">
     <div class="container">
       <div class="section-header text-center">
         <h1>Freelance Work</h1>
@@ -607,7 +611,7 @@
         <!-- Upwork Card -->
         <div class="freelance-card" data-aos="fade-up">
           <div class="freelance-header">
-            <img src="upwork-logo.svg" alt="Upwork" class="freelance-logo" style="padding: 1rem;">
+            <img src="https://static.cdnlogo.com/logos/u/34/upwork.svg" alt="UpWork" class="freelance-logo">
             <h3 class="freelance-title">Upwork Profile</h3>
             <div class="freelance-platform">Top Rated Seller</div>
           </div>
@@ -642,8 +646,7 @@
         <!-- Fiverr Card -->
         <div class="freelance-card" data-aos="fade-up">
           <div class="freelance-header">
-            <img src="https://1000logos.net/wp-content/uploads/2021/11/Fiverr-Logo.png" alt="Fiverr"
-              class="freelance-logo">
+              <img src="https://static.cdnlogo.com/logos/f/86/fiverr800x800.png" alt="Fiverr" class="freelance-logo">
             <h3 class="freelance-title">Fiverr Profile</h3>
             <div class="freelance-platform">Level 2 Seller</div>
           </div>
@@ -678,8 +681,7 @@
         <!-- Freelancer.com Card -->
         <div class="freelance-card" data-aos="fade-up">
           <div class="freelance-header">
-            <img src="https://www.f-cdn.com/assets/main/en/assets/freelancer-logo-old.svg" alt="Freelancer.com"
-              class="freelance-logo">
+              <img src="https://static.cdnlogo.com/logos/f/11/freelancer.svg" alt="Freelancers" class="freelance-logo">
             <h3 class="freelance-title">Freelancer Profile</h3>
             <div class="freelance-platform">Preferred Freelancer</div>
           </div>
@@ -796,7 +798,7 @@
         <!-- Insightgram Project -->
         <div class="project-card">
           <div class="project-image">
-            <img src="Insightgram_Portfolio_Banner.png" alt="Insightgram Project" loading="lazy">
+            <img src="/media/images/projects/Insightgram_Portfolio_Banner.png" alt="Insightgram Project" loading="lazy">
             <div class="project-overlay">
               <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-view" target="_blank">
                 View Project <i class="fa fa-external-link"></i>
@@ -834,7 +836,7 @@
         <!-- Estate Explorer Project -->
         <div class="project-card">
           <div class="project-image">
-            <img src="Estate Explorer - Logo.jpg" alt="Estate Explorer Project" loading="lazy">
+            <img src="/media/images/projects/Estate Explorer - Logo.jpg" alt="Estate Explorer Project" loading="lazy">
             <div class="project-overlay">
               <a href="https://github.com/dikshant123321/Real-Estate-Broker-Application-" class="btn-view"
                 target="_blank">
@@ -871,7 +873,7 @@
         <!-- Bus Buddy Project -->
         <div class="project-card">
           <div class="project-image">
-            <img src="Bus Buddy Logo.jpg" alt="Bus Buddy Project" loading="lazy">
+            <img src="/media/images/projects/Bus Buddy Logo.jpg" alt="Bus Buddy Project" loading="lazy">
             <div class="project-overlay">
               <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-view" target="_blank">
                 View Project <i class="fa fa-external-link"></i>
@@ -904,7 +906,7 @@
         <!-- Licious Clone Project -->
         <div class="project-card">
           <div class="project-image">
-            <img src="Licious_SS1.png" alt="Licious Clone Project" loading="lazy">
+            <img src="/media/images/projects/Licious_SS1.png" alt="Licious Clone Project" loading="lazy">
             <div class="project-overlay">
               <a href="https://candid-sorbet-838343.netlify.app/" class="btn-view" target="_blank">
                 View Project <i class="fa fa-external-link"></i>
@@ -938,7 +940,7 @@
         <!-- PharmEasy Clone Project -->
         <div class="project-card">
           <div class="project-image">
-            <img src="PharmEasy_SS1.png" alt="PharmEasy Clone Project" loading="lazy">
+            <img src="/media/images/projects/PharmEasy_SS1.png" alt="PharmEasy Clone Project" loading="lazy">
             <div class="project-overlay">
               <a href="https://steady-jalebi-560beb.netlify.app/index.html" class="btn-view" target="_blank">
                 View Project <i class="fa fa-external-link"></i>
