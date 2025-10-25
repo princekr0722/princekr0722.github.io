@@ -16,6 +16,8 @@
   --section-bg-dark: #252525;
   --heading-color: #67676e;
   --icon-filter: none;
+  --navbar-border-color: #e4e4e4;
+  --nav-bg-color: rgba(0, 0, 0, 0.097);
 }
 
 [data-theme="dark"] {
@@ -34,6 +36,8 @@
   --section-bg-dark: #1a1a1a;
   --heading-color: #ffffff;
   --icon-filter: brightness(0.9) contrast(1.2);
+  --navbar-border-color: #6c6c6c;
+  --nav-bg-color: rgba(0, 0, 0, 0.097);
 }
 
 body {
@@ -717,7 +721,7 @@ body {
   text-align: center;
   box-shadow: 0 4px 6px var(--shadow-color);
   transition: all var(--transition-speed);
-  width: 120px;
+  min-width: 120px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -727,6 +731,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 120px;
+  user-select: none;
 }
 
 .skill-card::before {
@@ -1134,13 +1139,9 @@ body {
 .navbar {
   padding: 1rem;
   transition: all var(--transition-speed);
-  background-color: rgba(var(--background-color), 0.95) !important;
+  background-color: var(--nav-bg-color) !important;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
-}
-
-[data-theme="dark"] .navbar {
-  background-color: rgba(26, 26, 26, 0.95) !important;
 }
 
 .navbar-brand {
@@ -1495,6 +1496,7 @@ body {
   gap: 10px;
   font-size: 0.9rem;
   animation: float 3s infinite alternate;
+  height: max-content;
 }
 
 .achievement-card i {
@@ -1520,6 +1522,7 @@ body {
     margin-top: 50px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
   }
 
   .floating-achievements {
@@ -1588,8 +1591,9 @@ body {
 }
 
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 1.5rem;
   padding: 1rem;
 }
@@ -1742,24 +1746,51 @@ body {
 }
 
 .navbar {
-  border-bottom: 2px solid #e4e4e4;
+  border-bottom: 1px solid var(navbar-border-color);
   font-family: Montserrat, sans-serif;
   margin-bottom: 0;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(151, 151, 151);
   font-size: 11px !important;
   letter-spacing: 4px;
-  opacity: 0.9;
 }
 .navbar li a,
 .navbar .navbar-brand {
   color: #7372dd !important;
-  margin-right: 10px;
 }
+@media (max-width: 991px) {
+  .nav-item.nav-btn {
+    padding: 0.4rem 0;
+  }
+  .nav-item.nav-btn .btn {
+    width: 10rem;
+  }
+  .nav-item.nav-btn .theme-toggle-name {
+    display: inline;
+  }
+}
+@media (min-width: 991px) {
+  .nav-item.nav-btn {
+    margin: 0 0.4rem;
+  } 
+  #theme-toggle {
+    width: 70px !important;
+  }
+  .nav-item.nav-btn .theme-toggle-name {
+    display: none;
+  }
+}
+
 .navbar-nav li a:hover {
   background-color: #e0e0e721 !important;
   color: #bab9ff !important;
   border-radius: 4px;
 }
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .navbar-nav li.active a {
   color: rgb(255, 255, 255) !important;
   background-color: #7372dd !important;
@@ -2184,6 +2215,15 @@ img.zoom {
 .git_container > picture img {
   max-width: 350px;
   object-fit: contain;
+}
+
+.contribution-calendar-img-container {
+  max-width: 100% !important;
+  overflow: auto;
+}
+
+.github-chart {
+  max-width: 100%;
 }
 
 #resume-button-1,
