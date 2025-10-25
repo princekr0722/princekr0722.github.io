@@ -38,11 +38,6 @@
 
 
   <link rel="stylesheet" href="style.css">
-
-
-  <!-- git calender -->
-  <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
-  <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js">
   </script>
 
 
@@ -192,7 +187,7 @@
 <!---Nav Bar-->
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="150">
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm" id="nav-menu">
+  <nav class="glass-card navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm" id="nav-menu">
     <div class="container">
       <a class="navbar-brand fw-bold" href="index.html">Prince</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -353,7 +348,8 @@
         <div class="row align-items-center">
           <div class="col-lg-5 mb-4 mb-lg-0">
             <div class="about-image" data-aos="fade-right">
-              <img src="/media/images/me/Prince-Kumar-Profile-Photo.jpg" class="img-fluid rounded-3 shadow" alt="Prince Kumar">
+              <img src="/media/images/me/Prince-Kumar-Profile-Photo.jpg" class="img-fluid rounded-3 shadow"
+                alt="Prince Kumar">
               <div class="experience-badge">
                 <span class="number years-of-exp">2+</span>
                 <span class="text">Years<br>Experience</span>
@@ -574,7 +570,7 @@
           <h2>Message Brokers & Architecture</h2>
           <div class="skills-grid">
             <div class="skill-card" data-aos="fade-up">
-               <i class="devicon-rabbitmq-plain colored"></i>
+              <i class="devicon-rabbitmq-plain colored"></i>
               <span>RabbitMQ</span>
             </div>
             <div class="skill-card" data-aos="fade-up">
@@ -598,10 +594,7 @@
   </div>
 
   <!-- FREELANCE SECTION -->
-  <div 
-    style="display: none;" 
-    id="freelance" class="freelance-section"
-  >
+  <div style="display: none;" id="freelance" class="freelance-section">
     <div class="container">
       <div class="section-header text-center">
         <h1>Freelance Work</h1>
@@ -647,7 +640,7 @@
         <!-- Fiverr Card -->
         <div class="freelance-card" data-aos="fade-up">
           <div class="freelance-header">
-              <img src="https://static.cdnlogo.com/logos/f/86/fiverr800x800.png" alt="Fiverr" class="freelance-logo">
+            <img src="https://static.cdnlogo.com/logos/f/86/fiverr800x800.png" alt="Fiverr" class="freelance-logo">
             <h3 class="freelance-title">Fiverr Profile</h3>
             <div class="freelance-platform">Level 2 Seller</div>
           </div>
@@ -682,7 +675,7 @@
         <!-- Freelancer.com Card -->
         <div class="freelance-card" data-aos="fade-up">
           <div class="freelance-header">
-              <img src="https://static.cdnlogo.com/logos/f/11/freelancer.svg" alt="Freelancers" class="freelance-logo">
+            <img src="https://static.cdnlogo.com/logos/f/11/freelancer.svg" alt="Freelancers" class="freelance-logo">
             <h3 class="freelance-title">Freelancer Profile</h3>
             <div class="freelance-platform">Preferred Freelancer</div>
           </div>
@@ -1037,9 +1030,9 @@
 
         <!-- Contribution Calendar -->
         <div class="contribution-calendar">
-          <h3>Contribution Activity</h3>
-          <div class="calendar react-activity-calendar">
-            Loading GitHub contribution calendar...
+          <h3>GitHub Activity2</h3>
+          <div class="contribution-calendar-img-container">
+            <img src="https://ghchart.rshah.org/princekr0722" alt="GitHub Contribution Chart" class="github-chart" />
           </div>
         </div>
       </div>
@@ -1103,38 +1096,14 @@
     </div>
   </div>
 
-  <!---FOOTER -->
-  <!-- <div class="container-fluid  text-center footer" >
-   <a href="https://github.com/wajihafatimaofficial">  <p>Designed by Wajiha Fatima</p></a>
-</div> -->
-
   <!-- Scroll to top button -->
   <button class="topButton" id="topBtn" title="Go to top">
     <i class="fa fa-arrow-up"></i>
   </button>
-
 </body>
 
 </html>
 <script>
-  try {
-    GitHubCalendar(".calendar", "princekr0722");
-
-    // or enable responsive functionality:
-    GitHubCalendar(".calendar", "princekr0722", { responsive: true });
-
-    // Use a proxy
-    GitHubCalendar(".calendar", "princekr0722", {
-      proxy(princekr0722) {
-        return fetch(`https://your-proxy.com/github?user=${princekr0722}`)
-      }
-    })
-    // .then(r => r.text())
-
-  } catch (e) {
-    console.log(e)
-  }
-
   function resume() {
     window.open("Prince_Kumar_Resume.pdf", "_blank")
   }
