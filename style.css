@@ -18,6 +18,16 @@
   --icon-filter: none;
   --navbar-border-color: #e4e4e4;
   --nav-bg-color: rgba(0, 0, 0, 0.097);
+  --achievement-ai-card-bg-gradient: linear-gradient(
+    130deg,
+    #dfe6f9,
+    #7d92e7,
+    #f5f5f5,
+    #e6ddff,
+    #d1d1d1,
+    #dd5252,
+    #46f18d
+  );
 }
 
 [data-theme="dark"] {
@@ -38,6 +48,7 @@
   --icon-filter: brightness(0.9) contrast(1.2);
   --navbar-border-color: #6c6c6c;
   --nav-bg-color: rgba(0, 0, 0, 0.097);
+  --achievement-ai-card-bg-gradient: linear-gradient( 130deg, #0f0c29, #302b63, #000000, #1b0052, #747474, #480000, #11793f );
 }
 
 body {
@@ -1492,6 +1503,7 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   font-size: 0.9rem;
@@ -1499,9 +1511,50 @@ body {
   height: max-content;
 }
 
+.achievement-card.ai {
+  background: var(--achievement-ai-card-bg-gradient);
+  background-size: 1000% 1000%;
+  animation: float 3s infinite alternate, aiWeirdGradient 20s ease-in-out infinite;
+}
+
+.achievement-card.ai i, .achievement-card.ai span {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .achievement-card i, [data-theme="dark"] .achievement-card span {
+  color: #dcdcdc;
+}
+
+@keyframes aiWeirdGradient {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    background-position: 50% 0%;
+    filter: hue-rotate(90deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(180deg);
+  }
+  75% {
+    background-position: 50% 100%;
+    filter: hue-rotate(270deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(360deg);
+  }
+}
+
 .achievement-card i {
   color: var(--primary-color);
   font-size: 1.2rem;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes float {
