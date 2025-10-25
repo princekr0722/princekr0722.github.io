@@ -78,7 +78,7 @@ body {
 }
 
 .about-section {
-  padding: 5rem 0;
+  padding: 2rem 0;
   background-color: var(--section-bg-light);
   transition: background-color var(--transition-speed);
 }
@@ -212,7 +212,7 @@ body {
 /* Freelance Section Styles */
 .freelance-section,
 .education-section {
-  padding: 5rem 0;
+  padding: 2rem 0;
   background-color: var(--section-bg-light);
   transition: background-color var(--transition-speed);
 }
@@ -519,7 +519,7 @@ body {
 
 .projects-section {
   background-color: var(--background-color);
-  padding: 5rem 0;
+  padding: 2rem 0;
   transition: background-color var(--transition-speed);
 }
 
@@ -676,7 +676,7 @@ body {
 /* Skills Section Styles */
 .skills-section {
   background-color: var(--section-bg-light);
-  padding: 5rem 0;
+  padding: 2rem 0;
   transition: background-color var(--transition-speed);
 }
 
@@ -902,7 +902,7 @@ body {
 
 .contact-section {
   background-color: var(--section-bg-light);
-  padding: 5rem 0;
+  padding: 2rem 0;
   transition: all var(--transition-speed);
 }
 
@@ -1018,7 +1018,7 @@ body {
 
 /* GitHub Stats Section Styles */
 .github-stats-section {
-  padding: 5rem 0;
+  padding: 2rem 0;
   background-color: var(--background-color);
   transition: background-color var(--transition-speed);
 }
@@ -1845,9 +1845,6 @@ body {
   text-decoration: none;
 }
 
-.main-nav .dropdown-slide .dropdown-menu .dropdown-item:not(:last-child) {
-}
-
 .main-nav .dropdown-slide .dropdown-menu .dropdown-item:hover {
   background: #777;
   color: #ff6600;
@@ -2133,9 +2130,6 @@ img.zoom {
   min-width: 50%;
 }
 
-#skills {
-  margin-bottom: 70px;
-}
 #skills_container {
   display: flex;
   flex-wrap: wrap;
@@ -2161,6 +2155,13 @@ img.zoom {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+}
+.contribution-calendar-img-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 .git_container {
   margin: auto;
