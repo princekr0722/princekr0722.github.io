@@ -17,7 +17,7 @@
   --heading-color: #67676e;
   --icon-filter: none;
   --navbar-border-color: #e4e4e4;
-  --nav-bg-color: rgba(0, 0, 0, 0.097);
+  --nav-bg-color: rgba(255, 255, 255, 0.279);
   --achievement-ai-card-bg-gradient: linear-gradient(
     130deg,
     #dfe6f9,
@@ -47,7 +47,7 @@
   --heading-color: #ffffff;
   --icon-filter: brightness(0.9) contrast(1.2);
   --navbar-border-color: #6c6c6c;
-  --nav-bg-color: rgba(0, 0, 0, 0.097);
+  --nav-bg-color: rgba(0, 0, 0, 0.178);
   --achievement-ai-card-bg-gradient: linear-gradient( 130deg, #0f0c29, #302b63, #000000, #1b0052, #747474, #480000, #11793f );
 }
 
