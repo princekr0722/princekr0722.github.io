@@ -30,7 +30,8 @@
   <!--google icon link-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--font awesomes icons link-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Include Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
   <!-- Devicon for tech stack icons -->
 
@@ -187,9 +188,9 @@
 <!---Nav Bar-->
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="150">
-  <nav class="glass-card navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm" id="nav-menu">
+  <nav class="frosted navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm" id="nav-menu">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">Prince</a>
+      <a class="navbar-brand fw-bold" href="index.html">Prince Kr</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -218,15 +219,16 @@
           <li class="nav-item">
             <a class="nav-link" href="#contact">CONTACT</a>
           </li>
-          <li class="nav-item ms-2">
+          <li class="nav-item nav-btn">
             <a href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view" class="btn btn-primary"
               target="_blank" download="Prince_Kumar_Resume.pdf">
               Resume
             </a>
           </li>
-          <li class="nav-item ms-3">
+          <li class="nav-item nav-btn">
             <button id="theme-toggle" class="btn btn-outline-primary">
-              <i class="fa fa-sun-o"></i>
+              <i class="fa-solid fa-sun"></i>
+              <span class="theme-toggle-name">Theme</span>
             </button>
           </li>
         </ul>
@@ -237,6 +239,7 @@
       // Theme toggle functionality
       const themeToggle = document.getElementById('theme-toggle');
       const icon = themeToggle.querySelector('i');
+      const navbarMenu = document.querySelector('#nav-menu');
 
       // Check for saved theme preference or default to light
       const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -253,7 +256,9 @@
       });
 
       function updateThemeIcon(theme) {
-        icon.className = theme === 'dark' ? 'fa fa-sun-o' : 'fa fa-moon-o';
+        icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        navbarMenu.classList.remove("navbar-light", "navbar-dark");
+        navbarMenu.classList.add(theme === 'light' ? 'navbar-light' : 'navbar-dark');
       }
     </script>
 
@@ -329,6 +334,10 @@
             <div class="achievement-card">
               <i class="fa fa-check"></i>
               <span>1500+ DSA<br>Problems</span>
+            </div>
+            <div class="achievement-card">
+              <i class="fa-solid fa-brain"></i>
+              <span>AI Powered</span>
             </div>
           </div>
         </div>
@@ -420,10 +429,10 @@
 
               <div class="social-links">
                 <a href="https://github.com/princekr0722" class="social-link" target="_blank">
-                  <i class="fa fa-github"></i>
+                  <i class="fa-brands fa-github"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/prince-kumar-7b9194247/" class="social-link" target="_blank">
-                  <i class="fa fa-linkedin"></i>
+                  <i class="fa-brands fa-linkedin"></i>
                 </a>
                 <a href="mailto:knownasprincekr@gmail.com" class="social-link">
                   <i class="fa fa-envelope"></i>
@@ -561,6 +570,10 @@
             <div class="skill-card" data-aos="fade-up">
               <i class="devicon-docker-plain colored"></i>
               <span>Docker</span>
+            </div>
+            <div class="skill-card" data-aos="fade-up">
+              <img src="/media/logos/skills/kong-svgrepo-com.svg" alt="Kong">
+              <span>Kong</span>
             </div>
           </div>
         </div>
@@ -1072,7 +1085,7 @@
             <a href="https://www.linkedin.com/in/prince-kumar-7b9194247/" class="contact-card" id="contact-linkedin"
               target="_blank" rel="noopener noreferrer">
               <div class="contact-icon">
-                <i class="fa fa-linkedin-square"></i>
+                <i class="fa-brands fa-linkedin"></i>
               </div>
               <div class="contact-info">
                 <h3>LinkedIn</h3>
@@ -1083,7 +1096,7 @@
             <a href="https://github.com/princekr0722" class="contact-card" id="contact-github" target="_blank"
               rel="noopener noreferrer">
               <div class="contact-icon">
-                <i class="fa fa-github"></i>
+                <i class="fa-brands fa-github"></i>
               </div>
               <div class="contact-info">
                 <h3>GitHub</h3>
