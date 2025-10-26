@@ -59,6 +59,7 @@ body {
   background-color: var(--background-color);
   transition: background-color var(--transition-speed),
     color var(--transition-speed);
+  user-select: none;
 }
 
 * {
