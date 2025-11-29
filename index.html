@@ -4,8 +4,10 @@
 <head>
   <title>Prince Kumar - Software Developer - Portfolio</title>
   <meta name="google-site-verification" content="_Zt9nq1GJeXICCL2qmfsm2aOW7OtG91lnt-KPwguOGc" />
-  <meta name="description" content="Prince is a Software Developer specialized in Java, Spring Boot, Javascript, Node.js, React, SQL, AWS and Cloud Technologies. Building scalable microservices and distributed systems.">
-  <meta name="keywords" content="Java developer, Software Developer, Spring Boot Developer, Software Engineer, React.js Developer, AWS CDK Developer, Node.js Developer, cloud engineer, full-stack developer, microservices, distributed systems, backend developer, system designer, API development, database management, DevOps, Docker, Kubernetes, cloud computing, software architecture, RESTful services, enterprise applications, system designer">
+  <meta name="description"
+    content="Prince is a Software Developer specialized in Java, Spring Boot, Javascript, Node.js, React, SQL, AWS and Cloud Technologies. Building scalable microservices and distributed systems.">
+  <meta name="keywords"
+    content="Java developer, Software Developer, Spring Boot Developer, Software Engineer, React.js Developer, AWS CDK Developer, Node.js Developer, cloud engineer, full-stack developer, microservices, distributed systems, backend developer, system designer, API development, database management, DevOps, Docker, Kubernetes, cloud computing, software architecture, RESTful services, enterprise applications, system designer">
   <meta name="author" content="Prince Kumar">
   <meta name="robots" content="index, follow">
 
@@ -15,7 +17,7 @@
   <meta property="og:image" content="preview.png">
   <meta property="og:url" content="https://yourdomain.com">
   <meta property="og:type" content="website">
-  
+
   <!--ADD PIC LINK IN HREF BELOW FOR DISPLAYING LOGO WITH TITLE -->
   <link rel="shortcut icon" href="/media/logos/logo.png">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
@@ -245,7 +247,7 @@
           </li>
           <li class="nav-item nav-btn">
             <a href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view" class="btn btn-primary"
-              target="_blank" download="Prince_Kumar_Resume.pdf">
+              target="_blank" download="Prince_Kumar_Resume.pdf" onclick="logResumeClickedHeader()">
               Resume
             </a>
           </li>
@@ -324,7 +326,8 @@
           </p>
           <div class="hero-cta">
             <a href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view"
-              class="btn btn-primary btn-lg download-btn" target="_blank" download="Prince_Kumar_Resume.pdf">
+              class="btn btn-primary btn-lg download-btn" target="_blank" download="Prince_Kumar_Resume.pdf"
+              onclick="logResumeClickedHeroSection()">
               <i class="fa fa-eye"></i> View Resume
             </a>
             <a href="#contact" class="btn btn-outline-primary btn-lg">
@@ -831,7 +834,8 @@
           <div class="project-image">
             <img src="/media/images/projects/Insightgram_Portfolio_Banner.png" alt="Insightgram Project" loading="lazy">
             <div class="project-overlay">
-              <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-view" target="_blank">
+              <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-view" target="_blank"
+                onclick="viewedProject('Insightgram', 'View Project')">
                 View Project <i class="fa fa-external-link"></i>
               </a>
             </div>
@@ -853,11 +857,12 @@
               </div>
             </div>
             <div class="project-links">
-              <a href="https://insightgram.netlify.app" class="btn-link" target="_blank">
+              <a href="https://insightgram.netlify.app" class="btn-link" target="_blank"
+                onclick="viewedProject('Insightgram', 'Live Demo')">
                 <i class="fa fa-globe"></i> Live Demo
               </a>
               <a href="https://github.com/princekr0722/Insightgram_Main_Backend_Service" class="btn-link"
-                target="_blank">
+                target="_blank" onclick="viewedProject('Insightgram', 'Source Code')">
                 <i class="fa-brands fa-github"></i> Source Code
               </a>
             </div>
@@ -870,7 +875,7 @@
             <img src="/media/images/projects/Estate Explorer - Logo.jpg" alt="Estate Explorer Project" loading="lazy">
             <div class="project-overlay">
               <a href="https://github.com/dikshant123321/Real-Estate-Broker-Application-" class="btn-view"
-                target="_blank">
+                target="_blank" onclick="viewedProject('Estate Explorer', 'View Project')">
                 View Project <i class="fa fa-external-link"></i>
               </a>
             </div>
@@ -890,11 +895,11 @@
             </div>
             <div class="project-links">
               <a href="https://drive.google.com/file/d/1pgnoh-SSTSRZIqLJsBwh1rLfGPDzKvyX/view?usp=share_link"
-                class="btn-link" target="_blank">
+                class="btn-link" target="_blank" onclick="viewedProject('Estate Explorer', 'Presentation')">
                 <i class="fa fa-file-text"></i> Presentation
               </a>
               <a href="https://github.com/dikshant123321/Real-Estate-Broker-Application-" class="btn-link"
-                target="_blank">
+                target="_blank" onclick="viewedProject('Estate Explorer', 'Source Code')">
                 <i class="fa-brands fa-github"></i> Source Code
               </a>
             </div>
@@ -906,7 +911,8 @@
           <div class="project-image">
             <img src="/media/images/projects/Bus Buddy Logo.jpg" alt="Bus Buddy Project" loading="lazy">
             <div class="project-overlay">
-              <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-view" target="_blank">
+              <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-view" target="_blank"
+                onclick="viewedProject('Bus Buddy', 'View Project')">
                 View Project <i class="fa fa-external-link"></i>
               </a>
             </div>
@@ -924,10 +930,11 @@
             </div>
             <div class="project-links">
               <a href="https://drive.google.com/file/d/1v5XrzAQipbzSQiNrmaTda8DIXs7HrNk_/view?usp=share_link"
-                class="btn-link" target="_blank">
+                class="btn-link" target="_blank" onclick="viewedProject('Bus Buddy', 'Presentation')">
                 <i class="fa fa-file-text"></i> Presentation
               </a>
-              <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-link" target="_blank">
+              <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-link" target="_blank"
+                onclick="viewedProject('Bus Buddy', 'Source Code')">
                 <i class="fa-brands fa-github"></i> Source Code
               </a>
             </div>
@@ -939,7 +946,8 @@
           <div class="project-image">
             <img src="/media/images/projects/Licious_SS1.png" alt="Licious Clone Project" loading="lazy">
             <div class="project-overlay">
-              <a href="https://candid-sorbet-838343.netlify.app/" class="btn-view" target="_blank">
+              <a href="https://candid-sorbet-838343.netlify.app/" class="btn-view" target="_blank"
+                onclick="viewedProject('Delicious', 'View Project')">
                 View Project <i class="fa fa-external-link"></i>
               </a>
             </div>
@@ -958,10 +966,12 @@
               </div>
             </div>
             <div class="project-links">
-              <a href="https://candid-sorbet-838343.netlify.app/" class="btn-link" target="_blank">
+              <a href="https://candid-sorbet-838343.netlify.app/" class="btn-link" target="_blank"
+                onclick="viewedProject('Delicious', 'Live Demo')">
                 <i class="fa fa-globe"></i> Live Demo
               </a>
-              <a href="https://github.com/AditiSharma00/truthful-wing-8761" class="btn-link" target="_blank">
+              <a href="https://github.com/AditiSharma00/truthful-wing-8761" class="btn-link" target="_blank"
+                onclick="viewedProject('Delicious', 'Source Code')">
                 <i class="fa-brands fa-github"></i> Source Code
               </a>
             </div>
@@ -973,7 +983,8 @@
           <div class="project-image">
             <img src="/media/images/projects/PharmEasy_SS1.png" alt="PharmEasy Clone Project" loading="lazy">
             <div class="project-overlay">
-              <a href="https://steady-jalebi-560beb.netlify.app/index.html" class="btn-view" target="_blank">
+              <a href="https://steady-jalebi-560beb.netlify.app/index.html" class="btn-view" target="_blank"
+                onclick="viewedProject('PharmNotEasy', 'View Project')">
                 View Project <i class="fa fa-external-link"></i>
               </a>
             </div>
@@ -992,10 +1003,12 @@
               </div>
             </div>
             <div class="project-links">
-              <a href="https://steady-jalebi-560beb.netlify.app/index.html" class="btn-link" target="_blank">
+              <a href="https://steady-jalebi-560beb.netlify.app/index.html" class="btn-link" target="_blank"
+                onclick="viewedProject('PharmNotEasy', 'Live Demo')">
                 <i class="fa fa-globe"></i> Live Demo
               </a>
-              <a href="https://github.com/princekr0722/versed-substance-8213" class="btn-link" target="_blank">
+              <a href="https://github.com/princekr0722/versed-substance-8213" class="btn-link" target="_blank"
+                onclick="viewedProject('PharmNotEasy', 'Source Code')">
                 <i class="fa-brands fa-github"></i> Source Code
               </a>
             </div>
@@ -1086,7 +1099,8 @@
         <div class="col-md-8 text-center">
           <p class="contact-intro mb-5">I'm always interested in hearing about new opportunities and collaborations.</p>
           <div class="contact-grid">
-            <a href="tel:9523434209" class="contact-card" id="contact-phone" title="Phone Number">
+            <a href="tel:9523434209" class="contact-card" id="contact-phone" title="Phone Number"
+              onclick="logPhoneClicked()">
               <div class="contact-icon">
                 <i class="fa fa-phone"></i>
               </div>
@@ -1096,18 +1110,19 @@
               </div>
             </a>
 
-            <a href="mailto:knownasprincekr@gmail.com" class="contact-card" id="contact-email">
+            <a href="mailto:knownasprincekr@gmail.com" class="contact-card" id="contact-email" title="Email Address"
+              onclick="logEmailClicked()">
               <div class="contact-icon">
                 <i class="fa fa-envelope"></i>
               </div>
-              <div class="contact-info">
+              <div class="contact-info" style="flex-grow: 1;">
                 <h3>Email</h3>
-                <span>knownasprincekr@gmail.com</span>
+                <span style="font-size: 11px;">knownasprincekr@gmail.com</span>
               </div>
             </a>
 
             <a href="https://www.linkedin.com/in/prince-kumar-7b9194247/" class="contact-card" id="contact-linkedin"
-              target="_blank" rel="noopener noreferrer">
+              target="_blank" rel="noopener noreferrer" onclick="logLinkedInClicked()">
               <div class="contact-icon">
                 <i class="fa-brands fa-linkedin"></i>
               </div>
@@ -1118,7 +1133,7 @@
             </a>
 
             <a href="https://github.com/princekr0722" class="contact-card" id="contact-github" target="_blank"
-              rel="noopener noreferrer">
+              rel="noopener noreferrer" onclick="logGitHubClicked()">
               <div class="contact-icon">
                 <i class="fa-brands fa-github"></i>
               </div>
@@ -1144,6 +1159,184 @@
   function resume() {
     window.open("Prince_Kumar_Resume.pdf", "_blank")
   }
+
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx7OYyZHDaha_Jx7yncoOGCcbpbNA8In8kz5cx0IVJ87MmQ6bcYmmlijXaiaShn9jOO/exec";
+
+  /**
+   * Sends a log entry to the Google Sheet.
+   * Automatically fetches the user's IP and adds it to the payload.
+   * * @param {string} type - The event type (e.g., "VISITED", "CLICKED_RESUME"). Matches Sheet Name.
+   * @param {object} customData - Any extra data you want to log (e.g., button ID, user agent).
+   */
+  async function sendLog(type, customData = {}) {
+    try {
+      // 1. Fetch User's Public IP Address
+      // We use a free service because browsers can't get public IP natively
+      let userIp = "Unknown";
+      const visitorId = getVisitorId();
+      const sessionId = getVisitorSessionId();
+      try {
+        const ipResponse = await fetch("https://api.ipify.org?format=json");
+        const ipJson = await ipResponse.json();
+        userIp = ipJson.ip;
+      } catch (err) {
+        console.warn("Could not determine Point");
+      }
+
+      // 2. Prepare the data
+      // We merge the customData with the IP address
+      const finalPayload = {
+        ...customData,
+        uid: visitorId,
+        session_id: sessionId,
+        timestamp: new Date().toISOString(),
+        ip_address: userIp,
+        screen_res: `${window.screen.width}x${window.screen.height}`,
+        page_url: window.location.href,
+        userAgent: navigator.userAgent // Good to have for analytics
+      };
+
+      const requestBody = {
+        type: type,
+        payload: finalPayload
+      };
+
+      // 3. Send to Google Apps Script
+      // mode: 'no-cors' is crucial here. 
+      // Google Scripts return a redirect (302) which causes CORS errors in browsers.
+      // 'no-cors' sends the data successfully but ignores the response to prevent errors.
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      console.log(`Logged: ${type}`);
+
+    } catch (error) {
+      console.error("Error logging:", error);
+    }
+  }
+
+  // Log page visit
+  function logResumeClickedHeader() {
+    sendLog('CLICKED VIEW RESUME', { button_location: 'HEADER' })
+  }
+  function logResumeClickedHeroSection() {
+    sendLog('CLICKED VIEW RESUME', { button_location: 'HERO SECTION' })
+  }
+  function logPhoneClicked() {
+    sendLog('GET IN TOUCH', { method: 'PHONE' })
+  }
+  function logEmailClicked() {
+    sendLog('GET IN TOUCH', { method: 'EMAIL' })
+  }
+  function logLinkedInClicked() {
+    sendLog('GET IN TOUCH', { method: 'LINKEDIN' })
+  }
+  function logGitHubClicked() {
+    sendLog('GET IN TOUCH', { method: 'GITHUB' })
+  }
+
+  function viewedProject(projectName, buttonLocation) {
+    sendLog('VIEWED PROJECT', { project_name: projectName, button_location: buttonLocation })
+  }
+
+  /**
+   * HELPER: Get or Create Unique Visitor ID
+   * Checks LocalStorage. If ID exists, returns it.
+   * If not, generates a new UUID, saves it, and returns it.
+   */
+  function getVisitorId() {
+    const STORAGE_KEY = "user_device_id";
+
+    try {
+      // Check if ID exists
+      let uid = localStorage.getItem(STORAGE_KEY);
+
+      if (!uid) {
+        // Generate a new UUID (Modern browser standard)
+        if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+          uid = crypto.randomUUID();
+        } else {
+          // Fallback for older browsers (Date + Random)
+          uid = 'user_' + Date.now().toString(36) + Math.random().toString(36).substr(2);
+        }
+
+        // Save to local storage
+        localStorage.setItem(STORAGE_KEY, uid);
+      } else {
+        // console.log("Returning Visitor ID:", uid);
+      }
+
+      return uid;
+    } catch (err) {
+      // Fallback if LocalStorage is blocked (e.g., Incognito mode sometimes)
+      console.warn("LocalStorage access denied.");
+      return "unknown_visitor_" + Date.now();
+    }
+  }
+
+  /**
+   * HELPER: Get or Create Unique Visitor Session ID
+   * Checks SessionStorage. If ID exists, returns it.
+   * If not, generates a new UUID, saves it, and returns it.
+   */
+  function getVisitorSessionId() {
+    const STORAGE_KEY = "user_session_id";
+
+    try {
+      // Check if ID exists
+      let uid = sessionStorage.getItem(STORAGE_KEY);
+
+      if (!uid) {
+        // Generate a new UUID (Modern browser standard)
+        if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+          uid = crypto.randomUUID();
+        } else {
+          // Fallback for older browsers (Date + Random)
+          uid = 'user_' + Date.now().toString(36) + Math.random().toString(36).substr(2);
+        }
+
+        // Save to local storage
+        sessionStorage.setItem(STORAGE_KEY, uid);
+      } else {
+        // console.log("Returning Visitor ID:", uid);
+      }
+
+      return uid;
+    } catch (err) {
+      // Fallback if SessionStorage is blocked (e.g., Incognito mode sometimes)
+      console.warn("SessionStorage access denied.");
+      return "unknown_session_" + Date.now();
+    }
+  }
+
+  function handlePageLoad() {
+    // We use sessionStorage here. 
+    // sessionStorage persists on Refresh, but is CLEARED on New Tab/New Window.
+    const SESSION_KEY = "has_logged_visit_this_tab";
+
+    // Check if we have already logged a visit for *this specific tab*
+    if (!sessionStorage.getItem(SESSION_KEY)) {
+
+      // 1. It is a new Tab or New Window -> SEND LOG
+      sendLog("VISITED", { referrer: document.referrer });
+
+      // 2. Mark this session as logged
+      sessionStorage.setItem(SESSION_KEY, "true");
+
+    } else {
+      // It is just a Page Refresh -> DO NOT LOG
+      console.log("Page refreshed.");
+    }
+  }
+
+  // Run immediately on load
+  handlePageLoad();
 
   // document.querySelector("#resume-button-2").addEventListener("click", () => {
   //   window.open("Prince_Kumar_Resume.pdf", "_blank");
