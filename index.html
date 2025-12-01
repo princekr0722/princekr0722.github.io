@@ -1324,7 +1324,8 @@
     if (!sessionStorage.getItem(SESSION_KEY)) {
 
       // 1. It is a new Tab or New Window -> SEND LOG
-      sendLog("VISITED", { referrer: document.referrer });
+      const utmParam = getQueryParam("utm_source");
+      sendLog("VISITED", { referrer: document.referrer, utm_param: utmParam });
 
       // 2. Mark this session as logged
       sessionStorage.setItem(SESSION_KEY, "true");
@@ -1337,6 +1338,31 @@
 
   // Run immediately on load
   handlePageLoad();
+
+  /**
+ * Retrieves the value of a specific query parameter from the current window URL.
+ * * @param {string} paramName - The name of the parameter to retrieve.
+ * @returns {string|null} - The value of the parameter, or null if not found.
+ */
+  function getQueryParam(paramName) {
+    // Option 1: Modern Browser API (Recommended)
+    // URLSearchParams is supported in all modern browsers (Chrome, Firefox, Safari, Edge)
+    if (window.URLSearchParams) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(paramName);
+    }
+
+    // Option 2: Fallback for very old browsers (IE)
+    // Uses Regex to parse the query string manually
+    const name = paramName.replace(/[\[\]]/g, '\\$&');
+    const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+    const results = regex.exec(window.location.href);
+
+    if (!results) return null;
+    if (!results[2]) return '';
+
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
 
   // document.querySelector("#resume-button-2").addEventListener("click", () => {
   //   window.open("Prince_Kumar_Resume.pdf", "_blank");
