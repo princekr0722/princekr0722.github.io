@@ -79,6 +79,14 @@
 
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- Pi's mark — defined once, referenced wherever Pi appears -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <g id="pi-glyph">
+      <path
+        d="M18.707 8.535c-.391-.391-1.023-.391-1.414 0-1.264 1.264-3.321 1.264-4.586 0-2.045-2.044-5.371-2.042-7.414 0-.391.391-.391 1.023 0 1.414s1.023.391 1.414 0c.374-.374.82-.624 1.293-.776v7.827c0 .553.447 1 1 1s1-.447 1-1v-7.826c.472.152.919.401 1.293.775.768.767 1.715 1.245 2.707 1.437v5.614c0 .553.447 1 1 1s1-.447 1-1v-5.614c.992-.191 1.939-.67 2.707-1.437.391-.39.391-1.023 0-1.414z" />
+    </g>
+  </svg>
+
   <!-- NAV -->
   <header class="nav-wrap">
     <nav class="nav" id="nav-menu" aria-label="Primary">
@@ -182,6 +190,10 @@
                 <a href="#contact" class="btn btn-ghost">
                   <i class="fa fa-envelope"></i> Get in Touch
                 </a>
+                <button type="button" class="btn btn-pi" data-chat-open>
+                  <span class="ai-orbs" aria-hidden="true"><i></i><i></i></span>
+                  <span class="btn-pi-in"><svg class="pi-glyph" viewBox="4.6 6.4 15.5 12.2"><use href="#pi-glyph"/></svg> Ask Pi</span>
+                </button>
               </div>
 
               <div class="hero-stack">
@@ -887,6 +899,18 @@
         </header>
 
         <div class="bento">
+          <button type="button" class="card sp-12 card-pi" data-chat-open data-reveal>
+            <span class="ai-orbs" aria-hidden="true"><i></i><i></i></span>
+            <span class="card-pi-body">
+              <span class="card-pi-icon"><svg class="pi-glyph" viewBox="4.6 6.4 15.5 12.2"><use href="#pi-glyph"/></svg></span>
+              <span class="card-pi-text">
+                <strong>Not sure what to ask?</strong>
+                <span>Chat with Pi — it knows Prince's work inside out and answers straight away.</span>
+              </span>
+              <span class="card-pi-go">Ask Pi <i class="fa fa-arrow-right"></i></span>
+            </span>
+          </button>
+
           <a href="tel:9523434209" class="card sp-3 card-contact accent-violet" id="contact-phone"
             onclick="logPhoneClicked()" data-reveal>
             <i class="fa fa-phone contact-icon"></i>
@@ -929,6 +953,51 @@
   <button class="top-btn" id="topBtn" type="button" title="Go to top" aria-label="Go to top">
     <i class="fa fa-arrow-up"></i>
   </button>
+
+  <!-- ================= AI ASSISTANT ================= -->
+  <div class="chat-fab-wrap" id="chat-fab-wrap">
+    <span class="chat-fab-halo" aria-hidden="true"></span>
+    <button class="chat-fab" id="chat-fab" type="button" aria-expanded="false" aria-controls="chat-panel">
+      <span class="ai-orbs" aria-hidden="true"><i></i><i></i></span>
+      <span class="chat-fab-icon" aria-hidden="true"><svg class="pi-glyph" viewBox="4.6 6.4 15.5 12.2"><use href="#pi-glyph"/></svg></span>
+      <span class="chat-fab-label">Ask Pi</span>
+    </button>
+    <span class="chat-fab-sparks" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  </div>
+
+  <section class="chat-panel" id="chat-panel" role="dialog" aria-labelledby="chat-title" aria-modal="false" hidden>
+    <header class="chat-head">
+      <div class="chat-id">
+        <span class="chat-avatar" aria-hidden="true"><svg class="pi-glyph" viewBox="4.6 6.4 15.5 12.2"><use href="#pi-glyph"/></svg></span>
+        <span>
+          <span class="chat-title" id="chat-title">Pi</span>
+          <span class="chat-status"><span class="pulse"></span> Prince's AI assistant</span>
+        </span>
+      </div>
+      <button class="chat-close" id="chat-close" type="button" aria-label="Close chat">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </header>
+
+    <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions"></div>
+
+    <div class="chat-chips" id="chat-chips">
+      <button type="button" class="chat-chip">What has he built with AI?</button>
+      <button type="button" class="chat-chip">What's his backend experience?</button>
+      <button type="button" class="chat-chip">Is he open to work?</button>
+      <button type="button" class="chat-chip">What tech does he use?</button>
+    </div>
+
+    <form class="chat-form" id="chat-form" autocomplete="off">
+      <input class="chat-input" id="chat-input" type="text" maxlength="1500" placeholder="Ask Pi anything…"
+        aria-label="Your question">
+      <button class="chat-send" id="chat-send" type="submit" aria-label="Send message">
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+    </form>
+
+    <p class="chat-foot">Pi is AI — it can be imprecise. <a href="#contact">Reach Prince directly</a>.</p>
+  </section>
 
   <script>
     (function () {
@@ -1101,6 +1170,193 @@
   </script>
 
   <script>
+    /* ==========================================================================
+       AI assistant widget
+       Talks to the same Apps Script deployment as the analytics logger, with
+       action:"chat". Conversation history lives server-side (one row per uid),
+       so nothing here is sent back on later turns.
+       ========================================================================== */
+    function initChat() {
+      const fab = document.getElementById('chat-fab');
+      const fabWrap = document.getElementById('chat-fab-wrap');
+      const panel = document.getElementById('chat-panel');
+      const closeBtn = document.getElementById('chat-close');
+      const log = document.getElementById('chat-log');
+      const form = document.getElementById('chat-form');
+      const input = document.getElementById('chat-input');
+      const send = document.getElementById('chat-send');
+      const chips = document.getElementById('chat-chips');
+
+      let busy = false;
+      let restored = false;
+
+      /* ---- open / close ---- */
+
+      function open() {
+        panel.hidden = false;
+        fabWrap.classList.add('hidden');
+        fab.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('chat-open');
+        setTimeout(function () { input.focus(); }, 80);
+
+        if (!restored) {
+          restored = true;
+          greet();
+          restoreHistory();
+          logChatEvent('OPENED');
+        }
+      }
+
+      function close() {
+        panel.hidden = true;
+        fabWrap.classList.remove('hidden');
+        fab.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('chat-open');
+      }
+
+      // The floating button plus any [data-chat-open] trigger on the page.
+      fab.addEventListener('click', open);
+      document.querySelectorAll('[data-chat-open]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          open();
+          panel.scrollIntoView({ block: 'nearest' });
+        });
+      });
+      closeBtn.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !panel.hidden) close();
+      });
+
+      /* ---- rendering ---- */
+
+      function bubble(role, html) {
+        const el = document.createElement('div');
+        el.className = 'chat-msg ' + role;
+        el.innerHTML = html;
+        log.appendChild(el);
+        log.scrollTop = log.scrollHeight;
+        return el;
+      }
+
+      function greet() {
+        bubble('bot', mdToHtml(
+          "Hey, I'm **Pi** 👋 I know Prince's work inside out — the systems " +
+          "he's built, the tech he reaches for, how he thinks about it. " +
+          "What do you want to know?"
+        ));
+      }
+
+      function showTyping() {
+        const el = document.createElement('div');
+        el.className = 'chat-msg bot chat-typing';
+        el.innerHTML = '<span></span><span></span><span></span>';
+        log.appendChild(el);
+        log.scrollTop = log.scrollHeight;
+        return el;
+      }
+
+      /**
+       * Renders a safe subset of markdown: bold, italic, inline code and
+       * links. Everything is HTML-escaped first, so model output can never
+       * inject markup.
+       */
+      function mdToHtml(text) {
+        let s = String(text)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+
+        s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+        s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        s = s.replace(/(^|[\s(])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+        s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+          '<a href="$2" target="_blank" rel="noopener">$1</a>');
+        s = s.replace(/(^|[\s])((?:https?:\/\/|mailto:)[^\s<]+)/g,
+          '$1<a href="$2" target="_blank" rel="noopener">$2</a>');
+
+        return s.split(/\n{2,}/)
+          .map(function (para) { return '<p>' + para.replace(/\n/g, '<br>') + '</p>'; })
+          .join('');
+      }
+
+      /* ---- network ---- */
+
+      function post(payload) {
+        return fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload),
+        }).then(function (res) { return res.json(); });
+      }
+
+      function restoreHistory() {
+        post({ action: 'chat_history', visitorId: getVisitorId() })
+          .then(function (data) {
+            if (!data || !data.ok || !data.history || !data.history.length) return;
+            data.history.forEach(function (turn) {
+              bubble(turn.role === 'user' ? 'me' : 'bot', mdToHtml(turn.text));
+            });
+            chips.classList.add('hidden');
+          })
+          .catch(function () { /* a fresh conversation is a fine fallback */ });
+      }
+
+      function setBusy(state) {
+        busy = state;
+        send.disabled = state;
+        input.disabled = state;
+      }
+
+      function ask(text) {
+        if (busy || !text) return;
+
+        chips.classList.add('hidden');
+        bubble('me', mdToHtml(text));
+        input.value = '';
+        setBusy(true);
+
+        const typing = showTyping();
+
+        post({ action: 'chat', message: text, visitorId: getVisitorId() })
+          .then(function (data) {
+            typing.remove();
+            if (data && data.ok) {
+              bubble('bot', mdToHtml(data.reply));
+            } else {
+              bubble('err', mdToHtml(
+                (data && data.error) || 'Something went wrong. Try again.'
+              ));
+            }
+          })
+          .catch(function () {
+            typing.remove();
+            bubble('err', mdToHtml("I couldn't reach the server. Check your connection and try again."));
+          })
+          .then(function () {
+            setBusy(false);
+            input.focus();
+          });
+      }
+
+      /* ---- input ---- */
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        ask(input.value.trim());
+      });
+
+      chips.querySelectorAll('.chat-chip').forEach(function (chip) {
+        chip.addEventListener('click', function () { ask(chip.textContent.trim()); });
+      });
+
+      function logChatEvent(action) {
+        try {
+          sendLog('CHAT', { chat_action: action });
+        } catch (err) { /* analytics is best-effort */ }
+      }
+    }
+
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx7OYyZHDaha_Jx7yncoOGCcbpbNA8In8kz5cx0IVJ87MmQ6bcYmmlijXaiaShn9jOO/exec";
 
     /**
@@ -1275,6 +1531,10 @@
 
     // Run immediately on load
     handlePageLoad();
+
+    // Wire up the chat widget. Called here, not in the block above, because
+    // it needs GOOGLE_SCRIPT_URL, getVisitorId() and sendLog() from this one.
+    initChat();
 
     /**
    * Retrieves the value of a specific query parameter from the current window URL.
