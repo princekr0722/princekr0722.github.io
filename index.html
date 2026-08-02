@@ -1,1572 +1,1310 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
-  <title>Prince Kumar - Software Developer - Portfolio</title>
+  <meta charset="utf-8">
+  <title>Prince Kumar — Software Developer & System Designer</title>
   <meta name="google-site-verification" content="_Zt9nq1GJeXICCL2qmfsm2aOW7OtG91lnt-KPwguOGc" />
   <meta name="description"
-    content="Prince is a Software Developer specialized in Java, Spring Boot, Javascript, Node.js, React, SQL, AWS and Cloud Technologies. Building scalable microservices and distributed systems.">
+    content="Prince Kumar is a Software Developer specialized in Java, Spring Boot, Node.js, React, SQL, AWS and cloud technologies. Building scalable microservices, distributed systems and AI engineering tooling.">
   <meta name="keywords"
-    content="Java developer, Software Developer, Spring Boot Developer, Software Engineer, React.js Developer, AWS CDK Developer, Node.js Developer, cloud engineer, full-stack developer, microservices, distributed systems, backend developer, system designer, API development, database management, DevOps, Docker, Kubernetes, cloud computing, software architecture, RESTful services, enterprise applications, system designer">
+    content="Java developer, Software Developer, Spring Boot Developer, Software Engineer, React.js Developer, AWS Developer, Node.js Developer, cloud engineer, full-stack developer, microservices, distributed systems, backend developer, system designer, API development, database management, DevOps, Docker, Kubernetes, cloud computing, software architecture, RESTful services, enterprise applications">
   <meta name="author" content="Prince Kumar">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a12">
 
   <!-- Open Graph for social preview -->
   <meta property="og:title" content="Prince Kumar — Software Developer">
-  <meta property="og:description" content="Building modern backend servers and cloud applications.">
-  <meta property="og:image" content="preview.png">
-  <meta property="og:url" content="https://yourdomain.com">
+  <meta property="og:description" content="Building modern backend servers, distributed systems and cloud applications.">
+  <meta property="og:image" content="https://princekr0722.github.io/media/images/me/Prince-Kumar-Profile-Photo.jpg">
+  <meta property="og:url" content="https://princekr0722.github.io/">
   <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <!--ADD PIC LINK IN HREF BELOW FOR DISPLAYING LOGO WITH TITLE -->
   <link rel="shortcut icon" href="/media/logos/logo.png">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="HandheldFriendly" content="true">
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- jQuery and Bootstrap 5 JS -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-
-  <!--google fonts-->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Lobster&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
-
-  <!--google icon link-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--font awesomes icons link-->
-  <!-- Include Font Awesome -->
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-  <!-- Devicon for tech stack icons -->
-
-  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
   <link rel="stylesheet" href="style.css">
+
+  <script>
+    /* Third-party GitHub widgets are rate-limited and fail intermittently.
+       Defined in <head> so it exists before any image error fires. */
+    function ghFallback(img) {
+      var frame = img.closest('.gh-frame');
+      if (frame) frame.classList.add('failed');
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.gh-img').forEach(function (img) {
+        if (img.complete && img.naturalWidth === 0) ghFallback(img);
+      });
+    });
+  </script>
+
   <script type="application/ld+json">
     {
-      "@context": "https://princekr0722.github.io/",
+      "@context": "https://schema.org",
       "@type": "Person",
       "name": "Prince Kumar",
-      "jobTitle": "Java Developer",
+      "jobTitle": "Software Developer",
       "url": "https://princekr0722.github.io/",
+      "worksFor": { "@type": "Organization", "name": "DrinkPrime" },
       "sameAs": [
         "https://github.com/princekr0722",
         "https://www.linkedin.com/in/prince-kumar-7b9194247/"
       ]
     }
   </script>
+</head>
+
+<body id="myPage">
+  <!-- Ambient backdrop -->
+  <div class="backdrop" aria-hidden="true">
+    <div class="backdrop-grid"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- NAV -->
+  <header class="nav-wrap">
+    <nav class="nav" id="nav-menu" aria-label="Primary">
+      <a class="brand" href="#home">
+        <span class="brand-mark">PK</span>
+        <span class="brand-name">Prince Kr</span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links"
+        aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="nav-links">
+        <span class="nav-panel-label">Navigate</span>
+        <a class="nav-link" href="#home"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a class="nav-link" href="#about"><i class="fa-solid fa-user"></i><span>About</span></a>
+        <a class="nav-link" href="#skills"><i class="fa-solid fa-layer-group"></i><span>Skills</span></a>
+        <a class="nav-link" href="#experience"><i class="fa-solid fa-briefcase"></i><span>Experience</span></a>
+        <a class="nav-link" href="#education"><i class="fa-solid fa-graduation-cap"></i><span>Education</span></a>
+        <a class="nav-link" href="#projects"><i class="fa-solid fa-cube"></i><span>Projects</span></a>
+        <a class="nav-link" href="#contact"><i class="fa-solid fa-paper-plane"></i><span>Contact</span></a>
+
+        <div class="nav-actions">
+          <a href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view" class="btn btn-primary btn-sm"
+            target="_blank" rel="noopener" onclick="logResumeClickedHeader()">
+            <i class="fa fa-file-arrow-down"></i> Resume
+          </a>
+          <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle colour theme">
+            <i class="fa-solid fa-sun"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Slides in once the hero scrolls away -->
+    <div class="nav-ticker" id="nav-ticker" aria-hidden="true">
+      <div class="ticker-viewport">
+        <div class="ticker-track" id="ticker-track">
+          <span class="ticker-item">Software Developer</span>
+          <span class="ticker-item">System Designer</span>
+          <span class="ticker-item">Backend Engineer</span>
+          <span class="ticker-item">Java &amp; Spring Boot</span>
+          <span class="ticker-item">Microservices</span>
+          <span class="ticker-item">Distributed Systems</span>
+          <span class="ticker-item">Event-Driven Architecture</span>
+          <span class="ticker-item">AI Engineering</span>
+          <span class="ticker-item">RAG &amp; pgvector</span>
+          <span class="ticker-item">MCP &amp; Code Graphs</span>
+          <span class="ticker-item">Node.js &amp; Fastify</span>
+          <span class="ticker-item">React &amp; TypeScript</span>
+          <span class="ticker-item">Docker &amp; Kubernetes</span>
+          <span class="ticker-item">AWS &amp; Google Cloud</span>
+          <span class="ticker-item">1500+ DSA solved</span>
+          <span class="ticker-item">Available for hire</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="nav-scrim" id="nav-scrim" hidden></div>
+
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section id="home" class="section section-hero">
+      <div class="wrap">
+        <div class="bento hero-bento">
+
+          <article class="card card-hero sp-8" data-reveal>
+            <div class="card-body">
+              <div class="chip-row">
+                <span class="chip chip-live">
+                  <span class="pulse"></span> Available for hire
+                </span>
+                <a href="#ai" class="chip chip-ai">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i> Building AI systems
+                </a>
+              </div>
+
+              <h1 class="hero-title">
+                I'm <span class="grad-text">Prince Kumar</span>
+              </h1>
+
+              <div class="hero-rotator" aria-live="polite">
+                <span class="rotator-prefix">I build</span>
+                <span class="rotator" id="rotator">scalable backend systems</span>
+              </div>
+
+              <p class="hero-desc">
+                Software Developer crafting robust backends, distributed systems and
+                <span class="hl">AI engineering tooling</span> — from Spring Boot microservices to
+                retrieval-grounded LLM agents. Currently building at
+                <a href="https://drinkprime.in/" class="link-accent" target="_blank" rel="noopener">DrinkPrime
+                  <i class="fa fa-arrow-up-right-from-square"></i></a>
+              </p>
+
+              <div class="hero-cta">
+                <a href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view" class="btn btn-primary"
+                  target="_blank" rel="noopener" onclick="logResumeClickedHeroSection()">
+                  <i class="fa fa-eye"></i> View Resume
+                </a>
+                <a href="#contact" class="btn btn-ghost">
+                  <i class="fa fa-envelope"></i> Get in Touch
+                </a>
+              </div>
+
+              <div class="hero-stack">
+                <a href="#skills" class="stack-label">Tech stack <i class="fa fa-arrow-right"></i></a>
+                <div class="stack-icons">
+                  <i class="devicon-java-plain colored" title="Java"></i>
+                  <i class="devicon-spring-plain colored" title="Spring"></i>
+                  <i class="devicon-nodejs-plain colored" title="Node.js"></i>
+                  <i class="devicon-react-original colored" title="React"></i>
+                  <i class="devicon-postgresql-plain colored" title="PostgreSQL"></i>
+                  <i class="devicon-docker-plain colored" title="Docker"></i>
+                  <i class="devicon-kubernetes-plain colored" title="Kubernetes"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card-photo sp-4" data-reveal>
+            <img src="/media/images/me/Profile_Pic.png" alt="Prince Kumar" class="photo" width="480" height="600">
+            <div class="photo-badge">
+              <div class="photo-badge-num years-of-exp">2+</div>
+              <div class="photo-badge-txt">years of<br>experience</div>
+            </div>
+          </article>
+
+          <article class="card card-stat sp-3 accent-violet" data-reveal>
+            <i class="fa-solid fa-code stat-icon"></i>
+            <div class="stat-num coding-hours">…</div>
+            <div class="stat-label">Hours coding</div>
+          </article>
+
+          <article class="card card-stat sp-3 accent-cyan" data-reveal>
+            <i class="fa-solid fa-check-double stat-icon"></i>
+            <div class="stat-num">1500+</div>
+            <div class="stat-label">DSA problems solved</div>
+          </article>
+
+          <a href="#experience" class="card card-ai sp-6" id="ai" data-reveal>
+            <div class="card-body">
+              <span class="ai-eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Engineering</span>
+              <div class="ai-headline"><span class="stat-num">2</span> AI platforms designed &amp; shipped</div>
+              <p class="ai-sub">
+                <strong>DPatcher</strong> — an autonomous AI engineer grounded in live code, data and logs.
+                <strong>DPengram</strong> — repositories turned into a queryable code graph over MCP.
+              </p>
+              <div class="tag-row">
+                <span class="tag">LLM Agents</span><span class="tag">RAG</span><span class="tag">pgvector</span><span
+                  class="tag">Embeddings</span><span class="tag">MCP</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="section">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><span class="eyebrow-dot"></span>01 — About</span>
+          <h2 class="section-title">Software Developer <span class="grad-text">&amp; System Designer</span></h2>
+          <p class="section-sub">Backend-heavy, product-minded, and happiest when a gnarly system finally behaves.</p>
+        </header>
+
+        <div class="bento">
+          <article class="card sp-4 card-portrait" data-reveal>
+            <img src="/media/images/me/Prince-Kumar-Profile-Photo.jpg" alt="Prince Kumar" loading="lazy">
+          </article>
+
+          <article class="card sp-8" data-reveal>
+            <div class="card-body">
+              <p class="lead">
+                A passionate Software Developer with expertise in building scalable microservices and distributed
+                systems, currently crafting solutions at <a href="https://drinkprime.in/" class="link-accent"
+                  target="_blank" rel="noopener">DrinkPrime</a>.
+              </p>
+              <p class="muted">
+                I specialize in developing high-performance backend systems using Java, Spring Boot and modern cloud
+                technologies. My work spans scalable microservices, message-driven architectures, efficient database
+                design — and more recently, AI systems that are grounded in a company's real code, data and logs.
+              </p>
+              <ul class="check-list">
+                <li><i class="fa fa-circle-check"></i><span><span class="years-of-exp">2+</span> years of
+                    experience</span></li>
+                <li><i class="fa fa-circle-check"></i><span>1500+ DSA problems solved</span></li>
+                <li><i class="fa fa-circle-check"></i><span>Full-stack capable</span></li>
+                <li><i class="fa fa-circle-check"></i><span>Strong problem-solving</span></li>
+              </ul>
+              <div class="social-row">
+                <a href="https://github.com/princekr0722" class="icon-btn" target="_blank" rel="noopener"
+                  aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/prince-kumar-7b9194247/" class="icon-btn" target="_blank"
+                  rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:knownasprincekr@gmail.com" class="icon-btn" aria-label="Email"><i
+                    class="fa fa-envelope"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card card-mini sp-3 accent-violet" data-reveal>
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Projects completed</div>
+          </article>
+          <article class="card card-mini sp-3 accent-cyan" data-reveal>
+            <div class="stat-num">1500+</div>
+            <div class="stat-label">DSA solutions</div>
+          </article>
+          <article class="card card-mini sp-3 accent-pink" data-reveal>
+            <div class="stat-num coding-hours">…</div>
+            <div class="stat-label">Coding hours</div>
+          </article>
+          <article class="card card-mini sp-3 accent-emerald" data-reveal>
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Tech stack</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section id="skills" class="section">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><span class="eyebrow-dot"></span>02 — Skills</span>
+          <h2 class="section-title">The <span class="grad-text">toolkit</span></h2>
+          <p class="section-sub">What I reach for when shipping production systems.</p>
+        </header>
+
+        <div class="bento">
+          <article class="card sp-12 card-ai-skills" data-reveal>
+            <div class="card-body">
+              <div class="ai-skills-head">
+                <h3 class="card-title"><i class="fa-solid fa-wand-magic-sparkles"></i> AI &amp; LLM engineering</h3>
+                <span class="chip chip-focus">Current focus</span>
+              </div>
+              <p class="muted">Production AI systems that answer from real sources — code, databases and logs —
+                instead of guessing.</p>
+              <div class="chip-grid">
+                <span class="tech tech-ai"><i class="fa-solid fa-robot"></i>LLM Agents</span>
+                <span class="tech tech-ai"><i class="fa-solid fa-magnifying-glass-chart"></i>RAG Pipelines</span>
+                <span class="tech tech-ai"><i class="devicon-postgresql-plain colored"></i>pgvector</span>
+                <span class="tech tech-ai"><i class="fa-solid fa-vector-square"></i>Embeddings</span>
+                <span class="tech tech-ai"><i class="fa-solid fa-plug"></i>MCP Servers</span>
+                <span class="tech tech-ai"><i class="fa-solid fa-diagram-project"></i>Code Graphs</span>
+                <span class="tech tech-ai"><i class="fa-solid fa-microchip"></i>NVIDIA LLMs</span>
+                <span class="tech tech-ai"><i class="fa-solid fa-comments"></i>Prompt Engineering</span>
+                <span class="tech tech-ai"><i class="fa-brands fa-slack"></i>Slack AI Bots</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-6" data-reveal>
+            <div class="card-body">
+              <h3 class="card-title"><i class="fa-solid fa-terminal"></i> Languages</h3>
+              <div class="chip-grid">
+                <span class="tech"><i class="devicon-java-plain colored"></i>Java</span>
+                <span class="tech"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+                <span class="tech"><i class="devicon-typescript-plain colored"></i>TypeScript</span>
+                <span class="tech"><i class="devicon-go-original-wordmark colored"></i>Go</span>
+                <span class="tech"><i class="devicon-python-plain colored"></i>Python</span>
+                <span class="tech"><i class="devicon-lua-plain colored"></i>Lua</span>
+                <span class="tech"><i class="devicon-html5-plain colored"></i>HTML</span>
+                <span class="tech"><i class="devicon-css3-plain colored"></i>CSS</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-6" data-reveal>
+            <div class="card-body">
+              <h3 class="card-title"><i class="fa-solid fa-layer-group"></i> Frameworks &amp; libraries</h3>
+              <div class="chip-grid">
+                <span class="tech"><i class="devicon-spring-plain colored"></i>Spring</span>
+                <span class="tech"><i class="devicon-spring-plain colored"></i>Spring Boot</span>
+                <span class="tech"><i class="devicon-hibernate-plain colored"></i>Hibernate</span>
+                <span class="tech"><i class="devicon-react-original colored"></i>React.js</span>
+                <span class="tech"><i class="devicon-nodejs-plain colored"></i>Node.js</span>
+                <span class="tech"><i class="devicon-nextjs-plain"></i>Next.js</span>
+                <span class="tech"><i class="devicon-fastify-plain"></i>Fastify</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-4" data-reveal>
+            <div class="card-body">
+              <h3 class="card-title"><i class="fa-solid fa-database"></i> Databases</h3>
+              <div class="chip-grid">
+                <span class="tech"><i class="devicon-mysql-plain colored"></i>MySQL</span>
+                <span class="tech"><i class="devicon-mongodb-plain colored"></i>MongoDB</span>
+                <span class="tech"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span>
+                <span class="tech"><i class="devicon-microsoftsqlserver-plain colored"></i>SQL Server</span>
+                <span class="tech"><i class="devicon-redis-plain colored"></i>Redis</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-5" data-reveal>
+            <div class="card-body">
+              <h3 class="card-title"><i class="fa-solid fa-cloud"></i> Cloud &amp; DevOps</h3>
+              <div class="chip-grid">
+                <span class="tech"><i class="devicon-amazonwebservices-plain colored"></i>AWS</span>
+                <span class="tech"><i class="devicon-googlecloud-plain colored"></i>Google Cloud</span>
+                <span class="tech"><i class="devicon-firebase-plain colored"></i>Firebase</span>
+                <span class="tech"><i class="devicon-kubernetes-plain colored"></i>Kubernetes</span>
+                <span class="tech"><i class="devicon-docker-plain colored"></i>Docker</span>
+                <span class="tech"><img src="/media/logos/skills/kong-svgrepo-com.svg" alt="">Kong</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-3" data-reveal>
+            <div class="card-body">
+              <h3 class="card-title"><i class="fa-solid fa-diagram-project"></i> Architecture</h3>
+              <div class="chip-grid">
+                <span class="tech"><i class="devicon-apachekafka-original colored"></i>Kafka</span>
+                <span class="tech"><i class="devicon-rabbitmq-plain colored"></i>RabbitMQ</span>
+                <span class="tech"><img src="/media/logos/skills/microservices.svg" alt="">Microservices</span>
+                <span class="tech"><img src="/media/logos/skills/dsa.svg" alt="">DSA</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section id="experience" class="section">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><span class="eyebrow-dot"></span>03 — Experience</span>
+          <h2 class="section-title">Where I've <span class="grad-text">shipped</span></h2>
+          <p class="section-sub">Roles, and the things I actually built in them.</p>
+        </header>
+
+        <div class="bento">
+          <!-- DrinkPrime -->
+          <article class="card sp-12 card-role" data-reveal>
+            <div class="card-body">
+              <div class="role-head">
+                <div class="role-id">
+                  <div class="role-logo"><i class="fa-solid fa-droplet"></i></div>
+                  <div>
+                    <h3 class="role-title">Software Developer</h3>
+                    <a href="https://drinkprime.in/" class="role-org link-accent" target="_blank"
+                      rel="noopener">DrinkPrime <i class="fa fa-arrow-up-right-from-square"></i></a>
+                  </div>
+                </div>
+                <span class="chip chip-date"><i class="fa fa-calendar"></i> Sep 2023 — Present</span>
+              </div>
+
+              <div class="bento nested">
+                <div class="card sub-card sp-6 accent-violet">
+                  <div class="card-body">
+                    <h4 class="sub-title"><i class="fa-solid fa-robot"></i> DPatcher — autonomous AI engineer</h4>
+                    <p class="muted">
+                      Designed and built an AI engineer with deep, grounded knowledge of DrinkPrime's entire system. It
+                      answers from live sources rather than guessing, cross-referencing a pgvector knowledge base
+                      (Confluence + learned resolutions), a code-graph of the actual repositories, read-only production
+                      databases (MySQL/Mongo), and GKE runtime logs.
+                    </p>
+                    <ul class="dot-list">
+                      <li>Made it a general-purpose engineering teammate the whole org can use — to understand how a
+                        feature works and why, debug and root-cause live issues across code + data + logs, draft test
+                        cases and edge cases, triage and resolve on-call incidents, and answer "where/how is X handled"
+                        onboarding questions — through both Slack and a web dashboard, with confidentiality controls
+                        that keep internal/technical detail off customer-facing threads.</li>
+                      <li>Built it to get smarter over time, folding confirmed resolutions back into the knowledge base
+                        so recurring problems become self-answering — reducing repeat escalations and the team's
+                        dependency on a few subject-matter experts.</li>
+                      <li>Owned the full product and its deployment: a role-based admin dashboard (Kong auth-gateway
+                        JWT, read/write access tiers), private staff DM assistant, live-tunable runtime settings, and a
+                        Dockerized rollout wired to external Postgres, MySQL/Mongo, and a code-graph service.</li>
+                    </ul>
+                    <div class="tag-row">
+                      <span class="tag">Node.js</span><span class="tag">Fastify</span><span class="tag">PostgreSQL /
+                        pgvector</span><span class="tag">NVIDIA LLMs</span><span class="tag">Embeddings</span><span
+                        class="tag">React / Vite</span><span class="tag">Docker</span><span class="tag">GKE</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card sub-card sp-6 accent-cyan">
+                  <div class="card-body">
+                    <h4 class="sub-title"><i class="fa-solid fa-code-branch"></i> DPengram — code-knowledge platform
+                    </h4>
+                    <p class="muted">
+                      Designed and built a self-contained platform that transforms Git repositories into a queryable
+                      code graph (symbols, LSP-resolved call/usage graph, and semantic embeddings) and exposes it
+                      through a single MCP endpoint and REST API. Serves as the code-graph backbone behind DPatcher.
+                    </p>
+                    <ul class="dot-list">
+                      <li>Built a transparent MCP proxy that forwards all upstream engine tools unchanged while
+                        extending them with first-party capabilities including repository discovery and ripgrep-powered
+                        filename/regex search. Any MCP client (e.g. Claude Code or Cursor) connects without
+                        modification and automatically inherits future engine capabilities.</li>
+                      <li>Engineered reliable repository synchronization and deployment: serialized/coalesced indexing,
+                        incremental re-indexing from remote branch changes, stable project identities that self-heal
+                        after repository relocation, Docker-based organization deployment, and a zero-dependency
+                        single-file desktop executable with automatic engine provisioning, self-updates, and a
+                        React-based management UI.</li>
+                    </ul>
+
+                    <div class="impact">
+                      <span class="impact-label">What it changes day to day</span>
+                      <ul class="impact-list">
+                        <li><i class="fa-solid fa-bolt"></i><span><strong>Faster development</strong> — instantly
+                            locates the right code, its callers and its usages across every repo.</span></li>
+                        <li><i class="fa-solid fa-bug"></i><span><strong>Quicker RCA</strong> — trace a bug's call
+                            path and blast radius in seconds instead of grepping around.</span></li>
+                        <li><i class="fa-solid fa-bullseye"></i><span><strong>Fewer hallucinations</strong> — answers
+                            are grounded in real indexed code, semantic and full-text, not guesses.</span></li>
+                        <li><i class="fa-solid fa-globe"></i><span><strong>Cross-repo questions</strong> — ask
+                            something spanning multiple services and get one coherent answer.</span></li>
+                      </ul>
+                    </div>
+
+                    <div class="tag-row">
+                      <span class="tag">MCP</span><span class="tag">Code Graph</span><span class="tag">LSP</span><span
+                        class="tag">REST API</span><span class="tag">ripgrep</span><span
+                        class="tag">React</span><span class="tag">Docker</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card sub-card sp-12 accent-emerald">
+                  <div class="card-body">
+                    <h4 class="sub-title"><i class="fa-solid fa-server"></i> Core platform &amp; backend</h4>
+                    <ul class="dot-list cols">
+                      <li>Single-handedly designed and built a centralised security mechanism for DrinkPrime to manage
+                        API restrictions, roles and permissions — all through one single point for every microservice.
+                      </li>
+                      <li>Upgraded the legacy technicians' slot management to handle race conditions that were causing
+                        over-booking of slots, using distributed locking.</li>
+                      <li>Upgraded RESTful inter-service communication to event-driven systems, and migrated the old
+                        PHP-based system into Spring Boot — including database migrations and backward compatibility.
+                      </li>
+                    </ul>
+                    <div class="tag-row">
+                      <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Kong API
+                        Gateway</span><span class="tag">Redis / Redisson</span><span class="tag">Kafka</span><span
+                        class="tag">RabbitMQ</span><span class="tag">Microservices</span><span
+                        class="tag">PHP</span><span class="tag">React</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Freelance -->
+          <article class="card sp-7 card-role" data-reveal>
+            <div class="card-body">
+              <div class="role-head">
+                <div class="role-id">
+                  <div class="role-logo alt"><i class="fa-solid fa-laptop-code"></i></div>
+                  <div>
+                    <h3 class="role-title">Freelance Software Developer</h3>
+                    <span class="role-org">Self-employed</span>
+                  </div>
+                </div>
+                <span class="chip chip-date"><i class="fa fa-calendar"></i> Oct 2023 — Present</span>
+              </div>
+              <p class="muted">
+                Besides my office work, I also engage in freelance projects to continuously learn and explore new
+                technologies. This helps me stay updated with the latest industry trends and broaden my skill set. I
+                provide services in complete backend, frontend, cloud, custom software and e-commerce.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Backend</span><span class="tag">Frontend</span><span class="tag">Cloud</span><span
+                  class="tag">Custom Software</span><span class="tag">E-Commerce</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-5 card-cta" data-reveal>
+            <div class="card-body">
+              <h3 class="card-title">Got something to build?</h3>
+              <p class="muted">I take on a small number of freelance projects alongside full-time work — backend,
+                cloud and custom software.</p>
+              <a href="#contact" class="btn btn-primary">Start a conversation <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section id="education" class="section">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><span class="eyebrow-dot"></span>04 — Education</span>
+          <h2 class="section-title">How I <span class="grad-text">learned it</span></h2>
+        </header>
+
+        <div class="bento">
+          <article class="card sp-4 card-edu" data-reveal>
+            <div class="card-body">
+              <span class="chip chip-year">2026 — 2029</span>
+              <h3 class="card-title">Bachelor of Computer Applications</h3>
+              <div class="edu-org">Amity University, Noida</div>
+              <p class="muted">
+                Equipped with a solid foundation in computer science and applications, with key skills in Java, C++,
+                Python, AI/ML and full-stack software development. This undergraduate degree formally validates my
+                expertise as an official Software Engineer, complementing my practical abilities as a Software
+                Developer.
+              </p>
+              <div class="tag-row">
+                <span class="tag">C++</span><span class="tag">Java</span><span class="tag">Python</span><span
+                  class="tag">AI/ML</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-4 card-edu" data-reveal>
+            <div class="card-body">
+              <span class="chip chip-year">2022 — 2023</span>
+              <h3 class="card-title">Full Stack Web Development</h3>
+              <div class="edu-org">Masai School</div>
+              <p class="muted">
+                Intensive program focused on full-stack web development, agile methodologies and industry-relevant
+                technologies. Completed multiple real-world projects and participated in team collaborations.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Full Stack</span><span class="tag">Java Backend</span><span class="tag">Spring
+                  Boot</span><span class="tag">MERN</span><span class="tag">DSA</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-4 card-edu" data-reveal>
+            <div class="card-body">
+              <span class="chip chip-year">2020 — 2022</span>
+              <h3 class="card-title">Higher Secondary Education</h3>
+              <div class="edu-org">Science &amp; Mathematics</div>
+              <p class="muted">
+                Completed higher secondary education with a focus on science and mathematics. Participated in various
+                technical competitions and programming challenges.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Physics</span><span class="tag">Chemistry</span><span class="tag">Mathematics</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects" class="section">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><span class="eyebrow-dot"></span>05 — Projects</span>
+          <h2 class="section-title">Selected <span class="grad-text">work</span></h2>
+          <p class="section-sub">AI platforms built at DrinkPrime, plus side projects I keep coming back to.</p>
+        </header>
+
+        <div class="bento">
+          <!-- AI flagship work -->
+          <article class="card sp-6 card-project card-ai-project" data-reveal>
+            <div class="project-media ai-cover">
+              <div class="ai-cover-glyph"><i class="fa-solid fa-robot"></i></div>
+              <div class="ai-cover-rings" aria-hidden="true"><span></span><span></span><span></span></div>
+              <span class="ai-cover-tag">AI Platform</span>
+            </div>
+            <div class="card-body">
+              <div class="project-head">
+                <h3 class="card-title">DPatcher</h3>
+                <span class="chip chip-ai-soft"><i class="fa-solid fa-building"></i> DrinkPrime</span>
+              </div>
+              <p class="muted">
+                An autonomous AI engineer with grounded knowledge of an entire production system. It debugs live
+                issues across code, data and logs, drafts test cases, triages on-call incidents and answers
+                "where is X handled" — in Slack and on the web — then folds confirmed resolutions back into its
+                knowledge base so recurring problems become self-answering.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Node.js</span><span class="tag">Fastify</span><span class="tag">pgvector</span><span
+                  class="tag">RAG</span><span class="tag">NVIDIA LLMs</span><span class="tag">React</span><span
+                  class="tag">GKE</span>
+              </div>
+              <div class="project-links">
+                <a href="#experience" class="btn btn-ghost btn-sm"><i class="fa fa-list-check"></i> Read the
+                  breakdown</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-6 card-project card-ai-project" data-reveal>
+            <div class="project-media ai-cover alt">
+              <div class="ai-cover-glyph"><i class="fa-solid fa-code-branch"></i></div>
+              <div class="ai-cover-rings" aria-hidden="true"><span></span><span></span><span></span></div>
+              <span class="ai-cover-tag">AI Platform</span>
+            </div>
+            <div class="card-body">
+              <div class="project-head">
+                <h3 class="card-title">DPengram</h3>
+                <span class="chip chip-ai-soft"><i class="fa-solid fa-building"></i> DrinkPrime</span>
+              </div>
+              <p class="muted">
+                A self-contained code-knowledge platform that turns Git repositories into a queryable code graph —
+                symbols, LSP-resolved call/usage edges and semantic embeddings — exposed through a single MCP
+                endpoint. Any MCP client (Claude Code, Cursor) connects unmodified. It's the code-graph backbone
+                behind DPatcher.
+              </p>
+              <div class="tag-row">
+                <span class="tag">MCP</span><span class="tag">Code Graph</span><span class="tag">LSP</span><span
+                  class="tag">Embeddings</span><span class="tag">ripgrep</span><span class="tag">Docker</span>
+              </div>
+              <div class="project-links">
+                <a href="#experience" class="btn btn-ghost btn-sm"><i class="fa fa-list-check"></i> Read the
+                  breakdown</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-6 card-project" data-reveal>
+            <a class="project-media" href="https://insightgram.netlify.app" target="_blank" rel="noopener"
+              onclick="viewedProject('Insightgram', 'View Project')">
+              <img src="/media/images/projects/Insightgram_Portfolio_Banner.png" alt="Insightgram" loading="lazy">
+            </a>
+            <div class="card-body">
+              <div class="project-head">
+                <h3 class="card-title">Insightgram</h3>
+                <span class="chip chip-soft">Side project</span>
+              </div>
+              <p class="muted">A social networking platform designed to connect people seamlessly around the globe.</p>
+              <div class="tag-row">
+                <span class="tag">Java</span><span class="tag">Spring Boot</span><span
+                  class="tag">Microservices</span><span class="tag">Spring Security</span><span
+                  class="tag">MySQL</span><span class="tag">WebSocket</span>
+              </div>
+              <div class="project-links">
+                <a href="https://insightgram.netlify.app" class="btn btn-ghost btn-sm" target="_blank" rel="noopener"
+                  onclick="viewedProject('Insightgram', 'Live Demo')"><i class="fa fa-globe"></i> Live demo</a>
+                <a href="https://github.com/princekr0722/Insightgram_Main_Backend_Service" class="btn btn-ghost btn-sm"
+                  target="_blank" rel="noopener" onclick="viewedProject('Insightgram', 'Source Code')"><i
+                    class="fa-brands fa-github"></i> Source</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-6 card-project" data-reveal>
+            <a class="project-media" href="https://github.com/dikshant123321/Real-Estate-Broker-Application-"
+              target="_blank" rel="noopener" onclick="viewedProject('Estate Explorer', 'View Project')">
+              <img src="/media/images/projects/Estate Explorer - Logo.jpg" alt="Estate Explorer" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3 class="card-title">Estate Explorer</h3>
+              <p class="muted">A comprehensive real estate platform for property listing and management.</p>
+              <div class="tag-row">
+                <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span>
+              </div>
+              <div class="project-links">
+                <a href="https://drive.google.com/file/d/1pgnoh-SSTSRZIqLJsBwh1rLfGPDzKvyX/view?usp=share_link"
+                  class="btn btn-ghost btn-sm" target="_blank" rel="noopener"
+                  onclick="viewedProject('Estate Explorer', 'Presentation')"><i class="fa fa-file-lines"></i>
+                  Presentation</a>
+                <a href="https://github.com/dikshant123321/Real-Estate-Broker-Application-" class="btn btn-ghost btn-sm"
+                  target="_blank" rel="noopener" onclick="viewedProject('Estate Explorer', 'Source Code')"><i
+                    class="fa-brands fa-github"></i> Source</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-4 card-project" data-reveal>
+            <a class="project-media" href="https://github.com/princekr0722/inexpensive-cause-3321" target="_blank"
+              rel="noopener" onclick="viewedProject('Bus Buddy', 'View Project')">
+              <img src="/media/images/projects/Bus Buddy Logo.jpg" alt="Bus Buddy" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3 class="card-title">Bus Buddy</h3>
+              <p class="muted">An online bus ticket booking platform offering the best deals and a seamless booking
+                experience.</p>
+              <div class="tag-row"><span class="tag">Java</span></div>
+              <div class="project-links">
+                <a href="https://drive.google.com/file/d/1v5XrzAQipbzSQiNrmaTda8DIXs7HrNk_/view?usp=share_link"
+                  class="btn btn-ghost btn-sm" target="_blank" rel="noopener"
+                  onclick="viewedProject('Bus Buddy', 'Presentation')"><i class="fa fa-file-lines"></i>
+                  Presentation</a>
+                <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn btn-ghost btn-sm"
+                  target="_blank" rel="noopener" onclick="viewedProject('Bus Buddy', 'Source Code')"><i
+                    class="fa-brands fa-github"></i> Source</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-4 card-project" data-reveal>
+            <a class="project-media" href="https://candid-sorbet-838343.netlify.app/" target="_blank" rel="noopener"
+              onclick="viewedProject('Delicious', 'View Project')">
+              <img src="/media/images/projects/Licious_SS1.png" alt="Licious Clone" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3 class="card-title">Licious Clone</h3>
+              <p class="muted">An online meat shop platform for delivering fresh poultry, meat &amp; seafood.</p>
+              <div class="tag-row"><span class="tag">HTML</span><span class="tag">CSS</span><span
+                  class="tag">JavaScript</span></div>
+              <div class="project-links">
+                <a href="https://candid-sorbet-838343.netlify.app/" class="btn btn-ghost btn-sm" target="_blank"
+                  rel="noopener" onclick="viewedProject('Delicious', 'Live Demo')"><i class="fa fa-globe"></i> Live
+                  demo</a>
+                <a href="https://github.com/AditiSharma00/truthful-wing-8761" class="btn btn-ghost btn-sm"
+                  target="_blank" rel="noopener" onclick="viewedProject('Delicious', 'Source Code')"><i
+                    class="fa-brands fa-github"></i> Source</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-4 card-project" data-reveal>
+            <a class="project-media" href="https://steady-jalebi-560beb.netlify.app/index.html" target="_blank"
+              rel="noopener" onclick="viewedProject('PharmNotEasy', 'View Project')">
+              <img src="/media/images/projects/PharmEasy_SS1.png" alt="PharmEasy Clone" loading="lazy">
+            </a>
+            <div class="card-body">
+              <h3 class="card-title">PharmEasy Clone</h3>
+              <p class="muted">India's leading online healthcare and medicine delivery platform, rebuilt.</p>
+              <div class="tag-row"><span class="tag">HTML</span><span class="tag">CSS</span><span
+                  class="tag">JavaScript</span></div>
+              <div class="project-links">
+                <a href="https://steady-jalebi-560beb.netlify.app/index.html" class="btn btn-ghost btn-sm"
+                  target="_blank" rel="noopener" onclick="viewedProject('PharmNotEasy', 'Live Demo')"><i
+                    class="fa fa-globe"></i> Live demo</a>
+                <a href="https://github.com/princekr0722/versed-substance-8213" class="btn btn-ghost btn-sm"
+                  target="_blank" rel="noopener" onclick="viewedProject('PharmNotEasy', 'Source Code')"><i
+                    class="fa-brands fa-github"></i> Source</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GITHUB ================= -->
+    <section id="github" class="section">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><span class="eyebrow-dot"></span>06 — GitHub</span>
+          <h2 class="section-title">Commit <span class="grad-text">history</span></h2>
+        </header>
+
+        <div class="bento">
+          <article class="card sp-6 card-gh" data-reveal>
+            <div class="gh-frame">
+              <img class="gh-img"
+                src="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true&theme=transparent&hide_border=true&title_color=8584ff&icon_color=22d3ee&text_color=9aa0b4"
+                alt="GitHub stats for princekr0722" loading="lazy" onerror="ghFallback(this)">
+              <div class="gh-fallback">
+                <i class="fa-brands fa-github"></i>
+                <span>Overview unavailable right now</span>
+                <a class="btn btn-ghost btn-sm" href="https://github.com/princekr0722" target="_blank"
+                  rel="noopener">Open GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-6 card-gh" data-reveal>
+            <div class="gh-frame">
+              <img class="gh-img"
+                src="https://github-readme-streak-stats.herokuapp.com?user=princekr0722&theme=transparent&hide_border=true&disable_animations=true&stroke=8584ff&ring=8584ff&fire=22d3ee&currStreakLabel=8584ff&sideLabels=9aa0b4&dates=6b7080"
+                alt="GitHub contribution streak" loading="lazy" onerror="ghFallback(this)">
+              <div class="gh-fallback">
+                <i class="fa-solid fa-fire"></i>
+                <span>Streak unavailable right now</span>
+                <a class="btn btn-ghost btn-sm" href="https://github.com/princekr0722" target="_blank"
+                  rel="noopener">Open GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-5 card-gh" data-reveal>
+            <div class="gh-frame">
+              <img class="gh-img"
+                src="https://github-readme-stats.vercel.app/api/top-langs/?username=princekr0722&layout=compact&theme=transparent&hide_border=true&title_color=8584ff&text_color=9aa0b4"
+                alt="Most used languages" loading="lazy" onerror="ghFallback(this)">
+              <div class="gh-fallback">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Language breakdown unavailable</span>
+                <a class="btn btn-ghost btn-sm" href="https://github.com/princekr0722?tab=repositories"
+                  target="_blank" rel="noopener">Browse repos</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card sp-7" data-reveal>
+            <div class="card-body">
+              <h3 class="card-title"><i class="fa-solid fa-chart-simple"></i> Contribution activity</h3>
+              <div class="gh-chart">
+                <img src="https://ghchart.rshah.org/8584ff/princekr0722" alt="GitHub contribution chart"
+                  loading="lazy" onerror="this.closest('.gh-chart').remove()">
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="section">
+      <div class="wrap">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><span class="eyebrow-dot"></span>07 — Contact</span>
+          <h2 class="section-title">Let's <span class="grad-text">talk</span></h2>
+          <p class="section-sub">Always interested in new opportunities and collaborations.</p>
+        </header>
+
+        <div class="bento">
+          <a href="tel:9523434209" class="card sp-3 card-contact accent-violet" id="contact-phone"
+            onclick="logPhoneClicked()" data-reveal>
+            <i class="fa fa-phone contact-icon"></i>
+            <div class="contact-label">Phone</div>
+            <div class="contact-value">+91 95234 34209</div>
+          </a>
+
+          <a href="mailto:knownasprincekr@gmail.com" class="card sp-3 card-contact accent-cyan" id="contact-email"
+            onclick="logEmailClicked()" data-reveal>
+            <i class="fa fa-envelope contact-icon"></i>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">knownasprincekr@gmail.com</div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/prince-kumar-7b9194247/" class="card sp-3 card-contact accent-pink"
+            id="contact-linkedin" target="_blank" rel="noopener" onclick="logLinkedInClicked()" data-reveal>
+            <i class="fa-brands fa-linkedin-in contact-icon"></i>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value">Prince Kumar</div>
+          </a>
+
+          <a href="https://github.com/princekr0722" class="card sp-3 card-contact accent-emerald" id="contact-github"
+            target="_blank" rel="noopener" onclick="logGitHubClicked()" data-reveal>
+            <i class="fa-brands fa-github contact-icon"></i>
+            <div class="contact-label">GitHub</div>
+            <div class="contact-value">princekr0722</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© <span id="year">2026</span> Prince Kumar</span>
+      <span class="footer-note">Built from scratch — no templates.</span>
+    </div>
+  </footer>
+
+  <button class="top-btn" id="topBtn" type="button" title="Go to top" aria-label="Go to top">
+    <i class="fa fa-arrow-up"></i>
+  </button>
 
   <script>
-    $(document).ready(function () {
+    (function () {
+      'use strict';
 
-      $('.coding-hours').each(function () {
-        // Define start date
-        const startDate = new Date('2022-08-29');
-        const today = new Date();
+      /* ---------- Theme ---------- */
+      var root = document.documentElement;
+      var themeToggle = document.getElementById('theme-toggle');
+      var savedTheme = localStorage.getItem('theme') || 'dark';
+      applyTheme(savedTheme);
 
-        // Calculate difference in days
-        const diffInMs = today - startDate;
-        const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
-
-        // 4 hours per day
-        const totalHours = diffInDays * 5;
-
-        // Update element text
-        $(this).text(totalHours + '+');
+      themeToggle.addEventListener('click', function () {
+        applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+        localStorage.setItem('theme', root.getAttribute('data-theme'));
       });
 
-      $('.years-of-exp').each(function () {
-        // Define start date
-        const startDate = new Date('2023-09-20');
-        const today = new Date();
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        themeToggle.querySelector('i').className =
+          theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      }
 
-        // Calculate difference in milliseconds
-        const diffInMs = today - startDate;
+      /* ---------- Live counters ---------- */
+      var today = new Date();
+      var codingStart = new Date('2022-08-29');
+      var careerStart = new Date('2023-09-20');
 
-        // Convert to years (365.25 to account for leap years)
-        const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365.25);
+      var days = Math.floor((today - codingStart) / 86400000);
+      setText('.coding-hours', (days * 5) + '+');
 
-        // Round to one decimal (e.g., 1.2 years)
-        const years = diffInYears.toFixed(1);
+      var years = (today - careerStart) / (86400000 * 365.25);
+      setText('.years-of-exp', years.toFixed(1) + '+');
 
-        // Update element text
-        $(this).text(`${years}+`);
+      document.getElementById('year').textContent = today.getFullYear();
+
+      function setText(selector, value) {
+        document.querySelectorAll(selector).forEach(function (el) { el.textContent = value; });
+      }
+
+      /* ---------- Role rotator ---------- */
+      var roles = [
+        'scalable backend systems',
+        'distributed architectures',
+        'AI engineering tooling',
+        'cloud-native microservices',
+        'systems that stay up'
+      ];
+      var rotator = document.getElementById('rotator');
+      var roleIndex = 0;
+      setInterval(function () {
+        roleIndex = (roleIndex + 1) % roles.length;
+        rotator.classList.add('swap');
+        setTimeout(function () {
+          rotator.textContent = roles[roleIndex];
+          rotator.classList.remove('swap');
+        }, 250);
+      }, 2800);
+
+      /* ---------- Mobile nav ---------- */
+      var navToggle = document.getElementById('nav-toggle');
+      var navLinks = document.getElementById('nav-links');
+      var navScrim = document.getElementById('nav-scrim');
+
+      function setNav(open) {
+        navLinks.classList.toggle('open', open);
+        navToggle.classList.toggle('is-open', open);
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+        navScrim.hidden = !open;
+        document.body.classList.toggle('nav-open', open);
+      }
+
+      navToggle.addEventListener('click', function () {
+        setNav(!navLinks.classList.contains('open'));
       });
 
+      navScrim.addEventListener('click', function () { setNav(false); });
 
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setNav(false);
+      });
 
-      // Smooth scrolling function
-      function smoothScroll(target, duration = 1000) {
-        const targetPosition = target ? $(target).offset().top - 80 : 0; // 80px offset for header
+      navLinks.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { setNav(false); });
+      });
 
-        // Direct scroll without animation
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'instant'
+      /* ---------- Nav ticker (appears once the hero is gone) ---------- */
+      var ticker = document.getElementById('nav-ticker');
+      var track = document.getElementById('ticker-track');
+      var hero = document.getElementById('home');
+
+      // Duplicate the items so the -50% marquee loop is seamless.
+      track.innerHTML += track.innerHTML;
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          ticker.classList.toggle('show', !entries[0].isIntersecting);
+        }, { threshold: 0 }).observe(hero);
+      }
+
+      /* ---------- Scroll state + scrollspy ---------- */
+      var nav = document.querySelector('.nav-wrap');
+      var topBtn = document.getElementById('topBtn');
+      var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+      var linkFor = {};
+      document.querySelectorAll('.nav-link').forEach(function (l) {
+        linkFor[l.getAttribute('href').slice(1)] = l;
+      });
+
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          var y = window.scrollY;
+          nav.classList.toggle('scrolled', y > 20);
+          topBtn.classList.toggle('show', y > 500);
+
+          var current = sections[0];
+          sections.forEach(function (s) {
+            if (s.getBoundingClientRect().top <= 140) current = s;
+          });
+          document.querySelectorAll('.nav-link').forEach(function (l) { l.classList.remove('active'); });
+          if (current && linkFor[current.id]) linkFor[current.id].classList.add('active');
+          ticking = false;
+        });
+      }, { passive: true });
+
+      topBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      /* ---------- Reveal on scroll ---------- */
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var revealables = document.querySelectorAll('[data-reveal]');
+
+      if (reduce || !('IntersectionObserver' in window)) {
+        revealables.forEach(function (el) { el.classList.add('in'); });
+      } else {
+        // Reveal once the element is ~20% into the viewport.
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          });
+        }, { rootMargin: '0px 0px -20% 0px', threshold: 0 });
+
+        revealables.forEach(function (el) {
+          // Stagger within a row of cards, not across the whole page —
+          // otherwise everything below the fold inherits the maximum delay.
+          var siblings = el.parentElement ? el.parentElement.children : [el];
+          var i = Array.prototype.indexOf.call(siblings, el);
+          el.style.setProperty('--delay', (Math.min(i, 3) * 45) + 'ms');
+          io.observe(el);
         });
       }
 
-      // Handle scrolling for nav links
-      $('.nav-link, .navbar-brand').on('click', function (e) {
-        if (this.hash !== '') {
-          e.preventDefault();
-          const hash = this.hash;
+      /* ---------- Cursor spotlight on cards ---------- */
+      if (!reduce && window.matchMedia('(hover: hover)').matches) {
+        document.querySelectorAll('.card').forEach(function (card) {
+          card.addEventListener('pointermove', function (e) {
+            var r = card.getBoundingClientRect();
+            card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+            card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+          });
+        });
+      }
+    })();
+  </script>
 
-          // First, close mobile menu if open
-          if ($('.navbar-collapse').hasClass('show')) {
-            $('.navbar-collapse').collapse('hide');
+  <script>
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx7OYyZHDaha_Jx7yncoOGCcbpbNA8In8kz5cx0IVJ87MmQ6bcYmmlijXaiaShn9jOO/exec";
+
+    /**
+     * Sends a log entry to the Google Sheet.
+     * Automatically fetches the user's IP and adds it to the payload.
+     * * @param {string} type - The event type (e.g., "VISITED", "CLICKED_RESUME"). Matches Sheet Name.
+     * @param {object} customData - Any extra data you want to log (e.g., button ID, user agent).
+     */
+    async function sendLog(type, customData = {}) {
+      try {
+        // 1. Fetch User's Public IP Address
+        // We use a free service because browsers can't get public IP natively
+        let userIp = "Unknown";
+        const visitorId = getVisitorId();
+        const sessionId = getVisitorSessionId();
+        try {
+          const ipResponse = await fetch("https://api.ipify.org?format=json");
+          const ipJson = await ipResponse.json();
+          userIp = ipJson.ip;
+        } catch (err) {
+          console.warn("Could not determine Point");
+        }
+
+        // 2. Prepare the data
+        // We merge the customData with the IP address
+        const finalPayload = {
+          ...customData,
+          uid: visitorId,
+          session_id: sessionId,
+          timestamp: new Date().toISOString(),
+          ip_address: userIp,
+          screen_res: `${window.screen.width}x${window.screen.height}`,
+          page_url: window.location.href,
+          userAgent: navigator.userAgent // Good to have for analytics
+        };
+
+        const requestBody = {
+          type: type,
+          payload: finalPayload
+        };
+
+        // 3. Send to Google Apps Script
+        // mode: 'no-cors' is crucial here.
+        // Google Scripts return a redirect (302) which causes CORS errors in browsers.
+        // 'no-cors' sends the data successfully but ignores the response to prevent errors.
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestBody),
+        });
+
+        console.log(`Logged: ${type}`);
+
+      } catch (error) {
+        console.error("Error logging:", error);
+      }
+    }
+
+    // Log page visit
+    function logResumeClickedHeader() {
+      sendLog('CLICKED VIEW RESUME', { button_location: 'HEADER' })
+    }
+    function logResumeClickedHeroSection() {
+      sendLog('CLICKED VIEW RESUME', { button_location: 'HERO SECTION' })
+    }
+    function logPhoneClicked() {
+      sendLog('GET IN TOUCH', { method: 'PHONE' })
+    }
+    function logEmailClicked() {
+      sendLog('GET IN TOUCH', { method: 'EMAIL' })
+    }
+    function logLinkedInClicked() {
+      sendLog('GET IN TOUCH', { method: 'LINKEDIN' })
+    }
+    function logGitHubClicked() {
+      sendLog('GET IN TOUCH', { method: 'GITHUB' })
+    }
+
+    function viewedProject(projectName, buttonLocation) {
+      sendLog('VIEWED PROJECT', { project_name: projectName, button_location: buttonLocation })
+    }
+
+    /**
+     * HELPER: Get or Create Unique Visitor ID
+     * Checks LocalStorage. If ID exists, returns it.
+     * If not, generates a new UUID, saves it, and returns it.
+     */
+    function getVisitorId() {
+      const STORAGE_KEY = "user_device_id";
+
+      try {
+        // Check if ID exists
+        let uid = localStorage.getItem(STORAGE_KEY);
+
+        if (!uid) {
+          // Generate a new UUID (Modern browser standard)
+          if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+            uid = crypto.randomUUID();
+          } else {
+            // Fallback for older browsers (Date + Random)
+            uid = 'user_' + Date.now().toString(36) + Math.random().toString(36).substr(2);
           }
 
-          // Then scroll to target
-          smoothScroll(hash);
-
-          // Update URL hash after animation
-          setTimeout(() => {
-            window.location.hash = hash;
-          }, 1000);
-        }
-      });
-
-      // Up button functionality
-      const upButton = $('.topButton');
-      let isScrolling;
-
-      $(window).scroll(function () {
-        // Show/hide up button
-        if ($(this).scrollTop() > 300) {
-          upButton.addClass('show');
-        } else {
-          upButton.removeClass('show');
+          // Save to local storage
+          localStorage.setItem(STORAGE_KEY, uid);
         }
 
-        // Clear timeout if scrolling is still happening
-        window.clearTimeout(isScrolling);
-
-        // Set timeout to run after scrolling ends
-        isScrolling = setTimeout(function () {
-          // Run after scrolling ends
-        }, 0);
-      });
-
-      // Handle up button click
-      upButton.on('click', function (e) {
-        e.preventDefault();
-        smoothScroll(null, 0);
-        return false;
-      });
-
-      //!--SKILL BAR ANIMATION
-      var offsetTop = $('#skills').offset().top;
-      $(window).scroll(function () {
-        var height = $(window).height();
-        if ($(window).scrollTop() + height > offsetTop) {
-          jQuery('.skillbar').each(function () {
-            jQuery(this).find('.skillbar-bar').animate({
-              width: jQuery(this).attr('data-percent')
-            }, 2000);
-          });
-        }
-      });
-
-      //FOR SCROLLING PAGE SMOOTHLY
-
-      $('[data-toggle="tooltip"]').tooltip();
-
-      // Add smooth scrolling to all links in navbar + fixed link
-      $("a").on('click', function (event) {
-
-        // Make sure this.hash has a value before overriding default behavior
-        if (this.hash !== "") {
-
-          // Prevent default anchor click behavior
-          event.preventDefault();
-
-          // Store hash
-          var hash = this.hash;
-
-          // Using jQuery's animate() method to add smooth page scroll
-          // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-          $('html, body').animate({
-            scrollTop: $(hash).offset().top
-          }, 900, function () {
-
-            // Add hash (#) to URL when done scrolling (default click behavior)
-            window.location.hash = hash;
-          });
-        } // End if
-      });
-    })
-  </script>
-</head>
-
-<!---Nav Bar-->
-
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="150">
-  <nav class="frosted navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm" id="nav-menu">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">Prince Kr</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#home">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">ABOUT</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#skills">SKILLS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#experience">EXPERIENCE</a>
-          </li>
-          <!-- TODO: Enable Freelance Section -->
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#freelance">FREELANCE</a>
-          </li> -->
-          <li class="nav-item">
-            <a class="nav-link" href="#education">EDUCATION</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#projects">PROJECTS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">CONTACT</a>
-          </li>
-          <li class="nav-item nav-btn">
-            <a href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view" class="btn btn-primary"
-              target="_blank" download="Prince_Kumar_Resume.pdf" onclick="logResumeClickedHeader()">
-              Resume
-            </a>
-          </li>
-          <li class="nav-item nav-btn">
-            <button id="theme-toggle" class="btn btn-outline-primary">
-              <i class="fa-solid fa-sun"></i>
-              <span class="theme-toggle-name">Theme</span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <script>
-      // Theme toggle functionality
-      const themeToggle = document.getElementById('theme-toggle');
-      const icon = themeToggle.querySelector('i');
-      const navbarMenu = document.querySelector('#nav-menu');
-
-      // Check for saved theme preference or default to light
-      const savedTheme = localStorage.getItem('theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      updateThemeIcon(savedTheme);
-
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-      });
-
-      function updateThemeIcon(theme) {
-        icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-        navbarMenu.classList.remove("navbar-light", "navbar-dark");
-        navbarMenu.classList.add(theme === 'light' ? 'navbar-light' : 'navbar-dark');
+        return uid;
+      } catch (err) {
+        // Fallback if LocalStorage is blocked (e.g., Incognito mode sometimes)
+        console.warn("LocalStorage access denied.");
+        return "unknown_visitor_" + Date.now();
       }
-    </script>
+    }
 
+    /**
+     * HELPER: Get or Create Unique Visitor Session ID
+     * Checks SessionStorage. If ID exists, returns it.
+     * If not, generates a new UUID, saves it, and returns it.
+     */
+    function getVisitorSessionId() {
+      const STORAGE_KEY = "user_session_id";
 
-  </nav>
+      try {
+        // Check if ID exists
+        let uid = sessionStorage.getItem(STORAGE_KEY);
 
+        if (!uid) {
+          // Generate a new UUID (Modern browser standard)
+          if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+            uid = crypto.randomUUID();
+          } else {
+            // Fallback for older browsers (Date + Random)
+            uid = 'user_' + Date.now().toString(36) + Math.random().toString(36).substr(2);
+          }
 
-  <div id="home" class="hero-section">
-    <div class="container">
-      <div class="row align-items-center min-vh-100">
-        <div class="col-lg-6 hero-content" data-aos="fade-right">
-          <div class="hero-greeting">
-            <span class="greeting-text">Hello World! <span class="wave">👋</span></span>
-          </div>
-          <h1 class="hero-title">
-            I'm <span class="highlight">Prince Kumar</span>
-            <div class="title-badge">
-              <i class="fa fa-check-circle"></i> Available for hire
-            </div>
-          </h1>
-          <div class="hero-roles">
-            <div class="role-slider">
-              <span>Software Developer</span>
-              <span style="color: rgb(244, 38, 106);">A Good Colleague of Yours?</span>
-              <span>Full Stack Developer</span>
-              <span style="color: rgb(61, 189, 1);">Freelancer</span>
-              <span>System Designer</span>
-              <span>Java Expert</span>
-              <span>Problem Solver</span>
-              <span style="color: rgb(255, 170, 0);">Not At All Disappointing!!</span>
-            </div>
-          </div>
-          <p class="hero-description">
-            Passionate about crafting robust backend solutions and scalable systems.
-            Currently building innovative solutions at
-            <a href="https://drinkprime.in/" class="company-link">
-              DrinkPrime <i class="fa fa-external-link"></i>
-            </a>
-          </p>
-          <div class="hero-cta">
-            <a href="https://drive.google.com/file/d/1IE8nYQJuCAZkeaaYaVQdGL_VD2iI81hD/view"
-              class="btn btn-primary btn-lg download-btn" target="_blank" download="Prince_Kumar_Resume.pdf"
-              onclick="logResumeClickedHeroSection()">
-              <i class="fa fa-eye"></i> View Resume
-            </a>
-            <a href="#contact" class="btn btn-outline-primary btn-lg">
-              <i class="fa fa-envelope"></i> Get in Touch
-            </a>
-          </div>
-          <div class="tech-stack">
-            <a href="#skills" class="tech-label">Tech Stack <i class="fa fa-arrow-right"></i></a>
-            <div class="tech-icons">
-              <i class="devicon-java-plain colored" title="Java"></i>
-              <i class="devicon-spring-plain colored" title="Spring"></i>
-              <i class="devicon-mysql-plain colored" title="MySQL"></i>
-              <i class="devicon-mongodb-plain colored" title="MongoDB"></i>
-              <i class="devicon-docker-plain colored" title="Docker"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 hero-image-wrapper" data-aos="fade-left">
-          <div class="hero-image-container">
-            <img src="/media/images/me/Profile_Pic.png" class="hero-image" alt="Prince Kumar">
-            <div class="experience-indicator">
-              <div class="exp-number"><span class="years-of-exp">...</span></div>
-              <div class="exp-text">Years of<br>Experience</div>
-            </div>
-          </div>
-          <div class="floating-achievements">
-            <div class="achievement-card">
-              <i class="fa fa-code"></i>
-              <span><span class="coding-hours">...</span> Hours<br>Coding</span>
-            </div>
-            <div class="achievement-card">
-              <i class="fa fa-check"></i>
-              <span>1500+ DSA<br>Problems</span>
-            </div>
-            <div class="achievement-card ai">
-              <i class="fa-solid fa-brain"></i>
-              <span>AI Powered</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+          // Save to local storage
+          sessionStorage.setItem(STORAGE_KEY, uid);
+        }
 
-  <!-- ABOUT SECTION -->
-  <div id="about" class="about-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <h1>About Me</h1>
-        <hr class="solid">
-      </div>
+        return uid;
+      } catch (err) {
+        // Fallback if SessionStorage is blocked (e.g., Incognito mode sometimes)
+        console.warn("SessionStorage access denied.");
+        return "unknown_session_" + Date.now();
+      }
+    }
 
-      <div class="about-content">
-        <div class="row align-items-center">
-          <div class="col-lg-5 mb-4 mb-lg-0">
-            <div class="about-image" data-aos="fade-right">
-              <img src="/media/images/me/Prince-Kumar-Profile-Photo.jpg" class="img-fluid rounded-3 shadow"
-                alt="Prince Kumar">
-              <div class="experience-badge">
-                <span class="number years-of-exp">2+</span>
-                <span class="text">Years<br>Experience</span>
-              </div>
-            </div>
-          </div>
+    function handlePageLoad() {
+      // We use sessionStorage here.
+      // sessionStorage persists on Refresh, but is CLEARED on New Tab/New Window.
+      const SESSION_KEY = "has_logged_visit_this_tab";
 
-          <div class="col-lg-7" data-aos="fade-left">
-            <div class="about-text">
-              <h2 class="mb-3">Software Developer & System Designer</h2>
-              <p class="lead mb-4">
-                A passionate Software Developer with expertise in building scalable microservices
-                and distributed systems. Currently crafting robust solutions at
-                <a href="https://drinkprime.in/" class="text-decoration-none">DrinkPrime</a>.
-              </p>
+      // Check if we have already logged a visit for *this specific tab*
+      if (!sessionStorage.getItem(SESSION_KEY)) {
 
-              <div class="key-points mb-4">
-                <div class="point">
-                  <i class="fa fa-check-circle"></i>
-                  <span><span class="years-of-exp">...</span> years of experience</span>
-                </div>
-                <div class="point">
-                  <i class="fa fa-check-circle"></i>
-                  <span>1500+ DSA problems solved</span>
-                </div>
-                <div class="point">
-                  <i class="fa fa-check-circle"></i>
-                  <span>Expertise in Full-Stack</span>
-                </div>
-                <div class="point">
-                  <i class="fa fa-check-circle"></i>
-                  <span>Strong problem-solving skills</span>
-                </div>
-              </div>
+        // 1. It is a new Tab or New Window -> SEND LOG
+        const utmParam = getQueryParam("utm_source");
+        sendLog("VISITED", { referrer: document.referrer, utm_param: utmParam });
 
-              <p class="mb-4">
-                I specialize in developing high-performance backend systems using Java, Spring Boot,
-                and modern cloud technologies. My experience includes building scalable microservices,
-                implementing message brokers, and designing efficient database solutions.
-              </p>
+        // 2. Mark this session as logged
+        sessionStorage.setItem(SESSION_KEY, "true");
 
-              <div class="about-stats row g-4 mb-4">
-                <div class="col-6 col-md-3">
-                  <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Projects<br>Completed</div>
-                  </div>
-                </div>
-                <div class="col-6 col-md-3">
-                  <div class="stat-card">
-                    <div class="stat-number">1500+</div>
-                    <div class="stat-label">DSA<br>Solutions</div>
-                  </div>
-                </div>
-                <div class="col-6 col-md-3">
-                  <div class="stat-card">
-                    <div class="stat-number coding-hours">...</div>
-                    <div class="stat-label">Coding<br>Hours</div>
-                  </div>
-                </div>
-                <div class="col-6 col-md-3">
-                  <div class="stat-card">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">Tech<br>Stack</div>
-                  </div>
-                </div>
-              </div>
+      } else {
+        // It is just a Page Refresh -> DO NOT LOG
+        console.log("Page refreshed.");
+      }
+    }
 
-              <div class="social-links">
-                <a href="https://github.com/princekr0722" class="social-link" target="_blank">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/prince-kumar-7b9194247/" class="social-link" target="_blank">
-                  <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="mailto:knownasprincekr@gmail.com" class="social-link">
-                  <i class="fa fa-envelope"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    // Run immediately on load
+    handlePageLoad();
 
-  <!---SKILLS -->
-  <div id="skills" class="skills-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <h1>Technical Skills</h1>
-        <hr class="solid">
-      </div>
+    /**
+   * Retrieves the value of a specific query parameter from the current window URL.
+   * * @param {string} paramName - The name of the parameter to retrieve.
+   * @returns {string|null} - The value of the parameter, or null if not found.
+   */
+    function getQueryParam(paramName) {
+      // Option 1: Modern Browser API (Recommended)
+      // URLSearchParams is supported in all modern browsers (Chrome, Firefox, Safari, Edge)
+      if (window.URLSearchParams) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(paramName);
+      }
 
-      <div class="skills-container">
-        <!-- Languages -->
-        <div class="skill-category">
-          <h2>Programming Languages</h2>
-          <div class="skills-grid">
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-java-plain colored"></i>
-              <span>Java</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-javascript-plain colored"></i>
-              <span>JavaScript</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-typescript-plain colored"></i>
-              <span>TypeScript</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-go-original-wordmark colored"></i>
-              <span>Go</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-python-plain colored"></i>
-              <span>Python</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-lua-plain colored"></i>
-              <span>Lua</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-html5-plain colored"></i>
-              <span>HTML</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-css3-plain colored"></i>
-              <span>CSS</span>
-            </div>
-          </div>
-        </div>
+      // Option 2: Fallback for very old browsers (IE)
+      // Uses Regex to parse the query string manually
+      const name = paramName.replace(/[\[\]]/g, '\\$&');
+      const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+      const results = regex.exec(window.location.href);
 
-        <!-- Frameworks & Libraries -->
-        <div class="skill-category">
-          <h2>Frameworks & Libraries</h2>
-          <div class="skills-grid">
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-spring-plain colored"></i>
-              <span>Spring Framework</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-spring-plain colored"></i>
-              <span>Spring Boot</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-hibernate-plain colored"></i>
-              <span>Hibernate</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-react-original colored"></i>
-              <span>React.js</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-nodejs-plain colored"></i>
-              <span>Node.js</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-nextjs-plain"></i>
-              <span>Next.js</span>
-            </div>
-          </div>
-        </div>
+      if (!results) return null;
+      if (!results[2]) return '';
 
-        <!-- Databases -->
-        <div class="skill-category">
-          <h2>Databases & Storage</h2>
-          <div class="skills-grid">
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-mysql-plain colored"></i>
-              <span>MySQL</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-mongodb-plain colored"></i>
-              <span>MongoDB</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-postgresql-plain colored"></i>
-              <span>PostgreSQL</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-microsoftsqlserver-plain colored"></i>
-              <span>MS SQL Server</span>
-            </div>
-          </div>
-        </div>
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+  </script>
 
-        <!-- Cloud & DevOps -->
-        <div class="skill-category">
-          <h2>Cloud & DevOps</h2>
-          <div class="skills-grid">
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-amazonwebservices-plain colored"></i>
-              <span>AWS</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-googlecloud-plain colored"></i>
-              <span>Google Cloud</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-firebase-plain colored"></i>
-              <span>Firebase</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-kubernetes-plain colored"></i>
-              <span>Kubernetes</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-docker-plain colored"></i>
-              <span>Docker</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <img src="/media/logos/skills/kong-svgrepo-com.svg" alt="Kong">
-              <span>Kong</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Message Brokers & Architecture -->
-        <div class="skill-category">
-          <h2>Message Brokers & Architecture</h2>
-          <div class="skills-grid">
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-rabbitmq-plain colored"></i>
-              <span>RabbitMQ</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <i class="devicon-apachekafka-original colored"></i>
-              <span>Kafka</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <img src="/media/logos/skills/microservices.svg" alt="Microservices">
-              <span>Microservices</span>
-            </div>
-            <div class="skill-card" data-aos="fade-up">
-              <img src="/media/logos/skills/dsa.svg" alt="DSA">
-              <span>DSA</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  </div>
-
-  <!-- WORK EXPERIENCE SECTION -->
-  <div id="experience" class="experience-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <h1>Work Experience</h1>
-        <hr class="solid">
-      </div>
-
-      <div class="experience-timeline">
-        <!-- DrinkPrime -->
-        <div class="experience-item" data-aos="fade-up">
-          <div class="experience-content">
-            <div class="experience-header">
-              <div class="experience-heading">
-                <h3 class="experience-role">Software Developer</h3>
-                <div class="experience-company">
-                  <a href="https://drinkprime.in/" target="_blank" rel="noopener noreferrer">
-                    DrinkPrime <i class="fa fa-external-link"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="experience-date">
-                <i class="fa fa-calendar"></i> Sep 2023 - Present
-              </div>
-            </div>
-
-            <!-- DPatcher -->
-            <div class="experience-project">
-              <h4 class="experience-project-title">
-                <i class="fa-solid fa-robot"></i> DPatcher — Autonomous AI Engineer
-              </h4>
-              <p class="experience-project-summary">
-                Designed and built an AI engineer with deep, grounded knowledge of DrinkPrime's entire system. It
-                answers from live sources rather than guessing, cross-referencing a pgvector knowledge base
-                (Confluence + learned resolutions), a code-graph of the actual repositories, read-only production
-                databases (MySQL/Mongo), and GKE runtime logs.
-              </p>
-              <ul class="experience-points">
-                <li>
-                  Made it a general-purpose engineering teammate the whole org can use — to understand how a feature
-                  works and why, debug and root-cause live issues across code + data + logs, draft test cases and edge
-                  cases, triage and resolve on-call incidents, and answer "where/how is X handled" onboarding
-                  questions — through both Slack and a web dashboard, with confidentiality controls that keep
-                  internal/technical detail off customer-facing threads.
-                </li>
-                <li>
-                  Built it to get smarter over time, folding confirmed resolutions back into the knowledge base so
-                  recurring problems become self-answering — reducing repeat escalations and the team's dependency on
-                  a few subject-matter experts.
-                </li>
-                <li>
-                  Owned the full product and its deployment: a role-based admin dashboard (Kong auth-gateway JWT,
-                  read/write access tiers), private staff DM assistant, live-tunable runtime settings, and a
-                  Dockerized rollout wired to external Postgres, MySQL/Mongo, and a code-graph service.
-                </li>
-              </ul>
-              <div class="experience-tags">
-                <span class="experience-tag">Node.js</span>
-                <span class="experience-tag">Fastify</span>
-                <span class="experience-tag">PostgreSQL / pgvector</span>
-                <span class="experience-tag">NVIDIA LLMs</span>
-                <span class="experience-tag">Embeddings</span>
-                <span class="experience-tag">React / Vite</span>
-                <span class="experience-tag">Docker</span>
-                <span class="experience-tag">GKE</span>
-              </div>
-            </div>
-
-            <!-- DPengram -->
-            <div class="experience-project">
-              <h4 class="experience-project-title">
-                <i class="fa-solid fa-diagram-project"></i> DPengram — Code-Knowledge Platform
-              </h4>
-              <p class="experience-project-summary">
-                Designed and built a self-contained platform that transforms Git repositories into a queryable code
-                graph (symbols, LSP-resolved call/usage graph, and semantic embeddings) and exposes it through a
-                single MCP endpoint and REST API. Serves as the code-graph backbone behind DPatcher.
-              </p>
-              <ul class="experience-points">
-                <li>
-                  Built a transparent MCP proxy that forwards all upstream engine tools unchanged while extending them
-                  with first-party capabilities including repository discovery and ripgrep-powered filename/regex
-                  search. Any MCP client (e.g. Claude Code or Cursor) connects without modification and automatically
-                  inherits future engine capabilities.
-                </li>
-                <li>
-                  Engineered reliable repository synchronization and deployment: serialized/coalesced indexing,
-                  incremental re-indexing from remote branch changes, stable project identities that self-heal after
-                  repository relocation, Docker-based organization deployment, and a zero-dependency single-file
-                  desktop executable with automatic engine provisioning, self-updates, and a React-based management
-                  UI.
-                </li>
-              </ul>
-              <div class="experience-tags">
-                <span class="experience-tag">MCP</span>
-                <span class="experience-tag">Code Graph</span>
-                <span class="experience-tag">LSP</span>
-                <span class="experience-tag">REST API</span>
-                <span class="experience-tag">ripgrep</span>
-                <span class="experience-tag">React</span>
-                <span class="experience-tag">Docker</span>
-              </div>
-            </div>
-
-            <!-- Core platform work -->
-            <div class="experience-project">
-              <h4 class="experience-project-title">
-                <i class="fa-solid fa-server"></i> Core Platform & Backend
-              </h4>
-              <ul class="experience-points">
-                <li>
-                  Single-handedly designed and built a centralised security mechanism for DrinkPrime to manage API
-                  restrictions, roles and permissions — all through one single point for every microservice.
-                </li>
-                <li>
-                  Upgraded the legacy technicians' slot management to handle race conditions that were causing
-                  over-booking of slots, using distributed locking.
-                </li>
-                <li>
-                  Upgraded RESTful inter-service communication to event-driven systems, and migrated the old PHP-based
-                  system into Spring Boot — including database migrations and backward compatibility.
-                </li>
-              </ul>
-              <div class="experience-tags">
-                <span class="experience-tag">Java</span>
-                <span class="experience-tag">Spring Boot</span>
-                <span class="experience-tag">Kong API Gateway</span>
-                <span class="experience-tag">Redis / Redisson</span>
-                <span class="experience-tag">Kafka</span>
-                <span class="experience-tag">RabbitMQ</span>
-                <span class="experience-tag">Microservices</span>
-                <span class="experience-tag">PHP</span>
-                <span class="experience-tag">React</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Freelancing -->
-        <div class="experience-item" data-aos="fade-up">
-          <div class="experience-content">
-            <div class="experience-header">
-              <div class="experience-heading">
-                <h3 class="experience-role">Freelance Software Developer</h3>
-                <div class="experience-company">Self-Employed</div>
-              </div>
-              <div class="experience-date">
-                <i class="fa fa-calendar"></i> Oct 2023 - Present
-              </div>
-            </div>
-
-            <p class="experience-project-summary">
-              Besides my office work, I also engage in freelance projects to continuously learn and explore new
-              technologies. This helps me stay updated with the latest industry trends and broaden my skill set. I
-              provide services in complete backend, frontend, cloud, custom software and e-commerce.
-            </p>
-            <div class="experience-tags">
-              <span class="experience-tag">Backend</span>
-              <span class="experience-tag">Frontend</span>
-              <span class="experience-tag">Cloud</span>
-              <span class="experience-tag">Custom Software</span>
-              <span class="experience-tag">E-Commerce</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FREELANCE SECTION -->
-  <div style="display: none;" id="freelance" class="freelance-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <h1>Freelance Work</h1>
-        <hr class="solid">
-      </div>
-
-      <div class="freelance-grid">
-        <!-- Upwork Card -->
-        <div class="freelance-card" data-aos="fade-up">
-          <div class="freelance-header">
-            <img src="https://static.cdnlogo.com/logos/u/34/upwork.svg" alt="UpWork" class="freelance-logo">
-            <h3 class="freelance-title">Upwork Profile</h3>
-            <div class="freelance-platform">Top Rated Seller</div>
-          </div>
-          <div class="freelance-content">
-            <div class="freelance-stats">
-              <div class="stat-item">
-                <div class="stat-value">100%</div>
-                <div class="stat-label">Success Rate</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-value">$50/hr</div>
-                <div class="stat-label">Top Rate</div>
-              </div>
-            </div>
-            <p class="freelance-description">
-              Specialized in full-stack development, API integration, and cloud solutions.
-              Maintaining a perfect client satisfaction score with focus on enterprise solutions.
-            </p>
-            <div class="freelance-tags">
-              <span class="freelance-tag">Full Stack</span>
-              <span class="freelance-tag">Java</span>
-              <span class="freelance-tag">Spring Boot</span>
-              <span class="freelance-tag">React</span>
-            </div>
-            <div class="freelance-links">
-              <a href="#" class="freelance-link primary">View Profile</a>
-              <a href="#" class="freelance-link secondary">Hire Me</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Fiverr Card -->
-        <div class="freelance-card" data-aos="fade-up">
-          <div class="freelance-header">
-            <img src="https://static.cdnlogo.com/logos/f/86/fiverr800x800.png" alt="Fiverr" class="freelance-logo">
-            <h3 class="freelance-title">Fiverr Profile</h3>
-            <div class="freelance-platform">Level 2 Seller</div>
-          </div>
-          <div class="freelance-content">
-            <div class="freelance-stats">
-              <div class="stat-item">
-                <div class="stat-value">4.9★</div>
-                <div class="stat-label">Rating</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-value">50+</div>
-                <div class="stat-label">Projects</div>
-              </div>
-            </div>
-            <p class="freelance-description">
-              Delivering high-quality web applications and microservices.
-              Specializing in scalable solutions and system architecture design.
-            </p>
-            <div class="freelance-tags">
-              <span class="freelance-tag">Microservices</span>
-              <span class="freelance-tag">AWS</span>
-              <span class="freelance-tag">Node.js</span>
-              <span class="freelance-tag">API</span>
-            </div>
-            <div class="freelance-links">
-              <a href="#" class="freelance-link primary">View Gigs</a>
-              <a href="#" class="freelance-link secondary">Contact</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Freelancer.com Card -->
-        <div class="freelance-card" data-aos="fade-up">
-          <div class="freelance-header">
-            <img src="https://static.cdnlogo.com/logos/f/11/freelancer.svg" alt="Freelancers" class="freelance-logo">
-            <h3 class="freelance-title">Freelancer Profile</h3>
-            <div class="freelance-platform">Preferred Freelancer</div>
-          </div>
-          <div class="freelance-content">
-            <div class="freelance-stats">
-              <div class="stat-item">
-                <div class="stat-value">95%</div>
-                <div class="stat-label">Completion</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-value">30+</div>
-                <div class="stat-label">Reviews</div>
-              </div>
-            </div>
-            <p class="freelance-description">
-              Expert in building robust backend systems and cloud infrastructure.
-              Focus on performance optimization and secure implementations.
-            </p>
-            <div class="freelance-tags">
-              <span class="freelance-tag">Backend</span>
-              <span class="freelance-tag">Cloud</span>
-              <span class="freelance-tag">Security</span>
-              <span class="freelance-tag">DevOps</span>
-            </div>
-            <div class="freelance-links">
-              <a href="#" class="freelance-link primary">View Profile</a>
-              <a href="#" class="freelance-link secondary">Hire Me</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- EDUCATION SECTION -->
-  <div id="education" class="education-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <h1>Education</h1>
-        <hr class="solid">
-      </div>
-
-      <div class="education-timeline">
-        <!-- BCA: Amity University -->
-        <div class="education-item" data-aos="fade-right">
-          <div class="education-content">
-            <div class="education-date">2026 - 2029</div>
-            <h3 class="education-title">Bachelor of Computer Applications</h3>
-            <div class="education-school">Amity University - Noida</div>
-            <p class="education-details">
-              Equipped with a solid foundation in computer science and applications, I possess key skills in Java, C++, Python, AI/ML, and full-stack software development. This undergraduate degree formally validates my expertise as an official Software Engineer, complementing my practical abilities as a proficient Software Developer.
-            </p>
-            <div class="education-tags">
-              <span class="education-tag">C++</span>
-              <span class="education-tag">Java</span>
-              <span class="education-tag">Python</span>
-              <span class="education-tag">AI/ML</span>
-              <span class="education-tag">Software Development</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Masai School -->
-        <div class="education-item" data-aos="fade-right">
-          <div class="education-content">
-            <div class="education-date">2022 - 2023</div>
-            <h3 class="education-title">Full Stack Web Development</h3>
-            <div class="education-school">Masai School</div>
-            <p class="education-details">
-              Intensive program focused on full-stack web development, agile methodologies,
-              and industry-relevant technologies. Completed multiple real-world projects and
-              participated in team collaborations.
-            </p>
-            <div class="education-tags">
-              <span class="education-tag">Full Stack Development</span>
-              <span class="education-tag">Java Backend</span>
-              <span class="education-tag">Spring Boot</span>
-              <span class="education-tag">MERN Stack</span>
-              <span class="education-tag">DSA</span>
-              <span class="education-tag">Professional Skills</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bachelor's Degree -->
-        <!-- <div class="education-item" data-aos="fade-left">
-          <div class="education-content">
-            <div class="education-date">2018 - 2022</div>
-            <h3 class="education-title">Bachelor of Technology in Computer Science</h3>
-            <div class="education-school">Indian Institute of Information Technology</div>
-            <p class="education-details">
-              Comprehensive study of computer science fundamentals, including data structures, 
-              algorithms, software engineering, and computer networks. Developed strong 
-              problem-solving skills through practical projects.
-            </p>
-            <div class="education-tags">
-              <span class="education-tag">Computer Science</span>
-              <span class="education-tag">Software Engineering</span>
-              <span class="education-tag">Algorithms</span>
-              <span class="education-tag">Database Systems</span>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- Higher Secondary -->
-        <div class="education-item" data-aos="fade-right">
-          <div class="education-content">
-            <div class="education-date">2020 - 2022</div>
-            <h3 class="education-title">Higher Secondary Education</h3>
-            <!-- <div class="education-school">Delhi Public School</div> -->
-            <p class="education-details">
-              Completed higher secondary education with a focus on science and mathematics.
-              Participated in various technical competitions and programming challenges.
-            </p>
-            <div class="education-tags">
-              <span class="education-tag">Physics</span>
-              <span class="education-tag">Chemistry</span>
-              <span class="education-tag">Mathematics</span>
-              <!-- <span class="education-tag">Computer Science</span> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!---PROJECT SECTION -->
-  <div id="projects" class="projects-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <h1>Featured Projects</h1>
-        <hr class="solid">
-      </div>
-
-      <div class="projects-grid">
-        <!-- Insightgram Project -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/media/images/projects/Insightgram_Portfolio_Banner.png" alt="Insightgram Project" loading="lazy">
-            <div class="project-overlay">
-              <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-view" target="_blank"
-                onclick="viewedProject('Insightgram', 'View Project')">
-                View Project <i class="fa fa-external-link"></i>
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Insightgram</h3>
-            <p class="project-description">
-              A social networking platform designed to connect people seamlessly around the globe.
-            </p>
-            <div class="project-tech">
-              <h4>Technologies Used</h4>
-              <div class="tech-tags">
-                <span>Java</span>
-                <span>Spring Boot</span>
-                <span>Microservices</span>
-                <span>Spring Security</span>
-                <span>MySQL</span>
-                <span>WebSocket</span>
-              </div>
-            </div>
-            <div class="project-links">
-              <a href="https://insightgram.netlify.app" class="btn-link" target="_blank"
-                onclick="viewedProject('Insightgram', 'Live Demo')">
-                <i class="fa fa-globe"></i> Live Demo
-              </a>
-              <a href="https://github.com/princekr0722/Insightgram_Main_Backend_Service" class="btn-link"
-                target="_blank" onclick="viewedProject('Insightgram', 'Source Code')">
-                <i class="fa-brands fa-github"></i> Source Code
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Estate Explorer Project -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/media/images/projects/Estate Explorer - Logo.jpg" alt="Estate Explorer Project" loading="lazy">
-            <div class="project-overlay">
-              <a href="https://github.com/dikshant123321/Real-Estate-Broker-Application-" class="btn-view"
-                target="_blank" onclick="viewedProject('Estate Explorer', 'View Project')">
-                View Project <i class="fa fa-external-link"></i>
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Estate Explorer</h3>
-            <p class="project-description">
-              A comprehensive real estate platform for property listing and management.
-            </p>
-            <div class="project-tech">
-              <h4>Technologies Used</h4>
-              <div class="tech-tags">
-                <span>Java</span>
-                <span>Spring Boot</span>
-                <span>MySQL</span>
-              </div>
-            </div>
-            <div class="project-links">
-              <a href="https://drive.google.com/file/d/1pgnoh-SSTSRZIqLJsBwh1rLfGPDzKvyX/view?usp=share_link"
-                class="btn-link" target="_blank" onclick="viewedProject('Estate Explorer', 'Presentation')">
-                <i class="fa fa-file-text"></i> Presentation
-              </a>
-              <a href="https://github.com/dikshant123321/Real-Estate-Broker-Application-" class="btn-link"
-                target="_blank" onclick="viewedProject('Estate Explorer', 'Source Code')">
-                <i class="fa-brands fa-github"></i> Source Code
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bus Buddy Project -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/media/images/projects/Bus Buddy Logo.jpg" alt="Bus Buddy Project" loading="lazy">
-            <div class="project-overlay">
-              <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-view" target="_blank"
-                onclick="viewedProject('Bus Buddy', 'View Project')">
-                View Project <i class="fa fa-external-link"></i>
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Bus Buddy</h3>
-            <p class="project-description">
-              An online bus ticket booking platform offering the best deals and seamless booking experience.
-            </p>
-            <div class="project-tech">
-              <h4>Technologies Used</h4>
-              <div class="tech-tags">
-                <span>Java</span>
-              </div>
-            </div>
-            <div class="project-links">
-              <a href="https://drive.google.com/file/d/1v5XrzAQipbzSQiNrmaTda8DIXs7HrNk_/view?usp=share_link"
-                class="btn-link" target="_blank" onclick="viewedProject('Bus Buddy', 'Presentation')">
-                <i class="fa fa-file-text"></i> Presentation
-              </a>
-              <a href="https://github.com/princekr0722/inexpensive-cause-3321" class="btn-link" target="_blank"
-                onclick="viewedProject('Bus Buddy', 'Source Code')">
-                <i class="fa-brands fa-github"></i> Source Code
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Licious Clone Project -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/media/images/projects/Licious_SS1.png" alt="Licious Clone Project" loading="lazy">
-            <div class="project-overlay">
-              <a href="https://candid-sorbet-838343.netlify.app/" class="btn-view" target="_blank"
-                onclick="viewedProject('Delicious', 'View Project')">
-                View Project <i class="fa fa-external-link"></i>
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">Licious Clone</h3>
-            <p class="project-description">
-              An online meat shop platform for delivering fresh poultry, meat & seafood.
-            </p>
-            <div class="project-tech">
-              <h4>Technologies Used</h4>
-              <div class="tech-tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-              </div>
-            </div>
-            <div class="project-links">
-              <a href="https://candid-sorbet-838343.netlify.app/" class="btn-link" target="_blank"
-                onclick="viewedProject('Delicious', 'Live Demo')">
-                <i class="fa fa-globe"></i> Live Demo
-              </a>
-              <a href="https://github.com/AditiSharma00/truthful-wing-8761" class="btn-link" target="_blank"
-                onclick="viewedProject('Delicious', 'Source Code')">
-                <i class="fa-brands fa-github"></i> Source Code
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- PharmEasy Clone Project -->
-        <div class="project-card">
-          <div class="project-image">
-            <img src="/media/images/projects/PharmEasy_SS1.png" alt="PharmEasy Clone Project" loading="lazy">
-            <div class="project-overlay">
-              <a href="https://steady-jalebi-560beb.netlify.app/index.html" class="btn-view" target="_blank"
-                onclick="viewedProject('PharmNotEasy', 'View Project')">
-                View Project <i class="fa fa-external-link"></i>
-              </a>
-            </div>
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">PharmEasy Clone</h3>
-            <p class="project-description">
-              India's leading online healthcare and medicine delivery platform clone.
-            </p>
-            <div class="project-tech">
-              <h4>Technologies Used</h4>
-              <div class="tech-tags">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-              </div>
-            </div>
-            <div class="project-links">
-              <a href="https://steady-jalebi-560beb.netlify.app/index.html" class="btn-link" target="_blank"
-                onclick="viewedProject('PharmNotEasy', 'Live Demo')">
-                <i class="fa fa-globe"></i> Live Demo
-              </a>
-              <a href="https://github.com/princekr0722/versed-substance-8213" class="btn-link" target="_blank"
-                onclick="viewedProject('PharmNotEasy', 'Source Code')">
-                <i class="fa-brands fa-github"></i> Source Code
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  </div>
-
-  <!-- GitHub Stats Section -->
-  <div class="github-stats-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <h1>GitHub Statistics</h1>
-        <hr class="solid">
-      </div>
-
-      <div class="stats-container">
-        <div class="stats-grid">
-          <!-- Main Stats Card -->
-          <div class="stats-card main-stats">
-            <h3>Overview</h3>
-            <picture>
-              <source
-                srcset="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true&theme=dark&hide_border=true&bg_color=1a1a1a&title_color=8584ff&icon_color=6c6bff&text_color=ffffff"
-                media="(prefers-color-scheme: dark)" />
-              <source
-                srcset="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true&hide_border=true"
-                media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
-              <img id="github-stats-card"
-                src="https://github-readme-stats.vercel.app/api?username=princekr0722&show_icons=true&hide_border=true"
-                alt="GitHub Stats" />
-            </picture>
-          </div>
-
-          <!-- Streak Stats Card -->
-          <div class="stats-card streak-stats">
-            <h3>Contribution Streak</h3>
-            <picture>
-              <source
-                srcset="https://github-readme-streak-stats.herokuapp.com?user=princekr0722&theme=dark&hide_border=true&background=1a1a1a&stroke=8584ff&ring=6c6bff&fire=6c6bff&currStreakLabel=8584ff"
-                media="(prefers-color-scheme: dark)" />
-              <source srcset="https://github-readme-streak-stats.herokuapp.com?user=princekr0722&hide_border=true"
-                media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
-              <img id="github-streak-stats"
-                src="https://github-readme-streak-stats.herokuapp.com?user=princekr0722&hide_border=true"
-                alt="GitHub Streak Stats" />
-            </picture>
-          </div>
-
-          <!-- Languages Card -->
-          <div class="stats-card languages">
-            <h3>Top Languages</h3>
-            <picture>
-              <source
-                srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=princekr0722&layout=compact&theme=dark&hide_border=true&bg_color=1a1a1a&title_color=8584ff&text_color=ffffff"
-                media="(prefers-color-scheme: dark)" />
-              <source
-                srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=princekr0722&layout=compact&hide_border=true"
-                media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" />
-              <img id="github-top-langs"
-                src="https://github-readme-stats.vercel.app/api/top-langs/?username=princekr0722&layout=compact&hide_border=true"
-                alt="Most Used Languages" />
-            </picture>
-          </div>
-        </div>
-
-        <!-- Contribution Calendar -->
-        <div class="contribution-calendar">
-          <h3>GitHub Activity</h3>
-          <div class="contribution-calendar-img-container">
-            <img src="https://ghchart.rshah.org/princekr0722" alt="GitHub Contribution Chart" class="github-chart" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!---CONTACT SECTION -->
-
-  <div id="contact" class="container-fluid contact-section">
-    <div class="contact-content">
-      <h1 class="heading text-center mb-4">Get In Touch</h1>
-      <hr class="solid mb-5">
-      <div class="row justify-content-center">
-        <div class="col-md-8 text-center">
-          <p class="contact-intro mb-5">I'm always interested in hearing about new opportunities and collaborations.</p>
-          <div class="contact-grid">
-            <a href="tel:9523434209" class="contact-card" id="contact-phone" title="Phone Number"
-              onclick="logPhoneClicked()">
-              <div class="contact-icon">
-                <i class="fa fa-phone"></i>
-              </div>
-              <div class="contact-info">
-                <h3>Phone</h3>
-                <span>9523434209</span>
-              </div>
-            </a>
-
-            <a href="mailto:knownasprincekr@gmail.com" class="contact-card" id="contact-email" title="Email Address"
-              onclick="logEmailClicked()">
-              <div class="contact-icon">
-                <i class="fa fa-envelope"></i>
-              </div>
-              <div class="contact-info" style="flex-grow: 1;">
-                <h3>Email</h3>
-                <span style="font-size: 11px;">knownasprincekr@gmail.com</span>
-              </div>
-            </a>
-
-            <a href="https://www.linkedin.com/in/prince-kumar-7b9194247/" class="contact-card" id="contact-linkedin"
-              target="_blank" rel="noopener noreferrer" onclick="logLinkedInClicked()">
-              <div class="contact-icon">
-                <i class="fa-brands fa-linkedin"></i>
-              </div>
-              <div class="contact-info">
-                <h3>LinkedIn</h3>
-                <span>Prince Kumar</span>
-              </div>
-            </a>
-
-            <a href="https://github.com/princekr0722" class="contact-card" id="contact-github" target="_blank"
-              rel="noopener noreferrer" onclick="logGitHubClicked()">
-              <div class="contact-icon">
-                <i class="fa-brands fa-github"></i>
-              </div>
-              <div class="contact-info">
-                <h3>GitHub</h3>
-                <span>princekr0722</span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scroll to top button -->
-  <button class="topButton" id="topBtn" title="Go to top">
-    <i class="fa fa-arrow-up"></i>
-  </button>
+  <script id='fiverr-seller-widget-script-9e9839dc-1d2e-41b4-9bfd-186e1cd13db4'
+    src='https://widgets.fiverr.com/api/v1/seller/knownasprincekr?widget_id=9e9839dc-1d2e-41b4-9bfd-186e1cd13db4'
+    data-config='{"category_name":"Programming & Tech"}' async='true' defer='true'></script>
 </body>
 
 </html>
-<script>
-  function resume() {
-    window.open("Prince_Kumar_Resume.pdf", "_blank")
-  }
-
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx7OYyZHDaha_Jx7yncoOGCcbpbNA8In8kz5cx0IVJ87MmQ6bcYmmlijXaiaShn9jOO/exec";
-
-  /**
-   * Sends a log entry to the Google Sheet.
-   * Automatically fetches the user's IP and adds it to the payload.
-   * * @param {string} type - The event type (e.g., "VISITED", "CLICKED_RESUME"). Matches Sheet Name.
-   * @param {object} customData - Any extra data you want to log (e.g., button ID, user agent).
-   */
-  async function sendLog(type, customData = {}) {
-    try {
-      // 1. Fetch User's Public IP Address
-      // We use a free service because browsers can't get public IP natively
-      let userIp = "Unknown";
-      const visitorId = getVisitorId();
-      const sessionId = getVisitorSessionId();
-      try {
-        const ipResponse = await fetch("https://api.ipify.org?format=json");
-        const ipJson = await ipResponse.json();
-        userIp = ipJson.ip;
-      } catch (err) {
-        console.warn("Could not determine Point");
-      }
-
-      // 2. Prepare the data
-      // We merge the customData with the IP address
-      const finalPayload = {
-        ...customData,
-        uid: visitorId,
-        session_id: sessionId,
-        timestamp: new Date().toISOString(),
-        ip_address: userIp,
-        screen_res: `${window.screen.width}x${window.screen.height}`,
-        page_url: window.location.href,
-        userAgent: navigator.userAgent // Good to have for analytics
-      };
-
-      const requestBody = {
-        type: type,
-        payload: finalPayload
-      };
-
-      // 3. Send to Google Apps Script
-      // mode: 'no-cors' is crucial here. 
-      // Google Scripts return a redirect (302) which causes CORS errors in browsers.
-      // 'no-cors' sends the data successfully but ignores the response to prevent errors.
-      await fetch(GOOGLE_SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestBody),
-      });
-
-      console.log(`Logged: ${type}`);
-
-    } catch (error) {
-      console.error("Error logging:", error);
-    }
-  }
-
-  // Log page visit
-  function logResumeClickedHeader() {
-    sendLog('CLICKED VIEW RESUME', { button_location: 'HEADER' })
-  }
-  function logResumeClickedHeroSection() {
-    sendLog('CLICKED VIEW RESUME', { button_location: 'HERO SECTION' })
-  }
-  function logPhoneClicked() {
-    sendLog('GET IN TOUCH', { method: 'PHONE' })
-  }
-  function logEmailClicked() {
-    sendLog('GET IN TOUCH', { method: 'EMAIL' })
-  }
-  function logLinkedInClicked() {
-    sendLog('GET IN TOUCH', { method: 'LINKEDIN' })
-  }
-  function logGitHubClicked() {
-    sendLog('GET IN TOUCH', { method: 'GITHUB' })
-  }
-
-  function viewedProject(projectName, buttonLocation) {
-    sendLog('VIEWED PROJECT', { project_name: projectName, button_location: buttonLocation })
-  }
-
-  /**
-   * HELPER: Get or Create Unique Visitor ID
-   * Checks LocalStorage. If ID exists, returns it.
-   * If not, generates a new UUID, saves it, and returns it.
-   */
-  function getVisitorId() {
-    const STORAGE_KEY = "user_device_id";
-
-    try {
-      // Check if ID exists
-      let uid = localStorage.getItem(STORAGE_KEY);
-
-      if (!uid) {
-        // Generate a new UUID (Modern browser standard)
-        if (typeof crypto !== 'undefined' && crypto.randomUUID) {
-          uid = crypto.randomUUID();
-        } else {
-          // Fallback for older browsers (Date + Random)
-          uid = 'user_' + Date.now().toString(36) + Math.random().toString(36).substr(2);
-        }
-
-        // Save to local storage
-        localStorage.setItem(STORAGE_KEY, uid);
-      } else {
-        // console.log("Returning Visitor ID:", uid);
-      }
-
-      return uid;
-    } catch (err) {
-      // Fallback if LocalStorage is blocked (e.g., Incognito mode sometimes)
-      console.warn("LocalStorage access denied.");
-      return "unknown_visitor_" + Date.now();
-    }
-  }
-
-  /**
-   * HELPER: Get or Create Unique Visitor Session ID
-   * Checks SessionStorage. If ID exists, returns it.
-   * If not, generates a new UUID, saves it, and returns it.
-   */
-  function getVisitorSessionId() {
-    const STORAGE_KEY = "user_session_id";
-
-    try {
-      // Check if ID exists
-      let uid = sessionStorage.getItem(STORAGE_KEY);
-
-      if (!uid) {
-        // Generate a new UUID (Modern browser standard)
-        if (typeof crypto !== 'undefined' && crypto.randomUUID) {
-          uid = crypto.randomUUID();
-        } else {
-          // Fallback for older browsers (Date + Random)
-          uid = 'user_' + Date.now().toString(36) + Math.random().toString(36).substr(2);
-        }
-
-        // Save to local storage
-        sessionStorage.setItem(STORAGE_KEY, uid);
-      } else {
-        // console.log("Returning Visitor ID:", uid);
-      }
-
-      return uid;
-    } catch (err) {
-      // Fallback if SessionStorage is blocked (e.g., Incognito mode sometimes)
-      console.warn("SessionStorage access denied.");
-      return "unknown_session_" + Date.now();
-    }
-  }
-
-  function handlePageLoad() {
-    // We use sessionStorage here. 
-    // sessionStorage persists on Refresh, but is CLEARED on New Tab/New Window.
-    const SESSION_KEY = "has_logged_visit_this_tab";
-
-    // Check if we have already logged a visit for *this specific tab*
-    if (!sessionStorage.getItem(SESSION_KEY)) {
-
-      // 1. It is a new Tab or New Window -> SEND LOG
-      const utmParam = getQueryParam("utm_source");
-      sendLog("VISITED", { referrer: document.referrer, utm_param: utmParam });
-
-      // 2. Mark this session as logged
-      sessionStorage.setItem(SESSION_KEY, "true");
-
-    } else {
-      // It is just a Page Refresh -> DO NOT LOG
-      console.log("Page refreshed.");
-    }
-  }
-
-  // Run immediately on load
-  handlePageLoad();
-
-  /**
- * Retrieves the value of a specific query parameter from the current window URL.
- * * @param {string} paramName - The name of the parameter to retrieve.
- * @returns {string|null} - The value of the parameter, or null if not found.
- */
-  function getQueryParam(paramName) {
-    // Option 1: Modern Browser API (Recommended)
-    // URLSearchParams is supported in all modern browsers (Chrome, Firefox, Safari, Edge)
-    if (window.URLSearchParams) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(paramName);
-    }
-
-    // Option 2: Fallback for very old browsers (IE)
-    // Uses Regex to parse the query string manually
-    const name = paramName.replace(/[\[\]]/g, '\\$&');
-    const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-    const results = regex.exec(window.location.href);
-
-    if (!results) return null;
-    if (!results[2]) return '';
-
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-  }
-
-  // document.querySelector("#resume-button-2").addEventListener("click", () => {
-  //   window.open("Prince_Kumar_Resume.pdf", "_blank");
-  // })
-
-  // document.querySelector("#resume-button-1").addEventListener("click", () => {
-  //     window.open("Prince_Kumar_Resume.pdf", "_blank");
-  // })
-
-</script>
-<script id='fiverr-seller-widget-script-9e9839dc-1d2e-41b4-9bfd-186e1cd13db4'
-  src='https://widgets.fiverr.com/api/v1/seller/knownasprincekr?widget_id=9e9839dc-1d2e-41b4-9bfd-186e1cd13db4'
-  data-config='{"category_name":"Programming \u0026 Tech"}' async='true' defer='true'></script>
