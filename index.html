@@ -232,6 +232,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#skills">SKILLS</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#experience">EXPERIENCE</a>
+          </li>
           <!-- TODO: Enable Freelance Section -->
           <!-- <li class="nav-item">
             <a class="nav-link" href="#freelance">FREELANCE</a>
@@ -631,6 +634,175 @@
     </div>
   </div>
 
+  </div>
+
+  <!-- WORK EXPERIENCE SECTION -->
+  <div id="experience" class="experience-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h1>Work Experience</h1>
+        <hr class="solid">
+      </div>
+
+      <div class="experience-timeline">
+        <!-- DrinkPrime -->
+        <div class="experience-item" data-aos="fade-up">
+          <div class="experience-content">
+            <div class="experience-header">
+              <div class="experience-heading">
+                <h3 class="experience-role">Software Developer</h3>
+                <div class="experience-company">
+                  <a href="https://drinkprime.in/" target="_blank" rel="noopener noreferrer">
+                    DrinkPrime <i class="fa fa-external-link"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="experience-date">
+                <i class="fa fa-calendar"></i> Sep 2023 - Present
+              </div>
+            </div>
+
+            <!-- DPatcher -->
+            <div class="experience-project">
+              <h4 class="experience-project-title">
+                <i class="fa-solid fa-robot"></i> DPatcher — Autonomous AI Engineer
+              </h4>
+              <p class="experience-project-summary">
+                Designed and built an AI engineer with deep, grounded knowledge of DrinkPrime's entire system. It
+                answers from live sources rather than guessing, cross-referencing a pgvector knowledge base
+                (Confluence + learned resolutions), a code-graph of the actual repositories, read-only production
+                databases (MySQL/Mongo), and GKE runtime logs.
+              </p>
+              <ul class="experience-points">
+                <li>
+                  Made it a general-purpose engineering teammate the whole org can use — to understand how a feature
+                  works and why, debug and root-cause live issues across code + data + logs, draft test cases and edge
+                  cases, triage and resolve on-call incidents, and answer "where/how is X handled" onboarding
+                  questions — through both Slack and a web dashboard, with confidentiality controls that keep
+                  internal/technical detail off customer-facing threads.
+                </li>
+                <li>
+                  Built it to get smarter over time, folding confirmed resolutions back into the knowledge base so
+                  recurring problems become self-answering — reducing repeat escalations and the team's dependency on
+                  a few subject-matter experts.
+                </li>
+                <li>
+                  Owned the full product and its deployment: a role-based admin dashboard (Kong auth-gateway JWT,
+                  read/write access tiers), private staff DM assistant, live-tunable runtime settings, and a
+                  Dockerized rollout wired to external Postgres, MySQL/Mongo, and a code-graph service.
+                </li>
+              </ul>
+              <div class="experience-tags">
+                <span class="experience-tag">Node.js</span>
+                <span class="experience-tag">Fastify</span>
+                <span class="experience-tag">PostgreSQL / pgvector</span>
+                <span class="experience-tag">NVIDIA LLMs</span>
+                <span class="experience-tag">Embeddings</span>
+                <span class="experience-tag">React / Vite</span>
+                <span class="experience-tag">Docker</span>
+                <span class="experience-tag">GKE</span>
+              </div>
+            </div>
+
+            <!-- DPengram -->
+            <div class="experience-project">
+              <h4 class="experience-project-title">
+                <i class="fa-solid fa-diagram-project"></i> DPengram — Code-Knowledge Platform
+              </h4>
+              <p class="experience-project-summary">
+                Designed and built a self-contained platform that transforms Git repositories into a queryable code
+                graph (symbols, LSP-resolved call/usage graph, and semantic embeddings) and exposes it through a
+                single MCP endpoint and REST API. Serves as the code-graph backbone behind DPatcher.
+              </p>
+              <ul class="experience-points">
+                <li>
+                  Built a transparent MCP proxy that forwards all upstream engine tools unchanged while extending them
+                  with first-party capabilities including repository discovery and ripgrep-powered filename/regex
+                  search. Any MCP client (e.g. Claude Code or Cursor) connects without modification and automatically
+                  inherits future engine capabilities.
+                </li>
+                <li>
+                  Engineered reliable repository synchronization and deployment: serialized/coalesced indexing,
+                  incremental re-indexing from remote branch changes, stable project identities that self-heal after
+                  repository relocation, Docker-based organization deployment, and a zero-dependency single-file
+                  desktop executable with automatic engine provisioning, self-updates, and a React-based management
+                  UI.
+                </li>
+              </ul>
+              <div class="experience-tags">
+                <span class="experience-tag">MCP</span>
+                <span class="experience-tag">Code Graph</span>
+                <span class="experience-tag">LSP</span>
+                <span class="experience-tag">REST API</span>
+                <span class="experience-tag">ripgrep</span>
+                <span class="experience-tag">React</span>
+                <span class="experience-tag">Docker</span>
+              </div>
+            </div>
+
+            <!-- Core platform work -->
+            <div class="experience-project">
+              <h4 class="experience-project-title">
+                <i class="fa-solid fa-server"></i> Core Platform & Backend
+              </h4>
+              <ul class="experience-points">
+                <li>
+                  Single-handedly designed and built a centralised security mechanism for DrinkPrime to manage API
+                  restrictions, roles and permissions — all through one single point for every microservice.
+                </li>
+                <li>
+                  Upgraded the legacy technicians' slot management to handle race conditions that were causing
+                  over-booking of slots, using distributed locking.
+                </li>
+                <li>
+                  Upgraded RESTful inter-service communication to event-driven systems, and migrated the old PHP-based
+                  system into Spring Boot — including database migrations and backward compatibility.
+                </li>
+              </ul>
+              <div class="experience-tags">
+                <span class="experience-tag">Java</span>
+                <span class="experience-tag">Spring Boot</span>
+                <span class="experience-tag">Kong API Gateway</span>
+                <span class="experience-tag">Redis / Redisson</span>
+                <span class="experience-tag">Kafka</span>
+                <span class="experience-tag">RabbitMQ</span>
+                <span class="experience-tag">Microservices</span>
+                <span class="experience-tag">PHP</span>
+                <span class="experience-tag">React</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Freelancing -->
+        <div class="experience-item" data-aos="fade-up">
+          <div class="experience-content">
+            <div class="experience-header">
+              <div class="experience-heading">
+                <h3 class="experience-role">Freelance Software Developer</h3>
+                <div class="experience-company">Self-Employed</div>
+              </div>
+              <div class="experience-date">
+                <i class="fa fa-calendar"></i> Oct 2023 - Present
+              </div>
+            </div>
+
+            <p class="experience-project-summary">
+              Besides my office work, I also engage in freelance projects to continuously learn and explore new
+              technologies. This helps me stay updated with the latest industry trends and broaden my skill set. I
+              provide services in complete backend, frontend, cloud, custom software and e-commerce.
+            </p>
+            <div class="experience-tags">
+              <span class="experience-tag">Backend</span>
+              <span class="experience-tag">Frontend</span>
+              <span class="experience-tag">Cloud</span>
+              <span class="experience-tag">Custom Software</span>
+              <span class="experience-tag">E-Commerce</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- FREELANCE SECTION -->

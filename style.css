@@ -374,6 +374,222 @@ body {
   }
 }
 
+/* Work Experience Section Styles */
+.experience-section {
+  padding: 2rem 0;
+  background-color: var(--section-bg-light);
+  transition: background-color var(--transition-speed);
+}
+
+.experience-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 0 0 40px;
+}
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background: var(--primary-color);
+  top: 0;
+  bottom: 0;
+  left: 9px;
+  opacity: 0.3;
+}
+
+.experience-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+.experience-item::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  top: 1.75rem;
+  left: -40px;
+  border: 4px solid var(--card-bg);
+  box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.1);
+}
+
+.experience-content {
+  background: var(--card-bg);
+  border-radius: 15px;
+  padding: 1.75rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
+  transition: all var(--transition-speed);
+}
+
+.experience-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--shadow-color);
+  border-color: var(--primary-color);
+}
+
+.experience-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.experience-role {
+  font-size: 1.35rem;
+  color: var(--heading-color);
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+
+.experience-company {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.experience-company a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+.experience-company a:hover {
+  color: var(--accent-color);
+}
+
+.experience-company i {
+  font-size: 0.8rem;
+}
+
+.experience-date {
+  background-color: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary-color);
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.experience-date i {
+  margin-right: 0.35rem;
+}
+
+.experience-project {
+  margin-bottom: 1.75rem;
+}
+
+.experience-project:last-child {
+  margin-bottom: 0;
+}
+
+.experience-project-title {
+  font-size: 1.05rem;
+  color: var(--heading-color);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.experience-project-title i {
+  color: var(--primary-color);
+  margin-right: 0.4rem;
+}
+
+.experience-project-summary {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.experience-points {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.experience-points li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.65rem;
+  color: var(--text-color);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.experience-points li:last-child {
+  margin-bottom: 0;
+}
+
+.experience-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--primary-color);
+}
+
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.experience-tag {
+  background-color: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .experience-timeline {
+    padding-left: 30px;
+  }
+
+  .experience-timeline::before {
+    left: 4px;
+  }
+
+  .experience-item::before {
+    left: -30px;
+    width: 16px;
+    height: 16px;
+    top: 1.5rem;
+  }
+
+  .experience-content {
+    padding: 1.25rem;
+  }
+
+  .experience-role {
+    font-size: 1.15rem;
+  }
+
+  .experience-header {
+    flex-direction: column;
+  }
+}
+
 .freelance-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
