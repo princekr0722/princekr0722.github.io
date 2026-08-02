@@ -1853,6 +1853,772 @@ body.nav-open {
   color: var(--accent);
 }
 
+/* ---------------- AI chat widget ---------------- */
+
+/* Shared "this is AI" gradient. Animated so it reads as alive. */
+@keyframes ai-flow {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Breathing, not spinning — steady rotation reads as a loading spinner. */
+@keyframes ai-breathe {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(0.94);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.06);
+  }
+}
+
+/* Sparks appear and fade at their own pace; the stagger is what makes it
+   feel considered rather than mechanical. */
+@keyframes ai-twinkle {
+
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.3) rotate(0deg);
+  }
+
+  40%,
+  60% {
+    opacity: 1;
+    transform: scale(1) rotate(90deg);
+  }
+}
+
+/* Two blurred lights drifting on circular paths behind the surface. Offset
+   phases and different periods stop them from looking like one rigid wheel. */
+@keyframes ai-orb-a {
+  0% {
+    transform: translate(-15%, 10%);
+  }
+
+  25% {
+    transform: translate(45%, -35%);
+  }
+
+  50% {
+    transform: translate(105%, 5%);
+  }
+
+  75% {
+    transform: translate(45%, 45%);
+  }
+
+  100% {
+    transform: translate(-15%, 10%);
+  }
+}
+
+@keyframes ai-orb-b {
+  0% {
+    transform: translate(95%, -25%);
+  }
+
+  25% {
+    transform: translate(35%, 30%);
+  }
+
+  50% {
+    transform: translate(-25%, -10%);
+  }
+
+  75% {
+    transform: translate(35%, -45%);
+  }
+
+  100% {
+    transform: translate(95%, -25%);
+  }
+}
+
+.chat-fab-wrap {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 94;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+/* The FAB and the panel share a corner — swap, don't stack. */
+.chat-fab-wrap.hidden {
+  opacity: 0;
+  transform: translateY(10px) scale(0.96);
+  pointer-events: none;
+}
+
+/* Rotating aura. A sibling behind the button rather than a pseudo-element:
+   inside the button's stacking context a negative z-index child would paint
+   over its background, not under it. */
+.chat-fab-halo {
+  position: absolute;
+  inset: -10px;
+  border-radius: 99px;
+  background: conic-gradient(from 210deg,
+      var(--violet), var(--cyan), var(--pink), var(--amber), var(--violet));
+  filter: blur(14px);
+  animation: ai-breathe 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.chat-fab {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 20px 11px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 99px;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  background: #17123a;
+  box-shadow: 0 14px 34px -12px var(--violet);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.chat-fab:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 46px -14px var(--violet);
+}
+
+/* The moving lights themselves. Clipped by the button's overflow, so they
+   read as colour swimming under the surface. */
+.ai-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ai-orbs i {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 62px;
+  height: 62px;
+  margin-top: -31px;
+  border-radius: 50%;
+  filter: blur(16px);
+}
+
+/* Fixed vivid values, not theme vars: the pill is dark in both themes, and
+   the light theme's muted palette turns these to mud against it. */
+.ai-orbs i:nth-child(1) {
+  background: #8b5cf6;
+  opacity: 0.95;
+  animation: ai-orb-a 9s linear infinite;
+}
+
+.ai-orbs i:nth-child(2) {
+  background: #22d3ee;
+  opacity: 0.8;
+  animation: ai-orb-b 11s linear infinite;
+}
+
+.chat-fab-icon,
+.chat-fab-label {
+  position: relative;
+  z-index: 1;
+}
+
+.chat-fab-icon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* Stars scattered around the button, each on its own clock. */
+.chat-fab-sparks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.chat-fab-sparks i {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: #fff;
+  opacity: 0;
+  clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%,
+      50% 100%, 39% 61%, 0% 50%, 39% 39%);
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.9));
+  animation: ai-twinkle 3.6s ease-in-out infinite;
+}
+
+.chat-fab-sparks i:nth-child(1) {
+  top: -8px;
+  left: 16px;
+  animation-delay: 0s;
+}
+
+.chat-fab-sparks i:nth-child(2) {
+  top: -5px;
+  right: 22px;
+  width: 6px;
+  height: 6px;
+  animation-delay: 1.3s;
+}
+
+.chat-fab-sparks i:nth-child(3) {
+  bottom: -7px;
+  right: 12px;
+  width: 8px;
+  height: 8px;
+  animation-delay: 2.2s;
+}
+
+.chat-fab-sparks i:nth-child(4) {
+  bottom: -4px;
+  left: 40%;
+  width: 5px;
+  height: 5px;
+  animation-delay: 3s;
+}
+
+/* Pi's mark. The viewBox is cropped to the artwork, so height follows from
+   the 15.5:12.2 ratio — set width only. Inherits text colour. */
+.pi-glyph {
+  display: block;
+  width: 1em;
+  height: auto;
+  fill: currentColor;
+}
+
+.chat-fab-icon .pi-glyph {
+  width: 16px;
+}
+
+.chat-avatar .pi-glyph {
+  width: 20px;
+}
+
+.btn-pi-in .pi-glyph {
+  width: 17px;
+}
+
+.card-pi-icon .pi-glyph {
+  width: 23px;
+}
+
+/* ---- "Ask Pi" entry points elsewhere on the page ---- */
+
+/* Inline button — same dark pill with moving lights, so Pi is recognisable
+   wherever it appears. */
+.btn-pi {
+  position: relative;
+  overflow: hidden;
+  padding: 12px 22px;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: #17123a;
+  color: #fff;
+}
+
+[data-theme="light"] .btn-pi {
+  background: #1a1340;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.btn-pi-in {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.btn-pi:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px -16px var(--violet);
+}
+
+/* Full-width card in the contact section. */
+.card-pi {
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid transparent;
+  background: #17123a;
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
+[data-theme="light"] .card-pi {
+  background: #1a1340;
+}
+
+.card-pi-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 24px 26px;
+}
+
+.card-pi-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex: none;
+  border-radius: 50%;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-pi-text {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.card-pi-text strong {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.card-pi-text span {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.card-pi-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 20px;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background-color 0.25s var(--ease);
+}
+
+.card-pi:hover .card-pi-go {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Light theme: the pill stays dark so the lights still glow, but a bright
+   halo turns to a smudge on cream and white stars disappear against it. */
+@keyframes ai-breathe-soft {
+
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 0.42;
+    transform: scale(1.05);
+  }
+}
+
+[data-theme="light"] .chat-fab {
+  background: #1a1340;
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 16px 36px -16px rgba(46, 30, 96, 0.65);
+}
+
+[data-theme="light"] .chat-fab-halo {
+  filter: blur(17px);
+  animation-name: ai-breathe-soft;
+}
+
+[data-theme="light"] .chat-fab-sparks i {
+  background: var(--violet);
+  filter: drop-shadow(0 0 5px rgba(124, 77, 230, 0.55));
+}
+
+/* Except the two that sit over the dark pill — keep those white. */
+[data-theme="light"] .chat-fab-sparks i:nth-child(2),
+[data-theme="light"] .chat-fab-sparks i:nth-child(4) {
+  background: #fff;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.9));
+}
+
+.chat-panel {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  width: min(400px, calc(100vw - 44px));
+  height: min(600px, calc(100vh - 120px));
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  box-shadow: 0 30px 70px -28px rgba(0, 0, 0, 0.7);
+  transform-origin: bottom right;
+  animation: chat-in 0.3s var(--ease);
+}
+
+/* `display: flex` above outranks the UA stylesheet's [hidden] rule, so the
+   hidden attribute alone would never hide this. */
+.chat-panel[hidden] {
+  display: none;
+}
+
+@keyframes chat-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+}
+
+.chat-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 14px 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(120% 200% at 0% 0%, color-mix(in srgb, var(--violet) 18%, transparent), transparent 70%);
+}
+
+.chat-id {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-avatar {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 50%;
+  font-size: 15px;
+  line-height: 1;
+  color: #fff;
+  background: linear-gradient(115deg,
+      var(--violet), var(--indigo), var(--cyan), var(--pink), var(--violet));
+  background-size: 320% 320%;
+  animation: ai-flow 9s ease-in-out infinite;
+}
+
+.chat-title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.chat-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 3px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.chat-close {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-dim);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
+
+.chat-close:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.chat-log {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-msg {
+  max-width: 88%;
+  padding: 11px 15px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  line-height: 1.62;
+  animation: msg-in 0.28s var(--ease);
+  overflow-wrap: anywhere;
+}
+
+@keyframes msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.chat-msg.bot {
+  align-self: flex-start;
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 5px;
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.chat-msg.me {
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--violet), var(--indigo));
+}
+
+.chat-msg.err {
+  align-self: flex-start;
+  border: 1px solid color-mix(in srgb, var(--pink) 40%, transparent);
+  background: color-mix(in srgb, var(--pink) 12%, transparent);
+  color: var(--text);
+}
+
+.chat-msg strong {
+  font-weight: 650;
+}
+
+.chat-msg code {
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--text) 10%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+}
+
+.chat-msg a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.chat-msg.me a {
+  color: #fff;
+}
+
+.chat-msg p {
+  margin: 0 0 0.6em;
+}
+
+.chat-msg p:last-child {
+  margin-bottom: 0;
+}
+
+/* Typing indicator */
+.chat-typing {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 14px 16px;
+}
+
+.chat-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-faint);
+  animation: typing 1.2s infinite;
+}
+
+.chat-typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.chat-typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes typing {
+
+  0%,
+  60%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+.chat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 0 18px 12px;
+}
+
+.chat-chips.hidden {
+  display: none;
+}
+
+.chat-chip {
+  padding: 7px 13px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: var(--surface-2);
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.22s var(--ease);
+}
+
+.chat-chip:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.chat-form {
+  display: flex;
+  gap: 9px;
+  padding: 14px 18px 10px;
+  border-top: 1px solid var(--border);
+}
+
+.chat-input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  transition: border-color 0.22s var(--ease);
+}
+
+.chat-input::placeholder {
+  color: var(--text-faint);
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.chat-send {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--violet), var(--indigo));
+  transition: transform 0.2s var(--ease), opacity 0.2s var(--ease);
+}
+
+.chat-send:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.chat-send:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.chat-foot {
+  margin: 0;
+  padding: 0 18px 14px;
+  font-size: 10.5px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--text-faint);
+}
+
+.chat-foot a {
+  color: var(--text-dim);
+  text-decoration: underline;
+}
+
+/* Panel takes the corner, so lift the scroll-top button clear of it. */
+body.chat-open .top-btn {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.top-btn {
+  bottom: 84px;
+}
+
+@media (max-width: 560px) {
+  .chat-fab-label {
+    display: none;
+  }
+
+  .chat-fab {
+    padding: 0;
+    width: 54px;
+    height: 54px;
+    justify-content: center;
+  }
+
+  .chat-panel {
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    width: auto;
+    height: min(80vh, calc(100vh - 90px));
+  }
+}
+
 /* ---------------- Reveal ---------------- */
 [data-reveal] {
   opacity: 0;
