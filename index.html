@@ -22,7 +22,9 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="shortcut icon" href="/media/logos/logo.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- interactive-widget: let the on-screen keyboard resize the layout
+       viewport on Android Chrome instead of overlaying it. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
   <meta name="HandheldFriendly" content="true">
 
   <!-- Fonts -->
@@ -1197,7 +1199,13 @@
         fabWrap.classList.add('hidden');
         fab.setAttribute('aria-expanded', 'true');
         document.body.classList.add('chat-open');
-        setTimeout(function () { input.focus(); }, 80);
+        syncViewport();
+
+        // On touch, autofocus would throw up the keyboard over the greeting
+        // before the visitor has read a word of it.
+        if (!isFullScreen()) {
+          setTimeout(function () { input.focus(); }, 80);
+        }
 
         if (!restored) {
           restored = true;
@@ -1209,10 +1217,50 @@
 
       function close() {
         panel.hidden = true;
+        panel.style.height = '';
         fabWrap.classList.remove('hidden');
         fab.setAttribute('aria-expanded', 'false');
         document.body.classList.remove('chat-open');
       }
+
+      /* ---- keyboard-safe sizing on phones and tablets ----
+         iOS never shrinks vh or dvh when the keyboard opens — only the visual
+         viewport changes — so a full-height panel would hide its own input
+         behind the keyboard. Track visualViewport and size the panel to it. */
+      const vv = window.visualViewport;
+
+      function isFullScreen() {
+        return window.matchMedia('(max-width: 900px)').matches;
+      }
+
+      function syncViewport() {
+        if (panel.hidden) return;
+
+        if (!vv || !isFullScreen()) {
+          panel.style.height = '';
+          return;
+        }
+
+        // Height only. The panel stays pinned at top:0 — body scrolling is
+        // locked while it is open, so offsetting it can only misalign it.
+        panel.style.height = vv.height + 'px';
+      }
+
+      if (vv) {
+        vv.addEventListener('resize', syncViewport);
+        vv.addEventListener('scroll', syncViewport);
+      }
+      window.addEventListener('orientationchange', function () {
+        setTimeout(syncViewport, 200);
+      });
+
+      // Keep the newest message visible as the keyboard opens or closes.
+      input.addEventListener('focus', function () {
+        setTimeout(function () {
+          syncViewport();
+          log.scrollTop = log.scrollHeight;
+        }, 250);
+      });
 
       // The floating button plus any [data-chat-open] trigger on the page.
       fab.addEventListener('click', open);
@@ -1335,7 +1383,9 @@
           })
           .then(function () {
             setBusy(false);
-            input.focus();
+            // Refocusing on touch re-opens a keyboard the visitor may have
+            // just dismissed to read the answer.
+            if (!isFullScreen()) input.focus();
           });
       }
 

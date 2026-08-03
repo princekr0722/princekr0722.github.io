@@ -2377,8 +2377,12 @@ body.nav-open {
 
 .chat-log {
   flex: 1;
+  /* Without this a flex child refuses to shrink below its content, and the
+     composer gets pushed off the bottom instead of the log scrolling. */
+  min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   padding: 18px;
   display: flex;
   flex-direction: column;
@@ -2598,6 +2602,78 @@ body.chat-open .top-btn {
   bottom: 84px;
 }
 
+/* Phones and portrait tablets: go full screen.
+   A floating panel fights the on-screen keyboard — the keyboard covers the
+   input, and on iOS neither vh nor dvh shrink when it opens (only the visual
+   viewport does, which the JS below tracks). Full screen sidesteps all of it. */
+@media (max-width: 900px) {
+  .chat-panel {
+    top: 0;
+    right: 0;
+    left: 0;
+    /* NOT bottom: 0 — top+bottom together over-constrain a fixed box, and the
+       used height comes from the offsets, silently ignoring `height` (and the
+       keyboard-tracking height set inline). */
+    bottom: auto;
+    z-index: 120;
+    /* above the nav */
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    /* height is overridden inline by the visualViewport sync while open */
+    border: none;
+    border-radius: 0;
+    background: var(--bg);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    animation: chat-in-full 0.28s var(--ease);
+  }
+
+  /* Fade only. A corner scale-in reads wrong full-bleed, and a transform on
+     a fixed full-screen panel makes it a containing block for its own fixed
+     descendants — not worth it for a 280ms flourish. */
+  @keyframes chat-in-full {
+    from {
+      opacity: 0;
+    }
+  }
+
+  /* Nothing behind should scroll or peek through. */
+  body.chat-open {
+    overflow: hidden;
+  }
+
+  body.chat-open .nav-wrap,
+  body.chat-open .chat-fab-wrap,
+  body.chat-open .top-btn {
+    display: none;
+  }
+
+  .chat-head {
+    padding-top: calc(14px + env(safe-area-inset-top));
+  }
+
+  .chat-foot {
+    padding-bottom: calc(14px + env(safe-area-inset-bottom));
+  }
+
+  /* Comfortable thumb targets, and 16px stops iOS zooming on focus. */
+  .chat-input {
+    padding: 14px 18px;
+    font-size: 16px;
+  }
+
+  .chat-send {
+    width: 48px;
+    height: 48px;
+  }
+
+  .chat-msg {
+    max-width: 92%;
+  }
+}
+
 @media (max-width: 560px) {
   .chat-fab-label {
     display: none;
@@ -2608,14 +2684,6 @@ body.chat-open .top-btn {
     width: 54px;
     height: 54px;
     justify-content: center;
-  }
-
-  .chat-panel {
-    right: 12px;
-    left: 12px;
-    bottom: 12px;
-    width: auto;
-    height: min(80vh, calc(100vh - 90px));
   }
 }
 
