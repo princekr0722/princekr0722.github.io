@@ -228,7 +228,7 @@ Strongest in Java/Spring Boot backends and, lately, AI engineering.
 
 # EDUCATION
 
-- Bachelor of Computer Applications, Amity University Noida (2026–2029).
+- Bachelor of Computer Applications, Amity University Noida (2023 – Jan 2026, completed).
   C++, Java, Python, AI/ML, software development. Formalises the engineering
   work he is already doing professionally.
 - Full Stack Web Development, Masai School (2022–2023). Intensive program:
