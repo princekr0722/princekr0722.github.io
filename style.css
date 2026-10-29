@@ -2496,6 +2496,21 @@ body.nav-open {
   }
 }
 
+/* History loader — shown while past turns are fetched on first open */
+.chat-loading {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-faint);
+  font-size: 0.8rem;
+  animation: msg-in 0.28s var(--ease);
+}
+
+.chat-loading .chat-typing {
+  padding: 0;
+}
+
 .chat-chips {
   display: flex;
   flex-wrap: wrap;

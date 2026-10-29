@@ -1338,16 +1338,44 @@
         }).then(function (res) { return res.json(); });
       }
 
+      function showLoading() {
+        const el = document.createElement('div');
+        el.className = 'chat-loading';
+        el.setAttribute('role', 'status');
+        el.innerHTML = '<span class="chat-typing"><span></span><span></span><span></span></span>' +
+          'Loading previous messages';
+        log.appendChild(el);
+        log.scrollTop = log.scrollHeight;
+        return el;
+      }
+
+      // Input and chips stay locked until history lands, so a new question
+      // can't be rendered above the turns that came before it.
       function restoreHistory() {
+        const loading = showLoading();
+        chips.classList.add('hidden');
+        setBusy(true);
+
         post({ action: 'chat_history', visitorId: getVisitorId() })
           .then(function (data) {
-            if (!data || !data.ok || !data.history || !data.history.length) return;
+            loading.remove();
+            if (!data || !data.ok || !data.history || !data.history.length) {
+              chips.classList.remove('hidden');
+              return;
+            }
             data.history.forEach(function (turn) {
               bubble(turn.role === 'user' ? 'me' : 'bot', mdToHtml(turn.text));
             });
-            chips.classList.add('hidden');
           })
-          .catch(function () { /* a fresh conversation is a fine fallback */ });
+          .catch(function () {
+            // A fresh conversation is a fine fallback.
+            loading.remove();
+            chips.classList.remove('hidden');
+          })
+          .then(function () {
+            setBusy(false);
+            if (!panel.hidden && !isFullScreen()) input.focus();
+          });
       }
 
       function setBusy(state) {
