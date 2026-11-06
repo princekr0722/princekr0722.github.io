@@ -244,6 +244,16 @@ Flagship AI work (built at DrinkPrime, not public): DPatcher and DPengram —
 described under WORK above.
 
 Personal and academic side projects:
+- Sortie (2026) — an open-source AI job-application agent anyone can run.
+  Searches Naukri and Instahyre (Instahyre's recommended opportunities
+  first), scores each job against the candidate's resume with an LLM, and
+  applies; answers screening questions and recruiter questionnaires from the
+  candidate's own profile, saved answers and notes, and asks the user rather
+  than inventing salary, visa or experience facts. Experience is stored as
+  dates and computed at runtime; personal data stays local and git-ignored.
+  Python, Playwright (real Chrome), LiteLLM (any provider; tested on NVIDIA
+  Nemotron), SQLite.
+  Code: https://github.com/princekr0722/sortie
 - Insightgram — a social networking platform to connect people globally.
   Java, Spring Boot, microservices, Spring Security, MySQL, WebSocket.
   Live: https://insightgram.netlify.app
